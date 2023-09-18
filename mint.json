@@ -1,82 +1,71 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
-    "background": {
-      "dark": "#090014"
+    "name": "Dora",
+    "logo": {
+        "dark": "/logo/dark.svg",
+        "light": "/logo/light.svg",
+        "href": "https://usedora.com"
     },
-    "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+    "modeToggle": {
+      "default": "light"
+    },
+    "favicon": "/logo/light.svg",
+    "colors": {
+      "primary": "#0C64E9",
+      "light": "#EE7A22",
+
+      "dark": "#0C64E9",
+        "background": {
+            "dark": "#090014"
+        }
+    },
+    "topbarLinks": [
+        {
+            "name": "Support",
+            "url": "mailto:dev@usedora.com"
+        },
+        {
+            "name": "Login",
+            "url": "https://usedora.com/auth/login"
+        }
+    ],
+    "topbarCtaButton": {
+        "name": "Get Started",
+        "url": "https://usedora.com/auth/signup"
+    },
+    "anchors": [
+        {
+          "name": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/dash-io/api-docs"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "Get Started",
+            "pages": [
+                "introduction/overview"
+            ]
+        },
+        {
+          "group": "Dora SDK",
+          "pages": [
+            "api-references/dorasdk/getting-started"
+          ]
+        },
+        {
+            "group": "REST API Documentation",
+            "pages": [
+                "api-reference/authentication",
+                "api-reference/stores",
+                "api-reference/providers",
+                "api-reference/deliveries"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "website": "https://usedora.com",
+        "twitter": "https://twitter.com/usedoraHQ",
+        "github": "https://github.com/dash-io/api-docs",
+        "linkedin": "https://www.linkedin.com/company/usedora"
     }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
 }
