@@ -41,57 +41,68 @@
     ],
     "navigation": [
         {
-            "group": "Get Started",
+            "group": "Introduction",
             "pages": [
-                "introduction/overview"
+                "introduction/overview",
+                "introduction/getting-started"
             ]
         },
         {
-          "group": "Dora SDK",
+          "group": "SDK Documentation",
           "pages": [
-            "api-references/dorasdk/getting-started"
+            {
+              "group":"Dora SDK",
+              "icon": "rectangle-code",
+              "pages": [
+                "api-references/dorasdk/overview"
+              ]
+            }
           ]
         },
         {
           "group": "REST API Documentation",
-          "pages": [
-              "api-reference/authentication"
-          ]
-        },
-        {
-          "group": "Setup Stores",
-          "pages": [
-            "api-reference/stores/create-store",
-            "api-reference/stores/fetch-stores",
-            "api-reference/stores/delete-store",
-            "api-reference/stores/update-store"
-          ]
-        },
-        {
-          "group": "Get Delivery Providers",
-          "pages": [
-            "api-reference/providers/fetch-enabled-providers",
-            "api-reference/providers/fetch-disabled-providers",
-            "api-reference/providers/enable-provider",
-            "api-reference/providers/disable-provider"
-          ]
-        },
-        {
-          "group": "Delivery Request",
-          "pages": [
-            "api-reference/deliveries/create-delivery",
-            "api-reference/deliveries/get-deliveries",
-            "api-reference/deliveries/get-single-delivery",
-            "api-reference/deliveries/get-delivery-status",
-            "api-reference/deliveries/update-delivery",
-            "api-reference/deliveries/delete-delivery"
-          ]
-        },
-        {
-          "group": "Get Delivery Estimates",
-          "pages": [
-            "api-reference/estimates/get-multiple-estimates",
-            "api-reference/estimates/get-single-estimate"
+              "pages": [
+              "api-reference/authentication",
+            {
+              "group": "Manage stores",
+              "icon": "store",
+              "pages": [
+                "api-reference/stores/create-store",
+                "api-reference/stores/fetch-stores",
+                "api-reference/stores/delete-store",
+                "api-reference/stores/update-store"
+              ]
+            },
+            {
+              "group": "Delivery Requests",
+              "icon": "boxes-packing",
+              "pages": [
+                "api-reference/deliveries/create-delivery",
+                "api-reference/deliveries/get-deliveries",
+                "api-reference/deliveries/get-single-delivery",
+                "api-reference/deliveries/get-delivery-status",
+                "api-reference/deliveries/update-delivery",
+                "api-reference/deliveries/delete-delivery"
+              ]
+            },
+            {
+              "group": "Manage couriers",
+              "icon": "van-shuttle",
+              "pages": [
+                "api-reference/providers/fetch-enabled-providers",
+                "api-reference/providers/fetch-disabled-providers",
+                "api-reference/providers/enable-provider",
+                "api-reference/providers/disable-provider"
+              ]
+            },
+            {
+              "group": "Get Delivery Estimates",
+              "icon": "money-check-dollar",
+              "pages": [
+                "api-reference/estimates/get-multiple-estimates",
+                "api-reference/estimates/get-single-estimate"
+              ]
+            }
           ]
         }
     ],
