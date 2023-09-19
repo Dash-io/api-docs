@@ -67,10 +67,11 @@
               "group": "Manage stores",
               "icon": "store",
               "pages": [
-                "api-reference/stores/create-store",
-                "api-reference/stores/fetch-stores",
-                "api-reference/stores/delete-store",
-                "api-reference/stores/update-store"
+                
+                "api-references/manage-stores/create-store",
+                "api-references/manage-stores/fetch-stores",
+                "api-references/manage-stores/delete-store",
+                "api-references/manage-stores/update-store"
               ]
             },
             {
