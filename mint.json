@@ -43,7 +43,6 @@
         {
             "group": "Introduction",
             "pages": [
-                "introduction/overview",
                 "introduction/getting-started"
             ]
         },
@@ -64,44 +63,49 @@
               "pages": [
               "api-reference/authentication",
             {
+              "group": "Metas",
+              "icon": "flag",
+              "pages": [
+                "api-references/metas/get-countries",
+                "api-references/metas/get-states"
+              ]
+            },
+            {
               "group": "Manage stores",
               "icon": "store",
               "pages": [
-                
-                "api-references/manage-stores/create-store",
-                "api-references/manage-stores/fetch-stores",
-                "api-references/manage-stores/delete-store",
-                "api-references/manage-stores/update-store"
+                "api-references/stores/create-store-token",
+                "api-references/stores/get-store-tokens"
               ]
             },
             {
               "group": "Delivery Requests",
               "icon": "boxes-packing",
               "pages": [
-                "api-reference/deliveries/create-delivery",
-                "api-reference/deliveries/get-deliveries",
-                "api-reference/deliveries/get-single-delivery",
-                "api-reference/deliveries/get-delivery-status",
-                "api-reference/deliveries/update-delivery",
-                "api-reference/deliveries/delete-delivery"
+                "api-references/deliveries/create-delivery",
+                "api-references/deliveries/get-single-delivery",
+                "api-references/deliveries/get-deliveries",
+                "api-references/deliveries/update-delivery",
+                "api-references/deliveries/delete-delivery",
+                "api-references/deliveries/get-delivery-status"
               ]
             },
             {
               "group": "Manage couriers",
               "icon": "van-shuttle",
               "pages": [
-                "api-reference/providers/fetch-enabled-providers",
-                "api-reference/providers/fetch-disabled-providers",
-                "api-reference/providers/enable-provider",
-                "api-reference/providers/disable-provider"
+                "api-references/providers/get-enabled-providers",
+                "api-references/providers/get-disabled-providers",
+                "api-references/providers/enable-provider",
+                "api-references/providers/disable-provider"
               ]
             },
             {
               "group": "Get Delivery Estimates",
               "icon": "money-check-dollar",
               "pages": [
-                "api-reference/estimates/get-multiple-estimates",
-                "api-reference/estimates/get-single-estimate"
+                "api-references/estimates/get-multiple-delivery-estimates",
+                "api-references/estimates/get-single-delivery-estimate"
               ]
             }
           ]
@@ -112,5 +116,14 @@
         "twitter": "https://twitter.com/usedoraHQ",
         "github": "https://github.com/dash-io/api-docs",
         "linkedin": "https://www.linkedin.com/company/usedora"
+    },
+    "api": {
+      "playground": {
+        "mode": "simple"
+      }
+    },
+    "feedback": {
+      "suggestEdits": true,
+      "raiseIssue": true
     }
 }
