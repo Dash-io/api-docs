@@ -118,7 +118,7 @@
         "linkedin": "https://www.linkedin.com/company/usedora"
     },
     "api": {
-     "baseUrl": "https://api.usedora.com.com/api/v1", 
+     "baseUrl": "https://api.usedora.com.com/v1", 
      "playground": {
         "mode": "hide"
       },
