@@ -118,8 +118,12 @@
         "linkedin": "https://www.linkedin.com/company/usedora"
     },
     "api": {
-      "playground": {
-        "mode": "simple"
+     "baseUrl": "https://api.usedora.com.com/api/v1", 
+     "playground": {
+        "mode": "hide"
+      },
+      "auth": {
+        "method": "bearer"
       }
     },
     "feedback": {
