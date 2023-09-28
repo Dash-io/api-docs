@@ -3,8 +3,8 @@ info:
   title: dora-v1-api-collection
   version: 1.0.0
 servers:
-  - url: http://api.usedora.com/api/v1
-  - url: http://api.usedora.com/api/v1
+  - url: http://api.usedora.com/v1
+  - url: http://api.usedora.com/v1
 components:
   securitySchemes:
     bearerAuth:
