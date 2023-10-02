@@ -134,8 +134,5 @@
     "feedback": {
       "suggestEdits": true,
       "raiseIssue": true
-    },
-    "metadata": {
-      "og:image": "assets/dora.jpeg"
     }
 }
