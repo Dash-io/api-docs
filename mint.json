@@ -80,7 +80,8 @@
               "icon": "store",
               "pages": [
                 "v1/api-references/stores/create-store-token",
-                "v1/api-references/stores/get-store-tokens"
+                "v1/api-references/stores/get-store-tokens",
+                "v1/api-references/stores/integrated-stores"
               ]
             },
             {
