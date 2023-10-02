@@ -48,7 +48,7 @@
         {
             "group": "Introduction",
             "pages": [
-                "introduction/getting-started"
+                "v1/api-references/introduction/getting-started"
             ]
         },
         {
@@ -58,7 +58,7 @@
               "group":"Dora SDK",
               "icon": "rectangle-code",
               "pages": [
-                "api-references/dorasdk/overview"
+                "v1/api-references/dorasdk/overview"
               ]
             }
           ]
@@ -66,51 +66,51 @@
         {
           "group": "REST API Documentation",
             "pages": [
-              "api-references/stores/authenticate",
+              "v1/api-references/stores/authenticate",
             {
               "group": "Metas",
               "icon": "flag",
               "pages": [
-                "api-references/metas/get-countries",
-                "api-references/metas/get-states"
+                "v1/api-references/metas/get-countries",
+                "v1/api-references/metas/get-states"
               ]
             },
             {
               "group": "Manage stores",
               "icon": "store",
               "pages": [
-                "api-references/stores/create-store-token",
-                "api-references/stores/get-store-tokens"
+                "v1/api-references/stores/create-store-token",
+                "v1/api-references/stores/get-store-tokens"
               ]
             },
             {
               "group": "Delivery Requests",
               "icon": "boxes-packing",
               "pages": [
-                "api-references/deliveries/create-delivery",
-                "api-references/deliveries/get-single-delivery",
-                "api-references/deliveries/get-deliveries",
-                "api-references/deliveries/update-delivery",
-                "api-references/deliveries/delete-delivery",
-                "api-references/deliveries/get-delivery-status"
+                "v1/api-references/deliveries/create-delivery",
+                "v1/api-references/deliveries/get-single-delivery",
+                "v1/api-references/deliveries/get-deliveries",
+                "v1/api-references/deliveries/update-delivery",
+                "v1/api-references/deliveries/delete-delivery",
+                "v1/api-references/deliveries/get-delivery-status"
               ]
             },
             {
               "group": "Manage couriers",
               "icon": "van-shuttle",
               "pages": [
-                "api-references/providers/get-enabled-providers",
-                "api-references/providers/get-disabled-providers",
-                "api-references/providers/enable-provider",
-                "api-references/providers/disable-provider"
+                "v1/api-references/providers/get-enabled-providers",
+                "v1/api-references/providers/get-disabled-providers",
+                "v1/api-references/providers/enable-provider",
+                "v1/api-references/providers/disable-provider"
               ]
             },
             {
               "group": "Get Delivery Estimates",
               "icon": "money-check-dollar",
               "pages": [
-                "api-references/estimates/get-multiple-delivery-estimates",
-                "api-references/estimates/get-single-delivery-estimate"
+                "v1/api-references/estimates/get-multiple-delivery-estimates",
+                "v1/api-references/estimates/get-single-delivery-estimate"
               ]
             }
           ]
@@ -139,6 +139,6 @@
       "og:image": "assets/dora.jpeg"
     },
     "integrations": {
-      "intercom": "dora"
+      "intercom": "Dora"
     }
 }
