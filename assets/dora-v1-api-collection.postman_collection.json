@@ -2,9 +2,9 @@
 	"info": {
 		"_postman_id": "9e454809-a750-45b8-9d75-0c61d23f65bc",
 		"name": "dora-v1-api-collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "25189471",
-		"_collection_link": "https://usedora.postman.co/workspace/255c3563-0244-4d76-aa0a-10550dec77be/collection/25189471-9e454809-a750-45b8-9d75-0c61d23f65bc?action=share&source=collection_link&creator=25189471"
+		"_collection_link": "https://usedora.postman.co/workspace/Dora-API~255c3563-0244-4d76-aa0a-10550dec77be/collection/25189471-9e454809-a750-45b8-9d75-0c61d23f65bc?source=collection_link"
 	},
 	"item": [
 		{
@@ -15,13 +15,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -36,16 +32,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/create_personal_store_token",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"create_personal_store_token"
-							]
-						}
+						"url": "{{v2_url}}/integration/create_personal_store_token"
 					},
 					"response": [
 						{
@@ -64,20 +51,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "http://localhost:6000/api/v1/integration/create_personal_store_token",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "6000",
-									"path": [
-										"api",
-										"v1",
-										"integration",
-										"create_personal_store_token"
-									]
-								}
+								"url": "{{v2_url}}/integration/create_personal_store_token"
 							},
 							"status": "OK",
 							"code": 200,
@@ -126,13 +100,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -182,16 +152,11 @@
 									]
 								},
 								"url": {
-									"raw": "https://api.usedora.com/api/v1/integration/get_personal_stores/?paginate=1&per_page=10",
-									"protocol": "https",
+									"raw": "{{v2_url}}/integration/get_personal_stores/?paginate=1&per_page=10",
 									"host": [
-										"api",
-										"usedora",
-										"com"
+										"{{v2_url}}"
 									],
 									"path": [
-										"api",
-										"v1",
 										"integration",
 										"get_personal_stores",
 										""
@@ -263,13 +228,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -277,17 +238,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/enabled_providers",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"enabled_providers"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/enabled_providers"
 					},
 					"response": [
 						{
@@ -299,17 +250,7 @@
 									"mode": "raw",
 									"raw": ""
 								},
-								"url": {
-									"raw": "{{v2_url}}/integration/providers/enabled_providers",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"integration",
-										"providers",
-										"enabled_providers"
-									]
-								}
+								"url": "{{v2_url}}/integration/providers/enabled_providers"
 							},
 							"status": "OK",
 							"code": 200,
@@ -358,27 +299,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/disabled_providers",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"disabled_providers"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/disabled_providers"
 					},
 					"response": [
 						{
@@ -386,17 +313,7 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{v2_url}}/integration/providers/disabled_providers",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"integration",
-										"providers",
-										"disabled_providers"
-									]
-								}
+								"url": "{{v2_url}}/integration/providers/disabled_providers"
 							},
 							"status": "OK",
 							"code": 200,
@@ -445,13 +362,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -466,17 +379,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/enable",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"enable"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/enable"
 					},
 					"response": [
 						{
@@ -566,13 +469,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -587,17 +486,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/disable",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"disable"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/disable"
 					},
 					"response": [
 						{
@@ -691,13 +580,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -830,13 +715,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -953,15 +834,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/deliveries",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"deliveries"
-							]
-						}
+						"url": "{{v2_url}}/deliveries"
 					},
 					"response": [
 						{
@@ -1082,15 +955,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "{{v2_url}}/deliveries",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"deliveries"
-									]
-								}
+								"url": "{{v2_url}}/deliveries"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1139,13 +1004,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1262,17 +1123,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/deliveries/update/{{delivery_uuid}}",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"deliveries",
-								"update",
-								"{{delivery_uuid}}"
-							]
-						}
+						"url": "{{v2_url}}/deliveries/update/{{delivery_uuid}}"
 					},
 					"response": [
 						{
@@ -1393,17 +1244,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "{{v2_url}}/deliveries/update/{{delivery_uuid}}",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"deliveries",
-										"update",
-										"{{delivery_uuid}}"
-									]
-								}
+								"url": "{{v2_url}}/deliveries/update/{{delivery_uuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1455,13 +1296,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -1469,16 +1306,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": {
-							"raw": "{{v2_url}}/deliveries/{{delivery_uuid}}",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"deliveries",
-								"{{delivery_uuid}}"
-							]
-						}
+						"url": "{{v2_url}}/deliveries/{{delivery_uuid}}"
 					},
 					"response": [
 						{
@@ -1490,16 +1318,7 @@
 									"mode": "formdata",
 									"formdata": []
 								},
-								"url": {
-									"raw": "{{v2_url}}/deliveries/{{delivery_uuid}}",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"deliveries",
-										"{{delivery_uuid}}"
-									]
-								}
+								"url": "{{v2_url}}/deliveries/{{delivery_uuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1548,13 +1367,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
@@ -1562,16 +1377,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": {
-							"raw": "{{v2_url}}/deliveries/{{delivery_uuid}}",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"deliveries",
-								"{{delivery_uuid}}"
-							]
-						}
+						"url": "{{v2_url}}/deliveries/{{delivery_uuid}}"
 					},
 					"response": [
 						{
@@ -1583,16 +1389,7 @@
 									"mode": "formdata",
 									"formdata": []
 								},
-								"url": {
-									"raw": "{{v2_url}}/deliveries/{{delivery_uuid}}",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"deliveries",
-										"{{delivery_uuid}}"
-									]
-								}
+								"url": "{{v2_url}}/deliveries/{{delivery_uuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1649,13 +1446,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1748,19 +1541,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/deliveries/{{delivery_provider_uuid}}/estimate",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"deliveries",
-								"{{delivery_provider_uuid}}",
-								"estimate"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/deliveries/{{delivery_provider_uuid}}/estimate"
 					},
 					"response": [
 						{
@@ -1857,19 +1638,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "{{v2_url}}/integration/providers/deliveries/{{delivery_provider_uuid}}/estimate",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"integration",
-										"providers",
-										"deliveries",
-										"{{delivery_provider_uuid}}",
-										"estimate"
-									]
-								}
+								"url": "{{v2_url}}/integration/providers/deliveries/{{delivery_provider_uuid}}/estimate"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1921,13 +1690,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2020,18 +1785,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{v2_url}}/integration/providers/deliveries/get-estimate",
-							"host": [
-								"{{v2_url}}"
-							],
-							"path": [
-								"integration",
-								"providers",
-								"deliveries",
-								"get-estimate"
-							]
-						}
+						"url": "{{v2_url}}/integration/providers/deliveries/get-estimate"
 					},
 					"response": [
 						{
@@ -2128,18 +1882,7 @@
 										}
 									]
 								},
-								"url": {
-									"raw": "{{v2_url}}/integration/providers/deliveries/get-estimate",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"integration",
-										"providers",
-										"deliveries",
-										"get-estimate"
-									]
-								}
+								"url": "{{v2_url}}/integration/providers/deliveries/get-estimate"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2193,16 +1936,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{base_url}}/metas/countries",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"metas",
-								"countries"
-							]
-						}
+						"url": "{{base_url}}/metas/countries"
 					},
 					"response": [
 						{
@@ -2210,16 +1944,7 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{v2_url}}/metas/countries",
-									"host": [
-										"{{v2_url}}"
-									],
-									"path": [
-										"metas",
-										"countries"
-									]
-								}
+								"url": "{{v2_url}}/metas/countries"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2268,13 +1993,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{store_access_token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{store_access_token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -2369,13 +2090,9 @@
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{store_access_token}}",
-				"type": "string"
-			}
-		]
+		"bearer": {
+			"token": "{{store_access_token}}"
+		}
 	},
 	"event": [
 		{
