@@ -1,0 +1,22 @@
+To ensure the security of your store's data and resources, every request made to your store's API should include an access token.
+
+### Authorization header
+
+Bearer authentication requires including an "Authorization" header in the HTTP request. The header should be in the following format:
+```
+Authorization: Bearer <store_access_token>
+Content-Type: application/json
+```
+Here, `<store_access_token>` represents the unique access token generated when you created your store.
+
+### Generating Your Store Access Token
+
+To generate your store access token, follow these steps:
+
+- Sign In: Log in to your [account](https://usedora.com/auth/login) on our platform using your credentials.
+
+- Navigate to Integrations: Locate and click on the "Custom Stores/Website" tab. This is where you can manage various settings related to your store.
+
+### Security Considerations
+
+Keep your store's access token confidential. Do not share it publicly or expose it in client-side code. Use secure methods to store and transmit the token, such as environment variables or securely encrypted storage.

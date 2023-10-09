@@ -40,7 +40,7 @@
         },
         {
           "name": "API Reference V1",
-          "url": "v1/api-references",
+          "url": "v1",
           "version": "v1"
         }
     ],
@@ -58,7 +58,8 @@
               "group":"Dora SDK",
               "icon": "rectangle-code",
               "pages": [
-                "v1/api-references/dorasdk/overview"
+                "v1/dorasdk/getting-estimates",
+                "v1/dorasdk/demo"
               ]
             }
           ]
@@ -66,13 +67,11 @@
         {
           "group": "REST API Documentation",
             "pages": [
-              "v1/api-references/stores/authenticate",
             {
-              "group": "Metas",
-              "icon": "flag",
+              "group": "Authorization",
+              "icon": "shield-check",
               "pages": [
-                "v1/api-references/metas/get-countries",
-                "v1/api-references/metas/get-states"
+                "v1/api-references/stores/authorization"
               ]
             },
             {
@@ -113,6 +112,14 @@
                 "v1/api-references/estimates/get-multiple-delivery-estimates",
                 "v1/api-references/estimates/get-single-delivery-estimate"
               ]
+            },
+            {
+              "group": "Metas",
+              "icon": "flag",
+              "pages": [
+                "v1/api-references/metas/get-countries",
+                "v1/api-references/metas/get-states"
+              ]
             }
           ]
         }
@@ -124,12 +131,9 @@
         "linkedin": "https://www.linkedin.com/company/usedora"
     },
     "api": {
-     "baseUrl": "https://api.usedora.com/v1", 
+     "baseUrl": "https://api.usedora.com/", 
      "playground": {
         "mode": "hide"
-      },
-      "auth": {
-        "method": "bearer"
       }
     },
     "feedback": {

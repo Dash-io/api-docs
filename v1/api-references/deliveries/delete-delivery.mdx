@@ -1,3 +1,33 @@
 ---
-openapi: delete /deliveries/{delivery_uuid}
+openapi: delete /v1/deliveries/{delivery_uuid}
 ---
+
+
+This endpoint deletes pending customer order fulfilment request.
+
+### Endpoint `DELETE`
+
+<Tip>🔗 https://api.usedora.com/v1/deliveries/{delivery_uuid}</Tip>
+
+#### Path Parameters
+<ParamField path="delivery_uuid" type="string">The uuid of the delivery</ParamField>
+
+<CodeGroup>
+```bash Headers
+curl --request POST \
+  --url https://api.usedora.com/v1/deliveries/{delivery_uuid}
+  --header 'Authorization: Bearer <store_access_token>' \
+  --header 'Content-Type: application/json'
+```
+</CodeGroup>
+
+<br />
+
+<CodeGroup>
+```json Sample Response
+{
+    "status": "success",
+    "message": "Delivery deleted."
+}
+```
+</CodeGroup>
