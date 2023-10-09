@@ -110,7 +110,7 @@
               "icon": "money-check-dollar",
               "pages": [
                 "v1/api-references/estimates/get-multiple-delivery-estimates",
-                "v1/api-references/estimates/get-single-delivery-estimate"
+                "v1/api-references/estimates/get-single-provider-estimate"
               ]
             },
             {
