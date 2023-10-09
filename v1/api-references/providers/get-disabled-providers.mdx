@@ -1,3 +1,37 @@
 ---
-openapi: get /integration/providers/disabled_providers
+title: 'Get disabled providers 💤'
+openapi: get /v1/integration/providers/disabled_providers
 ---
+This endpoint returns all your disabled delivery providers.
+
+### Endpoint `GET`
+
+<Tip>
+ 🔗 https://api.usedora.com/v1/providers/disabled_providers
+</Tip>
+
+<CodeGroup>
+```bash Headers
+curl --request GET \
+  --url https://api.usedora.com/v1/providers/disabled_providers
+  --header 'Authorization: Bearer <store_access_token>' \
+  --header 'Content-Type: application/json'
+```
+</CodeGroup>
+<br />
+
+<CodeGroup>
+```json Sample Response
+{
+    "data": [
+        {
+            "uuid": "f1bc197f-6365-4220-807f-32c539f9f6bf",
+            "name": "Kobo360 (Covered|Box Truck)",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/kobo360.svg",
+            "status": "active"
+        }
+    ],
+    "status": "success"
+}
+```
+</CodeGroup>

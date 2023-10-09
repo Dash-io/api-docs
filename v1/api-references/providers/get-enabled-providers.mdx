@@ -1,3 +1,57 @@
 ---
-openapi: get /integration/providers/enabled_providers
+title: 'Get Enabled Providers 🚚'
+openapi: get /v1/integration/providers/enabled_providers
 ---
+
+This endpoint returns all your actively enabled delivery providers.
+
+### Endpoint `GET`
+
+<Tip>
+ 🔗 https://api.usedora.com/v1/providers/enabled_providers
+</Tip>
+
+<CodeGroup>
+```bash Headers
+curl --request GET \
+  --url https://api.usedora.com/v1/providers/enabled_providers
+  --header 'Authorization: Bearer <store_access_token>' \
+  --header 'Content-Type: application/json'
+```
+</CodeGroup>
+
+<br />
+
+<CodeGroup>
+```json Sample Response
+{
+    "data": [
+        {
+            "uuid": "f1bc197f-6365-4220-807f-32c539f9f6bf",
+            "name": "Kobo360 (Covered|Box Truck)",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/kobo360.svg",
+            "status": "active"
+        },
+        {
+            "uuid": "0ae3dfb5-3a6e-422a-8ac1-537573d11eb4",
+            "name": "Sendbox",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/sendbox.svg",
+            "status": "active"
+        },
+        {
+            "uuid": "f8d84a8a-d04f-415c-b5fc-2178eb25382c",
+            "name": "GIG (Regular)",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/gig.svg",
+            "status": "active"
+        },
+        {
+            "uuid": "478b18fc-95ba-4068-9aa1-3902d026368c",
+            "name": "Sendyit",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/sendy.svg",
+            "status": "active"
+        }
+    ],
+    "status": "success"
+}
+```
+</CodeGroup>

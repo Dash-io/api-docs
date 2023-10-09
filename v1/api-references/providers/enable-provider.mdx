@@ -1,3 +1,39 @@
 ---
-openapi: post /integration/providers/enable
+openapi: post /v1/integration/providers/enable
 ---
+
+
+This endpoint enables a diabled delivery provider.
+
+### Endpoint `POST`
+
+<Tip>
+ 🔗 https://api.usedora.com/v1/providers/enable
+</Tip>
+
+#### Request Body Parameters
+<ResponseField name="provider_id" type="string">
+  The uuid of the provider you want to enable
+</ResponseField>
+
+```json Sample Request
+  {
+    "provider_id" : "f1bc197f-6365-422x-xxxx"
+  }
+```
+
+<CodeGroup>
+```json Sample Response
+{
+    "data": [
+        {
+            "uuid": "f1bc197f-6365-4220-807f-32c539f9f6bf",
+            "name": "Kobo360 (Covered|Box Truck)",
+            "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/kobo360.svg",
+            "status": "active"
+        }
+    ],
+    "status": "success"
+}
+```
+</CodeGroup>
