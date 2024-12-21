@@ -33,37 +33,18 @@
         "url": "https://usedora.com/auth/signup"
     },
     "anchors": [
-        {
-          "name": "GitHub",
-          "icon": "github",
-          "url": "https://github.com/dash-io/api-docs"
-        },
-        {
-          "name": "API Reference V1",
-          "url": "v1",
-          "version": "v1"
-        }
+      {
+        "name": "API Reference V1",
+        "url": "v1",
+        "version": "v1"
+      },
+      {
+        "name": "API Reference V2",
+        "url": "v2",
+        "version": "v2"
+      }
     ],
     "navigation": [
-        {
-            "group": "Introduction",
-            "pages": [
-                "v1/api-references/introduction/getting-started"
-            ]
-        },
-        {
-          "group": "SDK Documentation",
-          "pages": [
-            {
-              "group":"Dora SDK",
-              "icon": "rectangle-code",
-              "pages": [
-                "v1/dorasdk/getting-estimates",
-                "v1/dorasdk/demo"
-              ]
-            }
-          ]
-        },
         {
           "group": "REST API Documentation",
             "pages": [
