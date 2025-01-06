@@ -1,0 +1,188 @@
+---
+title: "Create Delivery"
+api: "POST /deliveries/create"
+---
+
+
+### 📝 Summary
+
+This endpoint allows users to create a new delivery request in the system. It accepts details such as sender and recipient information, delivery address, package details, and delivery preferences. Upon successful creation, it returns a unique delivery ID and the status of the delivery request.
+
+---
+
+### 📥 Sample Request
+##### Body Parameters
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+##### Sample Request
+<Expandable>
+    ```json sample request
+    {
+        "sender_address": "10 John Street, Ipaja, Lagos",
+        "customer_name": "TundeNasri",
+        "customer_email": "sinoma@example.com",
+        "customer_state_id": 4,
+        "customer_house_number": 4,
+        "customer_phone_number": "0802839***8",
+        "phone_code": 234,
+        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+        "delivery_total_order_value": 10000,
+        "delivery_number_of_parcels": 1,
+        "delivery_unit_weight": 10,
+        "items": {
+            [
+                "item_description": "Freshfish",
+                "item_quantity": 1,
+                "item_weight": 0.1,
+                "item_value": 10000
+            ],
+            [
+                "item_uuid" : "48555811-5c4e-47xxxxx",
+                "item_description": "Mellon",
+                "item_quantity": 0.5,
+                "item_weight": 0,
+                "item_value": 10000
+            ]
+        }
+    }
+    
+    ```
+</Expandable>
+### 📤 Responses
+
+##### ✅ 200 OK
+
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "data": [
+        {
+            "uuid": "fa782a23-0e61-4148-b49e-75fb2ec352a8",
+            "order_number": 11909599,
+            "fleet_identity_number": "42714897",
+            "status": "Pending",
+            "status_label": "Pending",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3450",
+            "service_charge": null,
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": null,
+            "created_at": "2024-12-05T16:16:34.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": {
+                "uuid": "8582e220-0ce3-405a-8af5-9fcb685f71c7",
+                "customer_name": "Moses",
+                "customer_email": null,
+                "customer_phone_number": "07062423707",
+                "customer_phone_code": "234",
+                "customer_address": "Home",
+                "created_at": "2024-12-05T16:16:34.000000Z"
+            },
+            "sender_detail": {
+                "uuid": "5291b1c9-5b2e-40ec-974a-fbd2fe19576f",
+                "sender_name": "Enki Groups",
+                "sender_phone": "07062423707",
+                "sender_email": "ze@zivalogistics.com",
+                "sender_phonecode": "234",
+                "sender_address": "2 Umuleri street, Lagos",
+                "business_owned": true,
+                "created_at": "2024-07-01T18:11:16.000000Z",
+                "updated_at": "2024-07-01T18:11:16.000000Z"
+            },
+            "items": [
+                {
+                    "uuid": "b70594a3-6927-4afa-ba0f-7ed56d377b35",
+                    "item_description": "Packaged makeup for mama emma's birthday celebration",
+                    "item_quantity": 2,
+                    "item_value": "43500.00",
+                    "currency": "NGN",
+                    "created_at": "2024-12-05T16:16:34.000000Z"
+                }
+            ],
+            "rider_info": null,
+            "delivery_info_from_rider": null,
+            "is_paid": true
+        },
+        {
+            "uuid": "16b84f6a-eb79-4d60-a16a-8abb83a9af57",
+            "order_number": 68826450,
+            "fleet_identity_number": "42714897",
+            "status": "Pending",
+            "status_label": "Pending",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3450",
+            "service_charge": null,
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": null,
+            "created_at": "2024-12-05T16:16:36.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": {
+                "uuid": "de3cbc3f-f51a-4175-8d4e-4bc69e3262ff",
+                "customer_name": "Okekeni",
+                "customer_email": null,
+                "customer_phone_number": "07062423707",
+                "customer_phone_code": "234",
+                "customer_address": "My home town",
+                "created_at": "2024-12-05T16:16:36.000000Z"
+            },
+            "sender_detail": {
+                "uuid": "5291b1c9-5b2e-40ec-974a-fbd2fe19576f",
+                "sender_name": "Enki Groups",
+                "sender_phone": "07062423707",
+                "sender_email": "ze@zivalogistics.com",
+                "sender_phonecode": "234",
+                "sender_address": "2 Umuleri street, Lagos",
+                "business_owned": true,
+                "created_at": "2024-07-01T18:11:16.000000Z",
+                "updated_at": "2024-07-01T18:11:16.000000Z"
+            },
+            "items": [
+                {
+                    "uuid": "9c4ffd05-5295-406d-aea2-162ccf675e1b",
+                    "item_description": "Packaged makeup for mama emma's birthday celebration",
+                    "item_quantity": 2,
+                    "item_value": "43500.00",
+                    "currency": "NGN",
+                    "created_at": "2024-12-05T16:16:36.000000Z"
+                }
+            ],
+            "rider_info": null,
+            "delivery_info_from_rider": null,
+            "is_paid": true
+        }
+    ],
+    "message": "Delivery created successfully"
+}
+    ```
+</ResponseExample>

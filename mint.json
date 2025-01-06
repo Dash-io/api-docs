@@ -1,124 +1,196 @@
 {
-    "name": "Dora",
-    "logo": {
-        "dark": "/logo/dark.svg",
-        "light": "/logo/light.svg",
-        "href": "https://usedora.com"
-    },
-    "modeToggle": {
-      "default": "light"
-    },
-    "favicon": "favicon.jpeg",
-    "colors": {
-      "primary": "#0C64E9",
-      "light": "#EE7A22",
+  "name": "Dora",
+  "logo": {
+      "dark": "/logo/dora-logo-white.svg",
+      "light": "/logo/dora-logo-dark.svg",
+      "href": "https://usedora.com"
+  },
+  "modeToggle": {
+    "default": "light"
+  },
+  "favicon": "favicon.jpeg",
+  "colors": {
+    "primary": "#0C64E9",
+    "light": "#EE7A22",
 
-      "dark": "#0C64E9",
-        "background": {
-            "dark": "#090014"
-        }
-    },
-    "topbarLinks": [
-        {
-            "name": "Support",
-            "url": "mailto:dev@usedora.com"
-        },
-        {
-            "name": "Login",
-            "url": "https://usedora.com/auth/login"
-        }
-    ],
-    "topbarCtaButton": {
-        "name": "Get Started",
-        "url": "https://usedora.com/auth/signup"
-    },
-    "anchors": [
+    "dark": "#0C64E9",
+      "background": {
+          "dark": "#090014"
+      }
+  },
+  "topbarLinks": [
       {
-        "name": "API Reference V1",
-        "url": "v1",
-        "version": "v1"
+          "name": "Support",
+          "url": "mailto:dev@usedora.com"
       },
       {
-        "name": "API Reference V2",
-        "url": "v2",
-        "version": "v2"
+          "name": "Login",
+          "url": "https://usedora.com/auth/login"
       }
-    ],
-    "navigation": [
-        {
-          "group": "REST API Documentation",
-            "pages": [
-            {
-              "group": "Authorization",
-              "icon": "shield-check",
-              "pages": [
-                "v1/api-references/stores/authorization"
-              ]
-            },
-            {
-              "group": "Manage stores",
-              "icon": "store",
-              "pages": [
-                "v1/api-references/stores/create-store-token",
-                "v1/api-references/stores/get-store-tokens",
-                "v1/api-references/stores/integrated-stores"
-              ]
-            },
-            {
-              "group": "Delivery Requests",
-              "icon": "boxes-packing",
-              "pages": [
-                "v1/api-references/deliveries/create-delivery",
-                "v1/api-references/deliveries/get-single-delivery",
-                "v1/api-references/deliveries/get-deliveries",
-                "v1/api-references/deliveries/update-delivery",
-                "v1/api-references/deliveries/delete-delivery",
-                "v1/api-references/deliveries/get-delivery-status"
-              ]
-            },
-            {
-              "group": "Manage couriers",
-              "icon": "van-shuttle",
-              "pages": [
-                "v1/api-references/providers/get-enabled-providers",
-                "v1/api-references/providers/get-disabled-providers",
-                "v1/api-references/providers/enable-provider",
-                "v1/api-references/providers/disable-provider"
-              ]
-            },
-            {
-              "group": "Get Delivery Estimates",
-              "icon": "money-check-dollar",
-              "pages": [
-                "v1/api-references/estimates/get-multiple-delivery-estimates",
-                "v1/api-references/estimates/get-single-provider-estimate"
-              ]
-            },
-            {
-              "group": "Metas",
-              "icon": "flag",
-              "pages": [
-                "v1/api-references/metas/get-countries",
-                "v1/api-references/metas/get-states"
-              ]
-            }
-          ]
-        }
-    ],
-    "footerSocials": {
-        "website": "https://usedora.com",
-        "twitter": "https://twitter.com/usedoraHQ",
-        "github": "https://github.com/dash-io/api-docs",
-        "linkedin": "https://www.linkedin.com/company/usedora"
+  ],
+  "topbarCtaButton": {
+      "name": "Get Started",
+      "url": "https://usedora.com/auth/signup"
+  },
+  "anchors": [
+    {
+      "name": "API Reference V1",
+      "url": "v1",
+      "version": "v1"
     },
-    "api": {
-     "baseUrl": "https://api.usedora.com/", 
-     "playground": {
-        "mode": "hide"
-      }
-    },
-    "feedback": {
-      "suggestEdits": true,
-      "raiseIssue": true
+    {
+      "name": "API Reference V2",
+      "url": "{{fleet_base_url}}",
+      "version": "v2"
     }
+  ],
+  "navigation": [
+      {
+        "group": "REST API Documentation",
+          "pages": [
+          {
+            "group": "Authentication",
+            "icon": "shield-check",
+            "pages": [
+
+              "api-reference/endpoint/authentication/signup",
+              "api-reference/endpoint/authentication/login"
+
+            ]
+          },
+          {
+            "group": "Manage Deliveries",
+            "icon": "boxes-packing",
+            "pages": [
+              "api-reference/endpoint/deliveries/create-delivery",
+              "api-reference/endpoint/deliveries/assign-delivery",
+              "api-reference/endpoint/deliveries/get-delivery",
+              "api-reference/endpoint/deliveries/delete-delivery",
+              "api-reference/endpoint/deliveries/update-delivery"
+            ]
+          },
+          {
+            "group": "Manage Riders",
+            "icon": "van-shuttle",
+            "pages": [
+              "api-reference/endpoint/manage-riders"
+            ]
+          },
+          {
+            "group": "Report Metrics",
+            "icon": "chart-bar",
+            "pages": [
+              "api-reference/endpoint/report-metrics/report-overview",
+              "api-reference/endpoint/report-metrics/delivery-overview",
+              "api-reference/endpoint/report-metrics/revenue",
+              "api-reference/endpoint/report-metrics/delivery-status-metrics",
+              "api-reference/endpoint/report-metrics/expense-overview",
+              "api-reference/endpoint/report-metrics/rider-reports"
+            ]
+          },
+          {
+            "group": "Business Customers",
+            "icon": "users",
+            "pages": [
+              "api-reference/endpoint/business-customers/senders",
+              "api-reference/endpoint/business-customers/export-business-customers",
+              "api-reference/endpoint/business-customers/fetch-spreadsheet-header",
+              "api-reference/endpoint/business-customers/import-bulk-order",
+              "api-reference/endpoint/business-customers/fetch-unique-status"
+            ]
+          },
+          {
+            "group": "Billings",
+            "icon": "file-invoice-dollar",
+            "pages": [
+              "api-reference/endpoint/billings/get-plans",
+              "api-reference/endpoint/billings/create-subscription",
+              "api-reference/endpoint/billings/adjust-payment-plans",
+              "api-reference/endpoint/billings/get-transactions",
+              "api-reference/endpoint/billings/manage-subscription-link",
+              "api-reference/endpoint/billings/paystack-webhook",
+              "api-reference/endpoint/billings/payment-verification",
+              "api-reference/endpoint/billings/get-card-info",
+              "api-reference/endpoint/billings/add-debit-card",
+              "api-reference/endpoint/billings/delete-card"
+            ]
+          },
+          {
+            "group": "Bulk SMS",
+            "icon": "comment-sms",
+            "pages": [
+              "api-reference/endpoint/bulk-sms/send-sms",
+              "api-reference/endpoint/bulk-sms/sms-history",
+              "api-reference/endpoint/bulk-sms/recharge-sms"
+            ]
+          },
+          {
+            "group": "Bookings",
+            "icon": "cart-plus",
+            "pages": [
+              "api-reference/endpoint/bookings/booking-form-templates",
+              "api-reference/endpoint/bookings/activate-booking-forms",
+              "api-reference/endpoint/bookings/get-booking-form-detail",
+              "api-reference/endpoint/bookings/deactivate-booking-form",
+              "api-reference/endpoint/bookings/get-booking-form-link",
+              "api-reference/endpoint/bookings/get-delivery-fee",
+              "api-reference/endpoint/bookings/create-order",
+              "api-reference/endpoint/bookings/checkout-delivery",
+              "api-reference/endpoint/bookings/track-delivery"
+            ]
+          },
+          {
+            "group": "Payouts",
+            "icon": "money-bill-transfer",
+            "pages": [
+              "api-reference/endpoint/payouts/payout-history",
+              "api-reference/endpoint/payouts/export-payouts"
+            ]
+          },
+          {
+            "group": "Expense Management",
+            "icon": "receipt",
+            "pages": [
+              "api-reference/endpoint/expense-management/list-categories",
+              "api-reference/endpoint/expense-management/create-categories",
+              "api-reference/endpoint/expense-management/update-categories",
+              "api-reference/endpoint/expense-management/delete-categories",
+              "api-reference/endpoint/expense-management/create-expense",
+              "api-reference/endpoint/expense-management/update-expense",
+              "api-reference/endpoint/expense-management/delete-expense",
+              "api-reference/endpoint/expense-management/expenses-metrics"
+            ]
+          },
+          {
+            "group": "Metas",
+            "icon": "flag",
+            "pages": [
+              "api-reference/endpoint/metas/active-countries",
+              "api-reference/endpoint/metas/active-states",
+              "api-reference/endpoint/metas/banks",
+              "api-reference/endpoint/metas/countries",
+              "api-reference/metas/delivery-interests",
+              "api-reference/endpoint/metas/pricing-model-options",
+              "api-reference/endpoint/metas/states"
+            ]
+          }
+        ]
+      }
+  ],
+  "footerSocials": {
+      "website": "https://usedora.com",
+      "twitter": "https://twitter.com/usedoraHQ",
+      "github": "https://github.com/dash-io/api-docs",
+      "linkedin": "https://www.linkedin.com/company/usedora"
+  },
+  "api": {
+   "baseUrl": "https://api.usedora.com/", 
+   "playground": {
+      "mode": "hide"
+    }
+  },
+  "feedback": {
+    "suggestEdits": true,
+    "raiseIssue": true
+  }
 }

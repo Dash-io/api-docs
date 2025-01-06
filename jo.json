@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Dora Fleets",
+      "description": "A Dora",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "{{fleet_base_url}}"
+      },
+      {
+        "url": "{{STAGING_URL}}"
+      }
+    ],
+    "paths": {
+      "/auth/register": {
+        "post": {
+          "description": "All deliveries",
+          "parameters": [
+            { "name": "limit",
+            "in": "query",
+            "description": "The maximum number of results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+              "200": {
+                "description": "Plant response",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Plant"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+    }
+}
+}

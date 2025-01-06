@@ -1,0 +1,124 @@
+---
+title: "Expense Metrics"
+api: "GET /expenses/metrics"
+---
+
+### 📝 Summary
+
+This endpoint provides aggregated metrics and insights related to expenses, such as total expenses, categorised spending, and trends over time. It helps users analyse and monitor financial data effectively.
+
+---
+
+### 📥 Sample Request
+#### Body Parameters
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+#### Sample Request
+<Expandable>
+    ```json sample request
+    {
+        "sender_address": "10 John Street, Ipaja, Lagos",
+        "customer_name": "TundeNasri",
+        "customer_email": "sinoma@example.com",
+        "customer_state_id": 4,
+        "customer_house_number": 4,
+        "customer_phone_number": "0802839***8",
+        "phone_code": 234,
+        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+        "delivery_total_order_value": 10000,
+        "delivery_number_of_parcels": 1,
+        "delivery_unit_weight": 10,
+        "items": {
+            [
+                "item_description": "Freshfish",
+                "item_quantity": 1,
+                "item_weight": 0.1,
+                "item_value": 10000
+            ],
+            [
+                "item_uuid" : "48555811-5c4e-47xxxxx",
+                "item_description": "Mellon",
+                "item_quantity": 0.5,
+                "item_weight": 0,
+                "item_value": 10000
+            ]
+        }
+    }
+    
+    ```
+</Expandable>
+### 📤 Responses
+
+#### ✅ 200 OK
+
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Expenses metrics retrieved successfully",
+    "data": {
+        "total_expense": "22000",
+        "expense_this_month": "18000",
+        "expense_this_week": "16000",
+        "expense_today": "16000",
+        "monthly_expenses": {
+            "January": 0,
+            "February": 0,
+            "March": 0,
+            "April": 0,
+            "May": 0,
+            "June": 0,
+            "July": 0,
+            "August": 0,
+            "September": 2000,
+            "October": 18000,
+            "November": 0,
+            "December": 0
+        },
+        "expenses_this_year": "20000",
+        "expenses_last_year": "2000",
+        "percentage_difference": 900,
+        "reoccuring_expenses": [
+            {
+                "name": "Tester",
+                "occurrences": 9,
+                "percentage_recurrence": 81.81818181818183,
+                "last_occurrence": "29 minutes ago"
+            },
+            {
+                "name": "Nothing",
+                "occurrences": 1,
+                "percentage_recurrence": 9.090909090909092,
+                "last_occurrence": "28 minutes ago"
+            },
+            {
+                "name": "Salary to viane",
+                "occurrences": 1,
+                "percentage_recurrence": 9.090909090909092,
+                "last_occurrence": "29 minutes ago"
+            }
+        ]
+    }
+}
+    ```
+</ResponseExample>

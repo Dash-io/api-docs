@@ -1,0 +1,133 @@
+---
+title: "List Categories"
+api: "GET /expenses/categories"
+---
+
+### 📝 Summary
+
+This endpoint retrieves a list of all expense categories available in the system. It supports filtering, sorting, and pagination to manage large datasets efficiently.
+
+---
+
+### 📥 Sample Request
+#### Body Parameters
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+#### Sample Request
+<Expandable>
+    ```json sample request
+    {
+        "sender_address": "10 John Street, Ipaja, Lagos",
+        "customer_name": "TundeNasri",
+        "customer_email": "sinoma@example.com",
+        "customer_state_id": 4,
+        "customer_house_number": 4,
+        "customer_phone_number": "0802839***8",
+        "phone_code": 234,
+        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+        "delivery_total_order_value": 10000,
+        "delivery_number_of_parcels": 1,
+        "delivery_unit_weight": 10,
+        "items": {
+            [
+                "item_description": "Freshfish",
+                "item_quantity": 1,
+                "item_weight": 0.1,
+                "item_value": 10000
+            ],
+            [
+                "item_uuid" : "48555811-5c4e-47xxxxx",
+                "item_description": "Mellon",
+                "item_quantity": 0.5,
+                "item_weight": 0,
+                "item_value": 10000
+            ]
+        }
+    }
+    
+    ```
+</Expandable>
+### 📤 Responses
+
+#### ✅ 200 OK
+
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** |
+|-------------|----------|-------------:|
+| `created_at`| string   |      |
+| `description`| string   |       |
+| `data.uuid` | string   |        |
+| `name`    | string   |        |
+| `status`   | string   |               |
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Expenses retrieved successfully",
+    "data": {
+        "total_revenue": "31,050.00",
+        "total_expenses": "6000",
+        "total_profit": "25,050.00",
+        "expenses_count": 3,
+        "categories_count": 4,
+        "expenses": [
+            {
+                "uuid": "5e3c4b89-0b93-47c1-ba1b-b572935d08e1",
+                "expense_no": "705932",
+                "date": "2024-10-08 00:00:00",
+                "amount": "2000",
+                "status": "Approved",
+                "category": {
+                    "uuid": "4c9f07e8-5dd9-44de-b511-5c5247818e71",
+                    "name": "Subscription",
+                    "description": "Payment for subscription",
+                    "status": "Active",
+                    "created_at": "2024-10-07T20:25:52.000000Z"
+                }
+            },
+            {
+                "uuid": "f9ad4a50-1b65-433e-8a81-6613aefe10f1",
+                "expense_no": "993061",
+                "date": "2024-10-08 00:00:00",
+                "amount": "2000",
+                "status": "Approved",
+                "category": {
+                    "uuid": "4c9f07e8-5dd9-44de-b511-5c5247818e71",
+                    "name": "Subscription",
+                    "description": "Payment for subscription",
+                    "status": "Active",
+                    "created_at": "2024-10-07T20:25:52.000000Z"
+                }
+            },
+            {
+                "uuid": "3e491675-5a0a-47e2-b8c5-aa8d632f6c7c",
+                "expense_no": "458920",
+                "date": "2024-10-08 00:00:00",
+                "amount": "2000",
+                "status": "Approved",
+                "category": {
+                    "uuid": "4c9f07e8-5dd9-44de-b511-5c5247818e71",
+                    "name": "Subscription",
+                    "description": "Payment for subscription",
+                    "status": "Active",
+                    "created_at": "2024-10-07T20:25:52.000000Z"
+                }
+            }
+        ]
+    }
+}
+    ```
+</ResponseExample>

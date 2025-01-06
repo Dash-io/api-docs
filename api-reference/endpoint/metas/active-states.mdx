@@ -1,0 +1,516 @@
+---
+title: "Active States"
+api: "GET /metas/active_states"
+---
+
+### 📝 Summary
+
+This endpoint retrieves a list of states or provinces that are currently marked as active in the system. These active states are typically available for operations such as deliveries, expenses, or other configurable services.
+
+
+---
+
+### 📥 Sample Request
+#### Body Parameters
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+#### Sample Request
+<Expandable>
+    ```json sample request
+    {
+        "sender_address": "10 John Street, Ipaja, Lagos",
+        "customer_name": "TundeNasri",
+        "customer_email": "sinoma@example.com",
+        "customer_state_id": 4,
+        "customer_house_number": 4,
+        "customer_phone_number": "0802839***8",
+        "phone_code": 234,
+        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+        "delivery_total_order_value": 10000,
+        "delivery_number_of_parcels": 1,
+        "delivery_unit_weight": 10,
+        "items": {
+            [
+                "item_description": "Freshfish",
+                "item_quantity": 1,
+                "item_weight": 0.1,
+                "item_value": 10000
+            ],
+            [
+                "item_uuid" : "48555811-5c4e-47xxxxx",
+                "item_description": "Mellon",
+                "item_quantity": 0.5,
+                "item_weight": 0,
+                "item_value": 10000
+            ]
+        }
+    }
+    
+    ```
+</Expandable>
+### 📤 Responses
+
+#### ✅ 200 OK
+
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+   {
+    "status": "success",
+    "message": "States",
+    "data": [
+        {
+            "id": 303,
+            "name": "Abia State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "45",
+            "iso2": "AB",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q320852"
+        },
+        {
+            "id": 320,
+            "name": "Adamawa State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "35",
+            "iso2": "AD",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q337514"
+        },
+        {
+            "id": 304,
+            "name": "Akwa Ibom State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "21",
+            "iso2": "AK",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q424388"
+        },
+        {
+            "id": 315,
+            "name": "Anambra State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "25",
+            "iso2": "AN",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q117714"
+        },
+        {
+            "id": 312,
+            "name": "Bauchi State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "46",
+            "iso2": "BA",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503936"
+        },
+        {
+            "id": 305,
+            "name": "Bayelsa State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "52",
+            "iso2": "BY",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q532153"
+        },
+        {
+            "id": 291,
+            "name": "Benue State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "26",
+            "iso2": "BE",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q429908"
+        },
+        {
+            "id": 307,
+            "name": "Borno State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "27",
+            "iso2": "BO",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q130626"
+        },
+        {
+            "id": 314,
+            "name": "Cross River State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "22",
+            "iso2": "CR",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q739676"
+        },
+        {
+            "id": 316,
+            "name": "Delta State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "36",
+            "iso2": "DE",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503910"
+        },
+        {
+            "id": 311,
+            "name": "Ebonyi State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "53",
+            "iso2": "EB",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q506808"
+        },
+        {
+            "id": 318,
+            "name": "Edo State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "37",
+            "iso2": "ED",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q682704"
+        },
+        {
+            "id": 309,
+            "name": "Ekiti State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "54",
+            "iso2": "EK",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q534917"
+        },
+        {
+            "id": 289,
+            "name": "Enugu State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "47",
+            "iso2": "EN",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q3817714"
+        },
+        {
+            "id": 293,
+            "name": "Federal Capital Territory",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "11",
+            "iso2": "FC",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q509300"
+        },
+        {
+            "id": 310,
+            "name": "Gombe State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "55",
+            "iso2": "GO",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q376241"
+        },
+        {
+            "id": 308,
+            "name": "Imo State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "28",
+            "iso2": "IM",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q842939"
+        },
+        {
+            "id": 288,
+            "name": "Jigawa State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "39",
+            "iso2": "JI",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q682691"
+        },
+        {
+            "id": 294,
+            "name": "Kaduna State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "23",
+            "iso2": "KD",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q878284"
+        },
+        {
+            "id": 300,
+            "name": "Kano State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "29",
+            "iso2": "KN",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q682571"
+        },
+        {
+            "id": 313,
+            "name": "Katsina State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "24",
+            "iso2": "KT",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q657821"
+        },
+        {
+            "id": 290,
+            "name": "Kebbi State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "40",
+            "iso2": "KE",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q748523"
+        },
+        {
+            "id": 298,
+            "name": "Kogi State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "41",
+            "iso2": "KO",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q387745"
+        },
+        {
+            "id": 295,
+            "name": "Kwara State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "30",
+            "iso2": "KW",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q464953"
+        },
+        {
+            "id": 306,
+            "name": "Lagos",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "05",
+            "iso2": "LA",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q815913"
+        },
+        {
+            "id": 301,
+            "name": "Nasarawa State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "56",
+            "iso2": "NA",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q836645"
+        },
+        {
+            "id": 317,
+            "name": "Niger State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "31",
+            "iso2": "NI",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503932"
+        },
+        {
+            "id": 323,
+            "name": "Ogun State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "16",
+            "iso2": "OG",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q836657"
+        },
+        {
+            "id": 321,
+            "name": "Ondo State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "48",
+            "iso2": "ON",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q836654"
+        },
+        {
+            "id": 322,
+            "name": "Osun State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "42",
+            "iso2": "OS",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q682721"
+        },
+        {
+            "id": 296,
+            "name": "Oyo State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "32",
+            "iso2": "OY",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503905"
+        },
+        {
+            "id": 302,
+            "name": "Plateau State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "49",
+            "iso2": "PL",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503928"
+        },
+        {
+            "id": 292,
+            "name": "Sokoto State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "51",
+            "iso2": "SO",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q503941"
+        },
+        {
+            "id": 319,
+            "name": "Taraba State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "43",
+            "iso2": "TA",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q463959"
+        },
+        {
+            "id": 297,
+            "name": "Yobe State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "44",
+            "iso2": "YO",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q682777"
+        },
+        {
+            "id": 299,
+            "name": "Zamfara State",
+            "country_id": 161,
+            "country_code": "NG",
+            "fips_code": "57",
+            "iso2": "ZA",
+            "created_at": "2019-10-05T17:48:37.000000Z",
+            "updated_at": "2019-10-05T17:48:37.000000Z",
+            "flag": 1,
+            "wikidataid": "Q145793"
+        }
+    ]
+}
+    ```
+</ResponseExample>
