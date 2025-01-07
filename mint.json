@@ -1,8 +1,8 @@
 {
     "name": "Dora",
     "logo": {
-        "dark": "/logo/dark.svg",
-        "light": "/logo/light.svg",
+        "dark": "/logo/dora-logo-white.svg",
+        "light": "/logo/dora-logo-dark.svg",
         "href": "https://usedora.com"
     },
     "modeToggle": {
@@ -12,7 +12,7 @@
     "colors": {
       "primary": "#0C64E9",
       "light": "#EE7A22",
-
+  
       "dark": "#0C64E9",
         "background": {
             "dark": "#090014"
@@ -33,73 +33,57 @@
         "url": "https://usedora.com/auth/signup"
     },
     "anchors": [
-      {
-        "name": "API Reference V1",
-        "url": "v1",
-        "version": "v1"
-      },
-      {
-        "name": "API Reference V2",
-        "url": "v2",
-        "version": "v2"
-      }
-    ],
+    {
+      "name": "API Documentation",
+      "icon": "rectangle-terminal",
+      "url": "v1"
+    }
+  ],
     "navigation": [
         {
           "group": "REST API Documentation",
             "pages": [
+                {
+                    "group": "Authentication",
+                    "icon": "shield",
+                    "pages": [
+                      "api-reference/authentication"
+                    ]
+                  },
             {
-              "group": "Authorization",
-              "icon": "shield-check",
-              "pages": [
-                "v1/api-references/stores/authorization"
-              ]
-            },
-            {
-              "group": "Manage stores",
-              "icon": "store",
-              "pages": [
-                "v1/api-references/stores/create-store-token",
-                "v1/api-references/stores/get-store-tokens",
-                "v1/api-references/stores/integrated-stores"
-              ]
-            },
-            {
-              "group": "Delivery Requests",
+              "group": "Manage Deliveries",
               "icon": "boxes-packing",
               "pages": [
-                "v1/api-references/deliveries/create-delivery",
-                "v1/api-references/deliveries/get-single-delivery",
-                "v1/api-references/deliveries/get-deliveries",
-                "v1/api-references/deliveries/update-delivery",
-                "v1/api-references/deliveries/delete-delivery",
-                "v1/api-references/deliveries/get-delivery-status"
+                "api-reference/endpoint/deliveries/get-deliveries",
+                "api-reference/endpoint/deliveries/move-to-in-transit",
+                "api-reference/endpoint/deliveries/move-to-in-delivered",
+                "api-reference/endpoint/deliveries/create-delivery",
+                "api-reference/endpoint/deliveries/assign-delivery",
+                "api-reference/endpoint/deliveries/get-delivery",
+                "api-reference/endpoint/deliveries/delete-delivery",
+                "api-reference/endpoint/deliveries/delete-multiple-deliveries",
+                "api-reference/endpoint/deliveries/update-delivery",
+                "api-reference/endpoint/deliveries/download-pdf",
+                "api-reference/endpoint/deliveries/update-delivery-status"
               ]
             },
             {
-              "group": "Manage couriers",
+              "group": "Manage Riders",
               "icon": "van-shuttle",
               "pages": [
-                "v1/api-references/providers/get-enabled-providers",
-                "v1/api-references/providers/get-disabled-providers",
-                "v1/api-references/providers/enable-provider",
-                "v1/api-references/providers/disable-provider"
-              ]
-            },
-            {
-              "group": "Get Delivery Estimates",
-              "icon": "money-check-dollar",
-              "pages": [
-                "v1/api-references/estimates/get-multiple-delivery-estimates",
-                "v1/api-references/estimates/get-single-provider-estimate"
-              ]
-            },
-            {
-              "group": "Metas",
-              "icon": "flag",
-              "pages": [
-                "v1/api-references/metas/get-countries",
-                "v1/api-references/metas/get-states"
+                "api-reference/endpoint/riders/create-rider",
+                "api-reference/endpoint/riders/get-riders",
+                "api-reference/endpoint/riders/activate-riders",
+                "api-reference/endpoint/riders/get-rider",
+                "api-reference/endpoint/riders/update-rider",
+                "api-reference/endpoint/riders/deactivate-riders",
+                "api-reference/endpoint/riders/rider-delivery-history",
+                "api-reference/endpoint/riders/update-delivery-pickup",
+                "api-reference/endpoint/riders/update-delivery-dropoff",
+                "api-reference/endpoint/riders/delete-rider",
+                "api-reference/endpoint/riders/cancel-pending-invites",
+                "api-reference/endpoint/riders/pending-rider-invites",
+                "api-reference/endpoint/riders/rider-ongoing-deliveries"
               ]
             }
           ]
@@ -112,7 +96,7 @@
         "linkedin": "https://www.linkedin.com/company/usedora"
     },
     "api": {
-     "baseUrl": "https://api.usedora.com/", 
+     "baseUrl": "https://dev.api.fleet.usedora.com/api/v1", 
      "playground": {
         "mode": "hide"
       }
@@ -121,4 +105,4 @@
       "suggestEdits": true,
       "raiseIssue": true
     }
-}
+  }

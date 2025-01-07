@@ -1,0 +1,30 @@
+---
+title: "Move to in Delivered"
+api: "GET /deliveries/move_to_delivered"
+---
+
+### 📝 Summary
+
+This endpoint allows users to retrieve the details of a specific delivery by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+
+---
+
+### 📥 Sample Request
+##### Body Parameters
+<Expandable>
+**Description:** Success response containing a message, user data (including UUID), and status.
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `message`   | string   | ✅ Yes       | Response message          |
+| `data`      | object   | ✅ Yes       | User data                 |
+| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+</Expandable>
+
+##### Sample Request
+<Expandable>
+    ```json sample request
+    
+    ```
+</ResponseExample>

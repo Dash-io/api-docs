@@ -1,0 +1,36 @@
+---
+title: Authentication Overview
+---
+
+
+This section explains how to authenticate your API requests using an API key.
+
+## 🔐 API Key Authentication
+
+To authenticate, include your **API Key** in the request header as shown below:
+
+```http
+GET /delivery
+Host: api.example.com
+x-api-key: YOUR_API_KEY
+```
+⚠️ Ensure your API key is kept secret and not exposed in public repositories
+
+
+---
+
+
+
+
+### Authorization Details
+
+| **Parameter** | **Type** | **Location** | **Required** | **Description** |
+|---------------|---------|-------------|-------------|-----------------|
+| `x-api-key`   | `string` | `header`     | ✅ Yes       | Your API key for accessing the API |
+
+### Usage Example
+
+#### Curl Example:
+```bash
+curl -X GET "https://api.example.com/delivery" \
+-H "x-api-key: YOUR_API_KEY"

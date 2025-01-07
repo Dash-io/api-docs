@@ -1,17 +1,30 @@
-# Dora Documentation
+# 🚀 Project Overview
 
-The content and configuration powering the documentation available at [docs.usedora.com](https://docs.usedora.com)
+This project contains the API documentation for our service, generated using OpenAPI specifications and integrated with Mintlify for a user-friendly developer experience.
 
-### 👩‍💻 Development
+# 📄 Documentation Details
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+- Framework: OpenAPI 3.x
+- Documentation Tool: Mintlify
+- Format: YAML / JSON
+
+# 🛠️ Setup and Installation
+1. Clone the Repository
 
 ```
-npm i mintlify -g
+git clone https://github.com/Dash-io/api-docs.git
+cd your-repo
+```
+2. Install Dependencies
+```
+npm install
 ```
 
-Run the following command at the root of your documentation (where mint.json is)
-
-```
+3. Run Locally
+``
 mintlify dev
+```
+4. Access Documentation
+```
+http://localhost:3000
 ```
