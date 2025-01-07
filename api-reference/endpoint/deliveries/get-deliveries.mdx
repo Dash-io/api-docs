@@ -1,25 +1,28 @@
 ---
-title: "Get Delivery"
-api: "GET /deliveries/get/{delivery_uuid}"
+title: "Get Deliveries"
+api: "GET /deliveries"
 ---
 
 ### 📝 Summary
 
-This endpoint allows users to retrieve the details of a specific delivery by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+This endpoint allows users to retrieve the details of a many deliveries by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
 
 ---
 
-### 📥 Sample Request
-##### Body Parameters
+
+
+
+### 📥 
+##### Query Parameters
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `paginate`   | string   |        | Can be 1 or 0          |
+| `per_page`      | string   |        |                  |
+| `filter` | string   |        | All/Last 3 days/Last 7 days/Last 14 days/Last Month |
+| `start_date`    | string   |        |      |
 </Expandable>
 
 ##### Sample Request

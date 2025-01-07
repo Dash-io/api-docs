@@ -1,6 +1,6 @@
 ---
-title: "Delete Delivery"
-api: "POST /deliveries/delete/{delivery_uuid}"
+title: "Move to In-Transit"
+api: "GET /deliveries/move_to_in_transit"
 ---
 
 ### 📝 Summary
@@ -73,10 +73,6 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 
 <ResponseExample>
     ```json sample response
-    {
-        "status": "error",
-        "message": "Delivery does not exist or may have been processed!"
-    }
+    
     ```
 </ResponseExample>
-

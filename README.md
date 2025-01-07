@@ -12,7 +12,7 @@ This project contains the API documentation for our service, generated using Ope
 1. Clone the Repository
 
 ```
-git clone https://github.com/yourusername/your-repo.git
+git clone https://github.com/Dash-io/api-docs.git
 cd your-repo
 ```
 2. Install Dependencies

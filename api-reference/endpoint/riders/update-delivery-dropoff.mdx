@@ -1,0 +1,228 @@
+---
+title: "Update Delivery Dropoff"
+api: "POST /riders/dropoff"
+---
+
+
+### 📝 Summary
+
+This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+
+---
+
+
+
+### 📥 Sample Request
+### Query Parameters
+<Expandable>
+**Description:** User data (including UUID).
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `rider_uuid`   | string   | ✅ Yes       |          |
+</Expandable>
+
+### Body
+<Expandable>
+**Description:** multipart/form-data
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `delivery_uuid[0]`   | string   |        |          |
+|`delivery__uuid[1]`| string     |    |       |           |           |
+</Expandable>
+
+### Sample Request
+<Expandable>
+    ```json sample request
+    {
+        "sender_address": "10 John Street, Ipaja, Lagos",
+        "customer_name": "TundeNasri",
+        "customer_email": "sinoma@example.com",
+        "customer_state_id": 4,
+        "customer_house_number": 4,
+        "customer_phone_number": "0802839***8",
+        "phone_code": 234,
+        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+        "delivery_total_order_value": 10000,
+        "delivery_number_of_parcels": 1,
+        "delivery_unit_weight": 10,
+        "items": {
+            [
+                "item_description": "Freshfish",
+                "item_quantity": 1,
+                "item_weight": 0.1,
+                "item_value": 10000
+            ],
+            [
+                "item_uuid" : "48555811-5c4e-47xxxxx",
+                "item_description": "Mellon",
+                "item_quantity": 0.5,
+                "item_weight": 0,
+                "item_value": 10000
+            ]
+        }
+    }
+    
+    ```
+</Expandable>
+### 📤 Response
+
+##### ✅ 200 OK
+
+<Expandable>
+**Description:** application/json
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `data`   | object   |        |           |
+| `data.created_at`      | string   |        |                  |
+| `data.customer_detail` | object   |        |  |
+| `status`    | string   | ✅ Yes       | Status of the request     |
+| `data.customer_detail.created_at` |   string |   |    |
+| `data.customer_detail.customer_address`  |   string  |   |    |
+| `data.customer_detail.customer_email`    |   any /null   |   |    |
+| `data.customer_detail.customer_name` |   string  |   |    |
+| `data.customer_detail.customer_phone_code`   |   string  |   |
+| `data.customer_detail.customer_phone_number` |   string  |   |    |
+| `data.customer_detail.uuid`  |   string  |   |    |
+| `data.customer_latitude`  |   string| |   |   |
+| `data.customer_longitude`  |   string| |   |   |
+| `data.delivery_fee`  |   string| |   |   |
+| `data.delivery_type`  |   string| |   |   |
+| `data.fleet_id`  |   any / null| |   |   |
+| `data.items`  |   object| |   |   |
+| `data.order_number`  |   string| |   |   |
+| `data.sender_detail`  |   object| |   |   |
+| `data.sender_detail.created_at`  |   string| |   |   |
+| `data.sender_detail.sender_address`  |   string| |   |   |
+| `data.sender_detail.sender_email`  |   any / null| |   |   |
+| `data.sender_detail.sender_phonecode`  |   string| |   |   |
+| `data.sender_detail.updated_at`  |   string| |   |   |
+| `data.sender_detail.uuid`  |   string| |   |   |
+| `data.sender_latitude`  |   string| |   |   |
+| `data.sender_longitude`  |   string| |   |   |
+| `data.status`  |   string| |   |   |
+| `data.uuid`  |   string| |   |   |
+| `status`  |   string| |   |   |
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "uuid": "4560f59a-d071-4854-a098-2978ba373004",
+                "order_number": "14192541",
+                "fleet_identity_number": "68316349",
+                "status": "Awaiting-Pickup",
+                "delivery_type": "intra_state",
+                "sender_longitude": null,
+                "sender_latitude": null,
+                "customer_longitude": null,
+                "customer_latitude": null,
+                "delivery_fee": "3000",
+                "currency": "NGN",
+                "note": null,
+                "creation_mode": "Manual",
+                "created_at": "2024-01-06T17:02:09.000000Z",
+                "customer_detail": {
+                    "uuid": "21803e28-08b7-4b23-b3f6-49161f8a6a4c",
+                    "customer_name": "TundeNasri",
+                    "customer_email": "sinoma@gmail.com",
+                    "customer_phone_number": "08065302534",
+                    "customer_phone_code": "234",
+                    "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+                    "created_at": "2024-01-06T07:28:13.000000Z"
+                },
+                "sender_detail": {
+                    "uuid": "62c70575-366c-44c3-893e-504abce1f667",
+                    "sender_name": "Nuel Geek",
+                    "sender_phone": "08087168391",
+                    "sender_email": "sender@example.com",
+                    "sender_phonecode": "234",
+                    "sender_address": "2 Umuleri street, Lagos",
+                    "created_at": "2024-01-06T17:02:09.000000Z",
+                    "updated_at": "2024-01-06T17:03:26.000000Z"
+                },
+                "items": [
+                    {
+                        "uuid": "99594223-8c39-49be-aefb-a1704e2e2650",
+                        "item_description": "Packaged makeup for mama emma's birthday celebration",
+                        "item_quantity": 2,
+                        "item_value": "43500.00",
+                        "currency": "NGN",
+                        "created_at": "2024-01-06T17:02:09.000000Z"
+                    },
+                    {
+                        "uuid": "801f2638-4a26-444d-9409-c5f54667e449",
+                        "item_description": "Eva soap pack",
+                        "item_quantity": 1,
+                        "item_value": "4000.00",
+                        "currency": "NGN",
+                        "created_at": "2024-01-06T17:03:26.000000Z"
+                    },
+                    {
+                        "uuid": "68751dcf-4440-4b51-9dbc-9e161b21ce2b",
+                        "item_description": "Cannon Camera",
+                        "item_quantity": 1,
+                        "item_value": "30000.00",
+                        "currency": "NGN",
+                        "created_at": "2024-01-06T17:03:26.000000Z"
+                    }
+                ],
+                "rider_info": {
+                    "uuid": "69234d24-61c1-4d68-a232-7a04d71f2b0e",
+                    "riderid": "71762164",
+                    "name": "Kelly Chimaobi",
+                    "address": "Aso housing estate, lugbe",
+                    "phone_number": "07081131771",
+                    "phone_code": "234",
+                    "email": "kyl@gmail.com",
+                    "vehicle_plate_number": "Ae93480G",
+                    "photo": "https://usedora-bucket-dev.s3.amazonaws.com/photos/S97Eie0RU6bdafmq5OjV9HeZkuCYdL0UNaT4SP52.jpg",
+                    "total_completed_delivery": 0,
+                    "active": false,
+                    "number_of_ongoing_deliveries": 0,
+                    "total_revenue_by_rider": "0",
+                    "rider_ongoing_deliveries": null,
+                    "created_at": "2024-01-06T08:02:20.000000Z"
+                }
+            }
+        ],
+        "first_page_url": "http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    }
+}
+    ```
+</ResponseExample>
+
+

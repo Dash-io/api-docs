@@ -1,0 +1,3147 @@
+{
+	"info": {
+		"_postman_id": "7f89c6d3-3f81-4a7b-a2b2-a583c73e2153",
+		"name": "CLIENT APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25189471",
+		"_collection_link": "https://usedora.postman.co/workspace/Dora-API~255c3563-0244-4d76-aa0a-10550dec77be/collection/25189471-7f89c6d3-3f81-4a7b-a2b2-a583c73e2153?action=share&source=collection_link&creator=25189471"
+	},
+	"item": [
+		{
+			"name": "Deliveries",
+			"item": [
+				{
+					"name": "get deliveries",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries?paginate={{paginate}}&per_page={{per_page}}&filter=All&delivery_status=awaiting_pickup&search=john tondo",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "{{paginate}}",
+									"description": "can be 1 or 0"
+								},
+								{
+									"key": "per_page",
+									"value": "{{per_page}}"
+								},
+								{
+									"key": "filter",
+									"value": "All",
+									"description": "All|Last 3 days|Last 7 days|Last 14 days|Last Month"
+								},
+								{
+									"key": "start_date",
+									"value": "2023-08-31",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2023-09-02",
+									"disabled": true
+								},
+								{
+									"key": "delivery_status",
+									"value": "awaiting_pickup",
+									"description": "pending|awaiting_pickup|in_transit|delivered|cancelled|declined"
+								},
+								{
+									"key": "creation_mode",
+									"value": "manual",
+									"description": "automated|manual|via booking|imported",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "john tondo"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get deliveries",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries?delivery_status=awaiting_pickup&paginate={{paginate}}&per_page={{per_page}}&filter=Last 7 days",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries"
+									],
+									"query": [
+										{
+											"key": "delivery_status",
+											"value": "awaiting_pickup",
+											"description": "awaiting_pickup|in_transit|delivered|cancelled"
+										},
+										{
+											"key": "paginate",
+											"value": "{{paginate}}"
+										},
+										{
+											"key": "per_page",
+											"value": "{{per_page}}"
+										},
+										{
+											"key": "filter",
+											"value": "Last 7 days",
+											"description": "All|Last 3 days|Last 7 days|Last 14 days|Last Month"
+										},
+										{
+											"key": "start_date",
+											"value": "2023-08-31",
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": "2023-09-02",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Oct 2023 01:10:51 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Oct 2023 01:10:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deliveries retrieved successfully!\",\n    \"data\": {\n        \"delivery_counts\": {\n            \"overall_user_awaiting_pickup_deliveries\": 1,\n            \"overall_user_in_transit_deliveries\": 0,\n            \"overall_user_delivered_deliveries\": 0,\n            \"overall_user_cancelled_deliveries\": 0\n        },\n        \"deliveries\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"uuid\": \"4224a405-15c6-4579-9733-12620450d45c\",\n                    \"order_number\": \"021393049\",\n                    \"status\": \"Awaiting Pickup\",\n                    \"created_at\": \"2023-10-28T16:57:53.000000Z\",\n                    \"customer_detail\": {\n                        \"id\": \"8ddf85e3-436a-47f9-a9ec-5113cdb19979\",\n                        \"customer_name\": \"TundeNasri\",\n                        \"customer_email\": \"sinoma@gmail.com\",\n                        \"customer_state_id\": 304,\n                        \"customer_phone_number\": \"08065302534\",\n                        \"customer_phone_code\": \"234\",\n                        \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                        \"created_at\": \"2023-10-29T00:50:58.000000Z\"\n                    },\n                    \"delivery_detail\": {\n                        \"uuid\": \"b94aff30-ebe0-4439-a82d-a173773d78b5\",\n                        \"sender_name\": \"Ac Nice\",\n                        \"sender_phone\": \"08087168391\",\n                        \"sender_phonecode\": \"234\",\n                        \"sender_address\": \"T-pumpy estate, phase 20 lugbe, Abuja\",\n                        \"delivery_total_order_value\": \"10000.00\",\n                        \"delivery_number_of_parcels\": 1,\n                        \"delivery_unit_weight\": \"10.00\",\n                        \"created_at\": \"2023-10-29T00:50:58.000000Z\",\n                        \"updated_at\": \"2023-10-29T00:50:58.000000Z\"\n                    },\n                    \"items\": [\n                        {\n                            \"uuid\": \"416dbe29-434f-4cb6-bed5-ce7183176b8d\",\n                            \"item_description\": \"Freshfish\",\n                            \"item_quantity\": 1,\n                            \"item_weight\": \"10.00\",\n                            \"item_value\": \"10000.00\",\n                            \"created_at\": \"2023-10-28T22:08:57.000000Z\"\n                        },\n                        {\n                            \"uuid\": \"4ae72c0f-7fc7-4dfa-9d7e-6eebefb84c1a\",\n                            \"item_description\": \"Freshfish\",\n                            \"item_quantity\": 1,\n                            \"item_weight\": \"10.00\",\n                            \"item_value\": \"10000.00\",\n                            \"created_at\": \"2023-10-28T22:11:42.000000Z\"\n                        },\n                        {\n                            \"uuid\": \"e37d909e-a3f9-4443-9912-9c2befdf23db\",\n                            \"item_description\": \"Freshfish\",\n                            \"item_quantity\": 1,\n                            \"item_weight\": \"10.00\",\n                            \"item_value\": \"10000.00\",\n                            \"created_at\": \"2023-10-29T00:50:59.000000Z\"\n                        }\n                    ],\n                    \"organization_detail\": {\n                        \"uuid\": \"355c96cd-aa77-459e-9107-1223bea38f9b\",\n                        \"business_address\": \"Aso Housing Estate, Airport road, Abuja\",\n                        \"country_id\": 161,\n                        \"state_id\": 303,\n                        \"city\": \"Abuja\",\n                        \"logo\": \"https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/mwFmcQ7ppveoNULRwL3AEyKtwoHT2KViXte8AYJA.jpg\",\n                        \"created_at\": \"2023-10-15T10:57:05.000000Z\",\n                        \"updated_at\": \"2023-10-28T16:40:21.000000Z\"\n                    }\n                }\n            ],\n            \"first_page_url\": \"http://localhost:8000/api/deliveries?page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://localhost:8000/api/deliveries?page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://localhost:8000/api/deliveries?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://localhost:8000/api/deliveries\",\n            \"per_page\": 10,\n            \"prev_page_url\": null,\n            \"to\": 1,\n            \"total\": 1\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "move to in transit",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "delivery_uuid[0]",
+									"value": "{{delivery_uuid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/move_to_in_transit",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"move_to_in_transit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "move to in delivered",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "delivery_uuid[0]",
+									"value": "{{delivery_uuid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/move_to_delivered",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"move_to_delivered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sms estimate",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sender_address\" : \"Aso housing estate, lugbe Abuja\",\n    \"sender_phone_code\" : \"234\",\n    \"sender_phone\" : \"08087876762\",\n    \"customer_address\" : \"Grandeur squares and cubes estate, lugbe, abuja\",\n    \"customer_phonecode\" : \"234\",\n    \"customer_phone_number\" : \"08087876762\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/get_sms_estimate",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"get_sms_estimate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Feb 2024 17:02:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 26 Feb 2024 17:02:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"estimated_sms_charge\": 16,\n        \"currency\": \"₦\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create delivery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "riderid",
+									"value": "{{riderid}}",
+									"description": "Optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "sender_name",
+									"value": "Emmanuel Chinatuka",
+									"type": "text"
+								},
+								{
+									"key": "sender_address",
+									"value": "2 Umuleri street, Lagos",
+									"type": "text"
+								},
+								{
+									"key": "sender_phone",
+									"value": "08087168391",
+									"type": "text"
+								},
+								{
+									"key": "sender_phonecode",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "sender_email",
+									"value": "usedoranow@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "customer_name",
+									"value": "Chimaobi Nice",
+									"description": "Optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "customer_address",
+									"value": "12 Ahmadu Bello way, Central Business District, Abuja",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "customer_phone_number",
+									"value": "08065302534",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receivers[0][customer_phone_code]",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "customer_email",
+									"value": "chimaobinice@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receivers[0][items][0][item_description]",
+									"value": "Cupcake ingredients",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_quantity]",
+									"value": "4",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_value]",
+									"value": "1000",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_description]",
+									"value": "43500",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_description]",
+									"value": "Packaged makeup for mama emma's birthday celebration",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_quantity]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_value]",
+									"value": "43500",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][delivery_fee]",
+									"value": "3450",
+									"type": "text"
+								},
+								{
+									"key": "send_sms",
+									"value": "1",
+									"description": "True Or False",
+									"type": "text"
+								},
+								{
+									"key": "iam_sender",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "creation_date",
+									"value": "13-03-2024",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receivers[0][customer_name]",
+									"value": "Moses",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_address]",
+									"value": "Home",
+									"type": "text"
+								},
+								{
+									"key": "riderid",
+									"value": "ac6b9542-73dc-446d-9e1c-2f57405d662e",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receivers[0][customer_phone_number]",
+									"value": "07062423707",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][is_paid]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][customer_name]",
+									"value": "Okekeni",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][customer_phone_number]",
+									"value": "07062423707",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][customer_address]",
+									"value": "My home town",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][customer_phone_code]",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][delivery_fee]",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][items][0][item_value]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "receivers[1][items][0][item_description]",
+									"value": "Yam flour",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/create",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Delivery Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "riderid",
+											"value": "{{riderid}}",
+											"description": "Optional",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "sender_name",
+											"value": "Emmanuel Chinatuka",
+											"type": "text"
+										},
+										{
+											"key": "sender_address",
+											"value": "2 Umuleri street, Lagos",
+											"type": "text"
+										},
+										{
+											"key": "sender_phone",
+											"value": "08087168391",
+											"type": "text"
+										},
+										{
+											"key": "sender_phonecode",
+											"value": "234",
+											"type": "text"
+										},
+										{
+											"key": "sender_email",
+											"value": "usedoranow@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "customer_name",
+											"value": "Chimaobi Nice",
+											"description": "Optional",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "customer_address",
+											"value": "12 Ahmadu Bello way, Central Business District, Abuja",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "customer_phone_number",
+											"value": "08065302534",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "receivers[0][customer_phone_code]",
+											"value": "234",
+											"type": "text"
+										},
+										{
+											"key": "customer_email",
+											"value": "chimaobinice@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "items[0][item_description]",
+											"value": "Cupcake ingredients",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "items[0][item_quantity]",
+											"value": "4",
+											"description": "Optional",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "items[0][item_value]",
+											"value": "1000",
+											"description": "Optional",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "items[1][item_description]",
+											"value": "Packaged makeup for mama emma's birthday celebration",
+											"type": "text"
+										},
+										{
+											"key": "items[1][item_quantity]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "items[1][item_value]",
+											"value": "43500",
+											"type": "text"
+										},
+										{
+											"key": "delivery_fee",
+											"value": "3450",
+											"type": "text"
+										},
+										{
+											"key": "send_sms",
+											"value": "1",
+											"description": "True Or False",
+											"type": "text"
+										},
+										{
+											"key": "iam_sender",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "creation_date",
+											"value": "13-03-2024",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "receivers[0][customer_name]",
+											"value": "Moses",
+											"type": "text"
+										},
+										{
+											"key": "receivers[0][customer_address]",
+											"value": "Home",
+											"type": "text"
+										},
+										{
+											"key": "riderid",
+											"value": "ac6b9542-73dc-446d-9e1c-2f57405d662e",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "receivers[0][customer_phone_number]",
+											"value": "07062423707",
+											"type": "text"
+										},
+										{
+											"key": "is_paid",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "receivers[1][customer_name]",
+											"value": "Okekeni",
+											"type": "text"
+										},
+										{
+											"key": "receivers[1][customer_phone_number]",
+											"value": "07062423707",
+											"type": "text"
+										},
+										{
+											"key": "receivers[1][customer_address]",
+											"value": "My home town",
+											"type": "text"
+										},
+										{
+											"key": "receivers[1][customer_phone_code]",
+											"value": "234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/create",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 05 Dec 2024 16:16:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"uuid\": \"fa782a23-0e61-4148-b49e-75fb2ec352a8\",\n            \"order_number\": 11909599,\n            \"fleet_identity_number\": \"42714897\",\n            \"status\": \"Pending\",\n            \"status_label\": \"Pending\",\n            \"sender_longitude\": null,\n            \"sender_latitude\": null,\n            \"customer_longitude\": null,\n            \"customer_latitude\": null,\n            \"delivery_fee\": \"3450\",\n            \"service_charge\": null,\n            \"currency\": \"NGN\",\n            \"note\": null,\n            \"creation_mode\": null,\n            \"created_at\": \"2024-12-05T16:16:34.000000Z\",\n            \"pickup_at\": null,\n            \"dropoff_at\": null,\n            \"customer_detail\": {\n                \"uuid\": \"8582e220-0ce3-405a-8af5-9fcb685f71c7\",\n                \"customer_name\": \"Moses\",\n                \"customer_email\": null,\n                \"customer_phone_number\": \"07062423707\",\n                \"customer_phone_code\": \"234\",\n                \"customer_address\": \"Home\",\n                \"created_at\": \"2024-12-05T16:16:34.000000Z\"\n            },\n            \"sender_detail\": {\n                \"uuid\": \"5291b1c9-5b2e-40ec-974a-fbd2fe19576f\",\n                \"sender_name\": \"Enki Groups\",\n                \"sender_phone\": \"07062423707\",\n                \"sender_email\": \"ze@zivalogistics.com\",\n                \"sender_phonecode\": \"234\",\n                \"sender_address\": \"2 Umuleri street, Lagos\",\n                \"business_owned\": true,\n                \"created_at\": \"2024-07-01T18:11:16.000000Z\",\n                \"updated_at\": \"2024-07-01T18:11:16.000000Z\"\n            },\n            \"items\": [\n                {\n                    \"uuid\": \"b70594a3-6927-4afa-ba0f-7ed56d377b35\",\n                    \"item_description\": \"Packaged makeup for mama emma's birthday celebration\",\n                    \"item_quantity\": 2,\n                    \"item_value\": \"43500.00\",\n                    \"currency\": \"NGN\",\n                    \"created_at\": \"2024-12-05T16:16:34.000000Z\"\n                }\n            ],\n            \"rider_info\": null,\n            \"delivery_info_from_rider\": null,\n            \"is_paid\": true\n        },\n        {\n            \"uuid\": \"16b84f6a-eb79-4d60-a16a-8abb83a9af57\",\n            \"order_number\": 68826450,\n            \"fleet_identity_number\": \"42714897\",\n            \"status\": \"Pending\",\n            \"status_label\": \"Pending\",\n            \"sender_longitude\": null,\n            \"sender_latitude\": null,\n            \"customer_longitude\": null,\n            \"customer_latitude\": null,\n            \"delivery_fee\": \"3450\",\n            \"service_charge\": null,\n            \"currency\": \"NGN\",\n            \"note\": null,\n            \"creation_mode\": null,\n            \"created_at\": \"2024-12-05T16:16:36.000000Z\",\n            \"pickup_at\": null,\n            \"dropoff_at\": null,\n            \"customer_detail\": {\n                \"uuid\": \"de3cbc3f-f51a-4175-8d4e-4bc69e3262ff\",\n                \"customer_name\": \"Okekeni\",\n                \"customer_email\": null,\n                \"customer_phone_number\": \"07062423707\",\n                \"customer_phone_code\": \"234\",\n                \"customer_address\": \"My home town\",\n                \"created_at\": \"2024-12-05T16:16:36.000000Z\"\n            },\n            \"sender_detail\": {\n                \"uuid\": \"5291b1c9-5b2e-40ec-974a-fbd2fe19576f\",\n                \"sender_name\": \"Enki Groups\",\n                \"sender_phone\": \"07062423707\",\n                \"sender_email\": \"ze@zivalogistics.com\",\n                \"sender_phonecode\": \"234\",\n                \"sender_address\": \"2 Umuleri street, Lagos\",\n                \"business_owned\": true,\n                \"created_at\": \"2024-07-01T18:11:16.000000Z\",\n                \"updated_at\": \"2024-07-01T18:11:16.000000Z\"\n            },\n            \"items\": [\n                {\n                    \"uuid\": \"9c4ffd05-5295-406d-aea2-162ccf675e1b\",\n                    \"item_description\": \"Packaged makeup for mama emma's birthday celebration\",\n                    \"item_quantity\": 2,\n                    \"item_value\": \"43500.00\",\n                    \"currency\": \"NGN\",\n                    \"created_at\": \"2024-12-05T16:16:36.000000Z\"\n                }\n            ],\n            \"rider_info\": null,\n            \"delivery_info_from_rider\": null,\n            \"is_paid\": true\n        }\n    ],\n    \"message\": \"Delivery created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get delivery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/get/{{delivery_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"get",
+								"{{delivery_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get delivery",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/get/{{delivery_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"get",
+										"{{delivery_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 02:02:43 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 02:02:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"b0febc7b-91a0-43d2-a933-fc1c27dd25c3\",\n        \"order_number\": \"531886487269\",\n        \"fleet_id\": null,\n        \"status\": \"Awaiting Pickup\",\n        \"delivery_type\": \"intra_state\",\n        \"sender_longitude\": \"7.3445666\",\n        \"sender_latitude\": \"8.95625\",\n        \"customer_longitude\": \"7.4974495\",\n        \"customer_latitude\": \"9.0339358\",\n        \"delivery_fee\": \"3000\",\n        \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n        \"customer_detail\": {\n            \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n            \"customer_name\": \"TundeNasri\",\n            \"customer_email\": null,\n            \"customer_phone_number\": \"08065302534\",\n            \"customer_phone_code\": \"234\",\n            \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n            \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n        },\n        \"sender_detail\": {\n            \"uuid\": \"2743f3a5-b692-4c10-99f7-b3b941f0c3eb\",\n            \"sender_name\": \"Nuel Geek\",\n            \"sender_phone\": \"08087168391\",\n            \"sender_email\": null,\n            \"sender_phonecode\": \"234\",\n            \"sender_address\": \"Aso housing estate, lugbe\",\n            \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n            \"updated_at\": \"2023-12-05T01:02:02.000000Z\"\n        },\n        \"items\": [\n            {\n                \"uuid\": \"a67c925e-c9bd-4829-ac2b-c429437f50e1\",\n                \"item_description\": \"Freshfish\",\n                \"item_quantity\": 1,\n                \"item_value\": \"10000.00\",\n                \"created_at\": \"2023-12-05T01:02:02.000000Z\"\n            }\n        ],\n        \"organization_detail\": {\n            \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n            \"fleet_identity_number\": null,\n            \"business_address\": null,\n            \"phone_number\": \"8081939285\",\n            \"phone_code\": \"234\",\n            \"logo\": null,\n            \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n            \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "assign delivery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "delivery_uuid[]",
+									"value": "ae96e085-30fa-4997-86ec-75015771705c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/assign/{{rider_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"assign",
+								"{{rider_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "assign delivery",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "delivery_uuid[0]",
+											"value": "{{delivery_uuid}}",
+											"type": "text"
+										},
+										{
+											"key": "delivery_uuid[1]",
+											"value": "e207ecc7-dcab-439e-88e8-f3e630e53697",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/assign/{{rider_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"assign",
+										"{{rider_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Dec 2023 12:44:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Dec 2023 12:44:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"uuid\": \"e207ecc7-dcab-439e-88e8-f3e630e53697\",\n            \"order_number\": \"387451602924\",\n            \"fleet_id\": null,\n            \"status\": \"Awaiting Pickup\",\n            \"delivery_type\": \"intra_state\",\n            \"sender_longitude\": \"7.3445666\",\n            \"sender_latitude\": \"8.95625\",\n            \"customer_longitude\": \"7.4974495\",\n            \"customer_latitude\": \"9.0339358\",\n            \"delivery_fee\": \"NGN3,000.00\",\n            \"created_at\": \"2023-12-05T00:51:00.000000Z\",\n            \"customer_detail\": {\n                \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                \"customer_name\": \"TundeNasri\",\n                \"customer_email\": null,\n                \"customer_phone_number\": \"08065302534\",\n                \"customer_phone_code\": \"234\",\n                \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n            },\n            \"sender_detail\": {\n                \"uuid\": \"cadb63c6-577b-4b30-ac6a-c4ca30884631\",\n                \"sender_name\": \"Nuel Geek\",\n                \"sender_phone\": \"08087168391\",\n                \"sender_email\": null,\n                \"sender_phonecode\": \"234\",\n                \"sender_address\": \"Aso housing estate, lugbe\",\n                \"created_at\": \"2023-12-05T00:51:00.000000Z\",\n                \"updated_at\": \"2023-12-05T00:51:00.000000Z\"\n            },\n            \"items\": [\n                {\n                    \"uuid\": \"68222706-82e4-4a30-a298-c64bd6240f99\",\n                    \"item_description\": \"Freshfish\",\n                    \"item_quantity\": 1,\n                    \"item_value\": \"10000.00\",\n                    \"created_at\": \"2023-12-05T00:51:00.000000Z\"\n                }\n            ]\n        },\n        {\n            \"uuid\": \"b0febc7b-91a0-43d2-a933-fc1c27dd25c3\",\n            \"order_number\": \"531886487269\",\n            \"fleet_id\": null,\n            \"status\": \"In Transit\",\n            \"delivery_type\": \"state_to_state\",\n            \"sender_longitude\": \"3.3096414\",\n            \"sender_latitude\": \"6.5352628\",\n            \"customer_longitude\": \"7.4974495\",\n            \"customer_latitude\": \"9.0339358\",\n            \"delivery_fee\": \"NGN3,000.00\",\n            \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n            \"customer_detail\": {\n                \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                \"customer_name\": \"TundeNasri\",\n                \"customer_email\": null,\n                \"customer_phone_number\": \"08065302534\",\n                \"customer_phone_code\": \"234\",\n                \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n            },\n            \"sender_detail\": {\n                \"uuid\": \"2743f3a5-b692-4c10-99f7-b3b941f0c3eb\",\n                \"sender_name\": \"Nuel Geek\",\n                \"sender_phone\": \"08087168391\",\n                \"sender_email\": null,\n                \"sender_phonecode\": \"234\",\n                \"sender_address\": \"2 Umuleri street, Lagos\",\n                \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n                \"updated_at\": \"2023-12-06T00:45:41.000000Z\"\n            },\n            \"items\": [\n                {\n                    \"uuid\": \"cbf13cbb-b817-42ce-b948-12344ff7507f\",\n                    \"item_description\": \"Freshfish\",\n                    \"item_quantity\": 1,\n                    \"item_value\": \"10000.00\",\n                    \"created_at\": \"2023-12-06T00:45:41.000000Z\"\n                },\n                {\n                    \"uuid\": \"7cf6577f-c6e1-40fa-aa98-443ca27cdc3f\",\n                    \"item_description\": \"Freshfish\",\n                    \"item_quantity\": 1,\n                    \"item_value\": \"10000.00\",\n                    \"created_at\": \"2023-12-06T01:00:27.000000Z\"\n                },\n                {\n                    \"uuid\": \"a758c1cb-011a-4f96-9f5e-249bff763e07\",\n                    \"item_description\": \"Canno Camera\",\n                    \"item_quantity\": 1,\n                    \"item_value\": \"30000.00\",\n                    \"created_at\": \"2023-12-06T01:00:54.000000Z\"\n                },\n                {\n                    \"uuid\": \"a67c925e-c9bd-4829-ac2b-c429437f50e1\",\n                    \"item_description\": \"Eva soap pack\",\n                    \"item_quantity\": 1,\n                    \"item_value\": \"4000.00\",\n                    \"created_at\": \"2023-12-05T01:02:02.000000Z\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete delivery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/delete/{{delivery_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"delete",
+								"{{delivery_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete delivery",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/delete/{{delivery_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"delete",
+										"{{delivery_uuid}}"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 10:19:31 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 10:19:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Delivery does not exist or may have been processed!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete multiple deliveries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "delivery_uuid[]",
+									"value": "{{delivery_uuid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/delete_multiple_deliveries",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"delete_multiple_deliveries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete multiple deliveries",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "delivery_uuid[]",
+											"value": "{{delivery_uuid}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/delete_multiple_deliveries",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"delete_multiple_deliveries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 16:40:09 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Dec 2023 16:40:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Deliveries deleted.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update delivery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sender_name",
+									"value": "Nuel Geek",
+									"type": "text"
+								},
+								{
+									"key": "sender_address",
+									"value": "2 Umuleri street, Lagos",
+									"type": "text"
+								},
+								{
+									"key": "sender_phone",
+									"value": "08087168391",
+									"type": "text"
+								},
+								{
+									"key": "sender_phonecode",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "sender_email",
+									"value": "sender@example.com",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_name]",
+									"value": "TundeNasri",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_address]",
+									"value": "TundeNasri",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_address]",
+									"value": "TundeNasri",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_address]",
+									"value": "12 Ahmadu Bello way, Central Business District, Abuja",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_phone_number]",
+									"value": "08065302534",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_phone_code]",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][customer_email]",
+									"value": "sinoma@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_uuid]",
+									"value": "{{item_uuid}}",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_description]",
+									"value": "Eva soap pack for me",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_quantity]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][0][item_value]",
+									"value": "4000",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_description]",
+									"value": "Cannon Camera",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_quantity]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "receivers[0][items][1][item_value]",
+									"value": "30000",
+									"type": "text"
+								},
+								{
+									"key": "delivery_fee",
+									"value": "3000",
+									"type": "text"
+								},
+								{
+									"key": "send_sms",
+									"value": "1",
+									"description": "True Or False",
+									"type": "text"
+								},
+								{
+									"key": "creation_date",
+									"value": "13-03-2024",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receivers[0][customer_detail_id]",
+									"value": "4d012972-e3b7-46c7-9362-5409fef8ba6d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/update/ae96e085-30fa-4997-86ec-75015771705c",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"update",
+								"ae96e085-30fa-4997-86ec-75015771705c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update delivery",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "riderid",
+											"value": "{{riderid}}",
+											"type": "text"
+										},
+										{
+											"key": "sender_name",
+											"value": "Nuel Geek",
+											"type": "text"
+										},
+										{
+											"key": "sender_address",
+											"value": "2 Umuleri street, Lagos",
+											"type": "text"
+										},
+										{
+											"key": "sender_phone",
+											"value": "08087168391",
+											"type": "text"
+										},
+										{
+											"key": "sender_phonecode",
+											"value": "234",
+											"type": "text"
+										},
+										{
+											"key": "sender_email",
+											"value": "sender@example.com",
+											"type": "text"
+										},
+										{
+											"key": "customer_name",
+											"value": "TundeNasri",
+											"type": "text"
+										},
+										{
+											"key": "customer_address",
+											"value": "12 Ahmadu Bello way, Central Business District, Abuja",
+											"type": "text"
+										},
+										{
+											"key": "customer_phone_number",
+											"value": "08065302534",
+											"type": "text"
+										},
+										{
+											"key": "customer_phone_code",
+											"value": "234",
+											"type": "text"
+										},
+										{
+											"key": "customer_email",
+											"value": "sinoma@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "items[0][item_uuid]",
+											"value": "{{item_uuid}}",
+											"type": "text"
+										},
+										{
+											"key": "items[0][item_description]",
+											"value": "Eva soap pack",
+											"type": "text"
+										},
+										{
+											"key": "items[0][item_quantity]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "items[0][item_value]",
+											"value": "4000",
+											"type": "text"
+										},
+										{
+											"key": "items[1][item_description]",
+											"value": "Cannon Camera",
+											"type": "text"
+										},
+										{
+											"key": "items[1][item_quantity]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "items[1][item_value]",
+											"value": "30000",
+											"type": "text"
+										},
+										{
+											"key": "delivery_fee",
+											"value": "3000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/update/{{delivery_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"update",
+										"{{delivery_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 01:03:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Dec 2023 01:03:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "60"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"b0febc7b-91a0-43d2-a933-fc1c27dd25c3\",\n        \"order_number\": \"531886487269\",\n        \"fleet_id\": null,\n        \"status\": \"Awaiting Pickup\",\n        \"delivery_type\": \"state_to_state\",\n        \"sender_longitude\": 3.3096414,\n        \"sender_latitude\": 6.5352628,\n        \"customer_longitude\": 7.4974495,\n        \"customer_latitude\": 9.0339358,\n        \"delivery_fee\": \"3000\",\n        \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n        \"customer_detail\": {\n            \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n            \"customer_name\": \"TundeNasri\",\n            \"customer_email\": null,\n            \"customer_phone_number\": \"08065302534\",\n            \"customer_phone_code\": \"234\",\n            \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n            \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n        },\n        \"sender_detail\": {\n            \"uuid\": \"2743f3a5-b692-4c10-99f7-b3b941f0c3eb\",\n            \"sender_name\": \"Nuel Geek\",\n            \"sender_phone\": \"08087168391\",\n            \"sender_email\": null,\n            \"sender_phonecode\": \"234\",\n            \"sender_address\": \"2 Umuleri street, Lagos\",\n            \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n            \"updated_at\": \"2023-12-06T00:45:41.000000Z\"\n        },\n        \"items\": [\n            {\n                \"uuid\": \"cbf13cbb-b817-42ce-b948-12344ff7507f\",\n                \"item_description\": \"Freshfish\",\n                \"item_quantity\": 1,\n                \"item_value\": \"10000.00\",\n                \"created_at\": \"2023-12-06T00:45:41.000000Z\"\n            },\n            {\n                \"uuid\": \"7cf6577f-c6e1-40fa-aa98-443ca27cdc3f\",\n                \"item_description\": \"Freshfish\",\n                \"item_quantity\": 1,\n                \"item_value\": \"10000.00\",\n                \"created_at\": \"2023-12-06T01:00:27.000000Z\"\n            },\n            {\n                \"uuid\": \"a758c1cb-011a-4f96-9f5e-249bff763e07\",\n                \"item_description\": \"Canno Camera\",\n                \"item_quantity\": 1,\n                \"item_value\": \"30000.00\",\n                \"created_at\": \"2023-12-06T01:00:54.000000Z\"\n            },\n            {\n                \"uuid\": \"a67c925e-c9bd-4829-ac2b-c429437f50e1\",\n                \"item_description\": \"Eva soap pack\",\n                \"item_quantity\": 1,\n                \"item_value\": \"4000.00\",\n                \"created_at\": \"2023-12-05T01:02:02.000000Z\"\n            }\n        ],\n        \"organization_detail\": {\n            \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n            \"fleet_identity_number\": null,\n            \"business_address\": null,\n            \"phone_number\": \"8081939285\",\n            \"phone_code\": \"234\",\n            \"logo\": null,\n            \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n            \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n        }\n    },\n    \"message\": \"Delivery updated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "download pdf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/download_pdf/{{delivery_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"download_pdf",
+								"{{delivery_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "download pdf",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/download_pdf/{{delivery_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"download_pdf",
+										"{{delivery_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jan 2024 23:32:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jan 2024 23:32:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"pdf generated.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update delivery status",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "delivery_uuid",
+									"value": "{{delivery_uuid}}",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "in_transit",
+									"description": "accepted | in_transit | delivered | cancelled",
+									"type": "text"
+								},
+								{
+									"key": "pickup_otp",
+									"value": "097857",
+									"description": "required if status is in_transit",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "dropoff_otp",
+									"value": "098798",
+									"description": "required if status is delivered",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "note",
+									"value": "Reason for cancellation",
+									"description": "Reason for cancellation",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/deliveries/update_status",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"deliveries",
+								"update_status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update delivery status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "delivery_uuid",
+											"value": "e85616da-906c-4984-8980-069e7f3b2cd9",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "accepted",
+											"description": "accepted | in_transit | delivered | cancelled\n",
+											"type": "text"
+										},
+										{
+											"key": "pickup_otp",
+											"value": "097857",
+											"description": "required if status is in_transit",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "dropoff_otp",
+											"value": "098798",
+											"description": "required if status is delivered",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/deliveries/update_status",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"deliveries",
+										"update_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 18:46:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 18:46:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"e85616da-906c-4984-8980-069e7f3b2cd9\",\n        \"order_number\": \"664481112612\",\n        \"status\": \"Order Accepted\",\n        \"delivery_type\": \"intra_state\",\n        \"sender_longitude\": \"7.4724033\",\n        \"sender_latitude\": \"9.0820999\",\n        \"customer_longitude\": \"7.4974495\",\n        \"customer_latitude\": \"9.0339358\",\n        \"created_at\": \"2023-10-30T18:45:33.000000Z\",\n        \"customer_detail\": {\n            \"id\": \"8670aeb6-8299-4f0f-8915-31c7db66a7c0\",\n            \"customer_name\": \"TundeNasri\",\n            \"customer_email\": \"sinoma@gmail.com\",\n            \"customer_state_id\": 304,\n            \"customer_phone_number\": \"08065302534\",\n            \"customer_phone_code\": \"234\",\n            \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n            \"created_at\": \"2023-10-30T18:45:33.000000Z\"\n        },\n        \"delivery_detail\": {\n            \"uuid\": \"dc09555f-42ac-426b-963c-7d301ea4deb3\",\n            \"sender_name\": \"Ac Nice\",\n            \"sender_phone\": \"08087168391\",\n            \"sender_phonecode\": \"234\",\n            \"sender_address\": \"T-pumpy estate, phase 20 lugbe, Abuja\",\n            \"delivery_total_order_value\": \"10000.00\",\n            \"delivery_number_of_parcels\": 1,\n            \"delivery_unit_weight\": \"10.00\",\n            \"created_at\": \"2023-10-30T18:45:33.000000Z\",\n            \"updated_at\": \"2023-10-30T18:45:33.000000Z\"\n        },\n        \"items\": [\n            {\n                \"uuid\": \"aee2ca50-bed0-40b3-90da-534097c39f91\",\n                \"item_description\": \"Freshfish\",\n                \"item_quantity\": 1,\n                \"item_weight\": \"10.00\",\n                \"item_value\": \"10000.00\",\n                \"created_at\": \"2023-10-30T18:45:33.000000Z\"\n            }\n        ],\n        \"organization_detail\": {\n            \"uuid\": \"355c96cd-aa77-459e-9107-1223bea38f9b\",\n            \"business_address\": \"Aso Housing Estate, Airport road, Abuja\",\n            \"country_id\": 161,\n            \"state_id\": 303,\n            \"city\": \"Abuja\",\n            \"logo\": \"https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/mwFmcQ7ppveoNULRwL3AEyKtwoHT2KViXte8AYJA.jpg\",\n            \"created_at\": \"2023-10-15T10:57:05.000000Z\",\n            \"updated_at\": \"2023-10-28T16:40:21.000000Z\"\n        }\n    },\n    \"message\": \"Delivery status updated\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Riders",
+			"item": [
+				{
+					"name": "create rider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.environment.set('rider_uuid', response.data.uuid);",
+									"pm.environment.set('riderid', response.data.riderid);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rider_emails\":[\"angwamoses@gmail.com\", \"moses@gmail.com\", \"dora@gmail.com\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/create",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create rider",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rider_name",
+											"value": "Nice Chimaobi",
+											"type": "text"
+										},
+										{
+											"key": "rider_address",
+											"value": "Aso housing estate, lugbe",
+											"type": "text"
+										},
+										{
+											"key": "rider_email",
+											"value": "king@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "rider_phone",
+											"value": "08028492844",
+											"type": "text"
+										},
+										{
+											"key": "rider_phonecode",
+											"value": "234",
+											"type": "text"
+										},
+										{
+											"key": "vehicle_plate_number",
+											"value": "Ae93480G",
+											"type": "text"
+										},
+										{
+											"key": "rider_photo",
+											"type": "file",
+											"src": "/Users/cosmoremit/Documents/nice.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/create",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 07:48:07 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 07:48:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc\",\n        \"riderid\": 45689646,\n        \"name\": \"Nice Chimaobi\",\n        \"address\": \"Aso housing estate, lugbe\",\n        \"phone_number\": \"08028492844\",\n        \"phone_code\": \"234\",\n        \"email\": \"king@gmail.com\",\n        \"vehicle_plate_number\": \"Ae93480G\",\n        \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/oNhnn9x1fxoiPkJ3kbJUxYWNa6L4iusIChYI2B8G.jpg\",\n        \"created_at\": \"2023-12-03T07:47:46.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get riders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.environment.set('rider_uuid', response.data.riders.data[0].uuid);",
+									"pm.environment.set('riderid', response.data.riders.data[0].riderid);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders?paginate=1&per_page=10&get_ongoing_deliveries=1",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								},
+								{
+									"key": "active",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "get_ongoing_deliveries",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get riders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders?paginate=1&per_page=10&active=0&get_ongoing_deliveries=1",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders"
+									],
+									"query": [
+										{
+											"key": "paginate",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										},
+										{
+											"key": "active",
+											"value": "0"
+										},
+										{
+											"key": "get_ongoing_deliveries",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Jan 2024 22:09:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Jan 2024 22:09:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_number_of_riders\": 2,\n        \"total_active_riders\": 1,\n        \"total_deactivated_riders\": 1,\n        \"total_number_of_fulfilled_orders\": 0,\n        \"total_revenue\": 0,\n        \"riders\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"uuid\": \"69234d24-61c1-4d68-a232-7a04d71f2b0e\",\n                    \"riderid\": \"71762164\",\n                    \"name\": \"Kelly Chimaobi\",\n                    \"address\": \"Aso housing estate, lugbe\",\n                    \"phone_number\": \"07081131771\",\n                    \"phone_code\": \"234\",\n                    \"email\": \"kyl@gmail.com\",\n                    \"vehicle_plate_number\": \"Ae93480G\",\n                    \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/S97Eie0RU6bdafmq5OjV9HeZkuCYdL0UNaT4SP52.jpg\",\n                    \"total_completed_delivery\": 0,\n                    \"active\": false,\n                    \"number_of_ongoing_deliveries\": 1,\n                    \"total_revenue_by_rider\": null,\n                    \"rider_ongoing_deliveries\": [\n                        {\n                            \"uuid\": \"4560f59a-d071-4854-a098-2978ba373004\",\n                            \"order_number\": \"14192541\",\n                            \"fleet_identity_number\": \"68316349\",\n                            \"status\": \"Awaiting-Pickup\",\n                            \"delivery_type\": \"intra_state\",\n                            \"sender_longitude\": null,\n                            \"sender_latitude\": null,\n                            \"customer_longitude\": null,\n                            \"customer_latitude\": null,\n                            \"delivery_fee\": \"NGN3,000.00\",\n                            \"note\": null,\n                            \"created_at\": \"2024-01-06T17:02:09.000000Z\",\n                            \"customer_detail\": {\n                                \"uuid\": \"21803e28-08b7-4b23-b3f6-49161f8a6a4c\",\n                                \"customer_name\": \"TundeNasri\",\n                                \"customer_email\": null,\n                                \"customer_phone_number\": \"08065302534\",\n                                \"customer_phone_code\": \"234\",\n                                \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                                \"created_at\": \"2024-01-06T07:28:13.000000Z\"\n                            },\n                            \"sender_detail\": {\n                                \"uuid\": \"62c70575-366c-44c3-893e-504abce1f667\",\n                                \"sender_name\": \"Nuel Geek\",\n                                \"sender_phone\": \"08087168391\",\n                                \"sender_email\": null,\n                                \"sender_phonecode\": \"234\",\n                                \"sender_address\": \"2 Umuleri street, Lagos\",\n                                \"created_at\": \"2024-01-06T17:02:09.000000Z\",\n                                \"updated_at\": \"2024-01-06T17:03:26.000000Z\"\n                            },\n                            \"items\": [\n                                {\n                                    \"uuid\": \"99594223-8c39-49be-aefb-a1704e2e2650\",\n                                    \"item_description\": \"Packaged makeup for mama emma's birthday celebration\",\n                                    \"item_quantity\": 2,\n                                    \"item_value\": \"43500.00\",\n                                    \"currency\": \"NGN\",\n                                    \"created_at\": \"2024-01-06T17:02:09.000000Z\"\n                                },\n                                {\n                                    \"uuid\": \"801f2638-4a26-444d-9409-c5f54667e449\",\n                                    \"item_description\": \"Eva soap pack\",\n                                    \"item_quantity\": 1,\n                                    \"item_value\": \"4000.00\",\n                                    \"currency\": \"NGN\",\n                                    \"created_at\": \"2024-01-06T17:03:26.000000Z\"\n                                },\n                                {\n                                    \"uuid\": \"68751dcf-4440-4b51-9dbc-9e161b21ce2b\",\n                                    \"item_description\": \"Cannon Camera\",\n                                    \"item_quantity\": 1,\n                                    \"item_value\": \"30000.00\",\n                                    \"currency\": \"NGN\",\n                                    \"created_at\": \"2024-01-06T17:03:26.000000Z\"\n                                }\n                            ]\n                        }\n                    ],\n                    \"created_at\": \"2024-01-06T08:02:20.000000Z\"\n                }\n            ],\n            \"first_page_url\": \"http://127.0.0.1:8000/api/riders?page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://127.0.0.1:8000/api/riders?page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/riders?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://127.0.0.1:8000/api/riders\",\n            \"per_page\": 10,\n            \"prev_page_url\": null,\n            \"to\": 1,\n            \"total\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "get riders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders?paginate=1&per_page=10&active=1&get_ongoing_deliveries=1",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders"
+									],
+									"query": [
+										{
+											"key": "paginate",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										},
+										{
+											"key": "active",
+											"value": "1"
+										},
+										{
+											"key": "get_ongoing_deliveries",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 16:21:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_number_of_riders\": 2,\n        \"total_active_riders\": 2,\n        \"total_deactivated_riders\": 0,\n        \"total_number_of_fulfilled_orders\": 9,\n        \"total_revenue\": 31050,\n        \"riders\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"uuid\": \"1550c152-2523-4f3d-931e-92ce8a4c80cc\",\n                    \"riderid\": \"1550c152-2523-4f3d-931e-92ce8a4c80cc\",\n                    \"name\": \"Moses\",\n                    \"address\": \"My home\",\n                    \"phone_number\": \"07089183428\",\n                    \"phone_code\": \"234\",\n                    \"email\": \"angwamoses@gmail.com\",\n                    \"vehicle_plate_number\": null,\n                    \"photo\": null,\n                    \"total_completed_delivery\": 0,\n                    \"invite_status\": \"accepted\",\n                    \"active\": true,\n                    \"number_of_ongoing_deliveries\": 8,\n                    \"total_revenue_by_rider\": 0,\n                    \"created_at\": \"2024-07-01T17:55:49.000000Z\"\n                },\n                {\n                    \"uuid\": \"2e3203da-e7b3-4344-aa99-ab456cdb4c53\",\n                    \"riderid\": \"2e3203da-e7b3-4344-aa99-ab456cdb4c53\",\n                    \"name\": \"johnnydoe@gmail.com\",\n                    \"address\": null,\n                    \"phone_number\": null,\n                    \"phone_code\": \"234\",\n                    \"email\": \"johnnydoe@gmail.com\",\n                    \"vehicle_plate_number\": null,\n                    \"photo\": null,\n                    \"total_completed_delivery\": 0,\n                    \"invite_status\": \"accepted\",\n                    \"active\": true,\n                    \"number_of_ongoing_deliveries\": 0,\n                    \"total_revenue_by_rider\": 0,\n                    \"created_at\": \"2024-07-19T16:17:28.000000Z\"\n                }\n            ],\n            \"first_page_url\": \"http://127.0.0.1:8000/api/riders?paginate=1&per_page=10&active=1&get_ongoing_deliveries=1&page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://127.0.0.1:8000/api/riders?paginate=1&per_page=10&active=1&get_ongoing_deliveries=1&page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/riders?paginate=1&per_page=10&active=1&get_ongoing_deliveries=1&page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://127.0.0.1:8000/api/riders?paginate=1&per_page=10&active=1&get_ongoing_deliveries=1\",\n            \"per_page\": 10,\n            \"prev_page_url\": null,\n            \"to\": 2,\n            \"total\": 2\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "activate riders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rider_uuids[]",
+									"value": "{{rider_uuid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/activate",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"activate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "activate or remove rider",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/change_status/{{rider_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"change_status",
+										"{{rider_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 12:23:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 12:23:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc\",\n        \"riderid\": \"45689646\",\n        \"name\": \"Nice Chimaobi\",\n        \"address\": \"Aso housing estate, lugbe\",\n        \"phone_number\": \"08028492844\",\n        \"phone_code\": \"234\",\n        \"email\": \"king@gmail.com\",\n        \"vehicle_plate_number\": \"Ae93480G\",\n        \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/oNhnn9x1fxoiPkJ3kbJUxYWNa6L4iusIChYI2B8G.jpg\",\n        \"total_completed_delivery\": 0,\n        \"active\": false,\n        \"created_at\": \"2023-12-03T07:47:46.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get rider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/get/{{rider_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"get",
+								"{{rider_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get rider",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/get/9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc?get_ongoing_deliveries=1",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"get",
+										"9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc"
+									],
+									"query": [
+										{
+											"key": "get_ongoing_deliveries",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:15:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Dec 2023 18:15:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc\",\n        \"riderid\": \"45689646\",\n        \"name\": \"Kelly Chimaobi\",\n        \"address\": \"Aso housing estate, lugbe\",\n        \"phone_number\": \"08028492844\",\n        \"phone_code\": \"234\",\n        \"email\": \"king@gmail.com\",\n        \"vehicle_plate_number\": \"Ae93480G\",\n        \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/CvvdCXduNkboQLuaMOm00FnAFmIZH7EoU5bjWstL.jpg\",\n        \"total_completed_delivery\": 0,\n        \"active\": true,\n        \"number_of_ongoing_deliveries\": 6,\n        \"ongoing_deliveries\": [\n            {\n                \"uuid\": \"ed05dfc1-a055-46b2-b2e6-679005749ef7\",\n                \"order_number\": \"190482668017\",\n                \"fleet_id\": null,\n                \"status\": \"Awaiting Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": \"7.3445666\",\n                \"sender_latitude\": \"8.95625\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-04T22:04:44.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"aeb0e264-73bf-4a92-b089-6aa01f1d87f3\",\n                    \"sender_name\": \"Ac Nice\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"Aso housing estate, lugbe\",\n                    \"created_at\": \"2023-12-04T22:04:44.000000Z\",\n                    \"updated_at\": \"2023-12-04T22:04:44.000000Z\"\n                },\n                \"items\": [],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            },\n            {\n                \"uuid\": \"1f42c4f9-5b57-42b8-96b7-77b07d282d85\",\n                \"order_number\": \"952080652375\",\n                \"fleet_id\": null,\n                \"status\": \"Awaiting Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": \"7.3445666\",\n                \"sender_latitude\": \"8.95625\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-04T22:27:13.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"cce0d5df-c1cb-4fed-b1a7-29677b585a5d\",\n                    \"sender_name\": \"Ac Nice\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"Aso housing estate, lugbe\",\n                    \"created_at\": \"2023-12-04T22:27:13.000000Z\",\n                    \"updated_at\": \"2023-12-04T22:27:13.000000Z\"\n                },\n                \"items\": [],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            },\n            {\n                \"uuid\": \"0b4f765e-4ef1-4649-86fd-65c6c4d5f882\",\n                \"order_number\": \"337850592853\",\n                \"fleet_id\": null,\n                \"status\": \"Awaiting Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": \"7.3445666\",\n                \"sender_latitude\": \"8.95625\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-05T00:50:10.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"aecc7eb3-f0ca-40aa-9b9a-5ec4f520c1ef\",\n                    \"sender_name\": \"Ac Nice\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"Aso housing estate, lugbe\",\n                    \"created_at\": \"2023-12-05T00:50:10.000000Z\",\n                    \"updated_at\": \"2023-12-05T00:50:10.000000Z\"\n                },\n                \"items\": [\n                    {\n                        \"uuid\": \"05b19768-6711-4468-9412-48648101f557\",\n                        \"item_description\": \"Freshfish\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"10000.00\",\n                        \"created_at\": \"2023-12-05T00:50:10.000000Z\"\n                    }\n                ],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            },\n            {\n                \"uuid\": \"e207ecc7-dcab-439e-88e8-f3e630e53697\",\n                \"order_number\": \"387451602924\",\n                \"fleet_id\": null,\n                \"status\": \"Awaiting Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": \"7.3445666\",\n                \"sender_latitude\": \"8.95625\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-05T00:51:00.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"cadb63c6-577b-4b30-ac6a-c4ca30884631\",\n                    \"sender_name\": \"Nuel Geek\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"Aso housing estate, lugbe\",\n                    \"created_at\": \"2023-12-05T00:51:00.000000Z\",\n                    \"updated_at\": \"2023-12-05T00:51:00.000000Z\"\n                },\n                \"items\": [\n                    {\n                        \"uuid\": \"68222706-82e4-4a30-a298-c64bd6240f99\",\n                        \"item_description\": \"Freshfish\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"10000.00\",\n                        \"created_at\": \"2023-12-05T00:51:00.000000Z\"\n                    }\n                ],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            },\n            {\n                \"uuid\": \"65238f36-88db-477a-a9bc-738867ca2bab\",\n                \"order_number\": \"784051429645\",\n                \"fleet_id\": null,\n                \"status\": \"Awaiting Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": \"7.3445666\",\n                \"sender_latitude\": \"8.95625\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-05T01:01:18.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"536c2419-3041-4392-aa0f-d80eeddae637\",\n                    \"sender_name\": \"Nuel Geek\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"Aso housing estate, lugbe\",\n                    \"created_at\": \"2023-12-05T01:01:18.000000Z\",\n                    \"updated_at\": \"2023-12-05T01:01:18.000000Z\"\n                },\n                \"items\": [\n                    {\n                        \"uuid\": \"12d3f0e3-60a9-4455-9fbc-dbb2af959382\",\n                        \"item_description\": \"Freshfish\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"10000.00\",\n                        \"created_at\": \"2023-12-05T01:01:18.000000Z\"\n                    }\n                ],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            },\n            {\n                \"uuid\": \"b0febc7b-91a0-43d2-a933-fc1c27dd25c3\",\n                \"order_number\": \"531886487269\",\n                \"fleet_id\": null,\n                \"status\": \"In Transit\",\n                \"delivery_type\": \"state_to_state\",\n                \"sender_longitude\": \"3.3096414\",\n                \"sender_latitude\": \"6.5352628\",\n                \"customer_longitude\": \"7.4974495\",\n                \"customer_latitude\": \"9.0339358\",\n                \"delivery_fee\": \"NGN3,000.00\",\n                \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"caf911a3-7b66-4599-9b3a-aa26d7730e69\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": null,\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2023-12-04T22:03:06.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"2743f3a5-b692-4c10-99f7-b3b941f0c3eb\",\n                    \"sender_name\": \"Nuel Geek\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": null,\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"2 Umuleri street, Lagos\",\n                    \"created_at\": \"2023-12-05T01:02:02.000000Z\",\n                    \"updated_at\": \"2023-12-06T00:45:41.000000Z\"\n                },\n                \"items\": [\n                    {\n                        \"uuid\": \"cbf13cbb-b817-42ce-b948-12344ff7507f\",\n                        \"item_description\": \"Freshfish\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"10000.00\",\n                        \"created_at\": \"2023-12-06T00:45:41.000000Z\"\n                    },\n                    {\n                        \"uuid\": \"7cf6577f-c6e1-40fa-aa98-443ca27cdc3f\",\n                        \"item_description\": \"Freshfish\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"10000.00\",\n                        \"created_at\": \"2023-12-06T01:00:27.000000Z\"\n                    },\n                    {\n                        \"uuid\": \"a758c1cb-011a-4f96-9f5e-249bff763e07\",\n                        \"item_description\": \"Canno Camera\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"30000.00\",\n                        \"created_at\": \"2023-12-06T01:00:54.000000Z\"\n                    },\n                    {\n                        \"uuid\": \"a67c925e-c9bd-4829-ac2b-c429437f50e1\",\n                        \"item_description\": \"Eva soap pack\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"4000.00\",\n                        \"created_at\": \"2023-12-05T01:02:02.000000Z\"\n                    }\n                ],\n                \"organization_detail\": {\n                    \"uuid\": \"9a7519bc-a726-4bff-a9aa-e77d627e2688\",\n                    \"fleet_identity_number\": null,\n                    \"business_address\": null,\n                    \"phone_number\": \"8081939285\",\n                    \"phone_code\": \"234\",\n                    \"logo\": null,\n                    \"created_at\": \"2023-11-30T16:57:27.000000Z\",\n                    \"updated_at\": \"2023-11-30T16:57:27.000000Z\"\n                }\n            }\n        ],\n        \"created_at\": \"2023-12-03T07:47:46.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update rider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rider_name",
+									"value": "Nice Chimaobi",
+									"type": "text"
+								},
+								{
+									"key": "rider_address",
+									"value": "Aso housing estate, lugbe",
+									"type": "text"
+								},
+								{
+									"key": "rider_email",
+									"value": "king@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "rider_phone",
+									"value": "08028492844",
+									"type": "text"
+								},
+								{
+									"key": "rider_phonecode",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_plate_number",
+									"value": "Ae93480G",
+									"type": "text"
+								},
+								{
+									"key": "rider_photo",
+									"type": "file",
+									"src": "/Users/angwamosees/Downloads/106213587_953859015076456_6116743013412303382_n_529233967538965.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/update/{{rider_uuid}}",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"update",
+								"{{rider_uuid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update rider",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rider_name",
+											"value": "Kelly Chimaobi",
+											"type": "text"
+										},
+										{
+											"key": "rider_address",
+											"value": "Aso housing estate, lugbe",
+											"type": "text"
+										},
+										{
+											"key": "vehicle_plate_number",
+											"value": "Ae93480G",
+											"type": "text"
+										},
+										{
+											"key": "rider_photo",
+											"type": "file",
+											"src": "/Users/cosmoremit/Documents/nice.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/update/{{rider_uuid}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"update",
+										"{{rider_uuid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 19:47:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Dec 2023 19:47:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc\",\n        \"riderid\": \"45689646\",\n        \"name\": \"Kelly Chimaobi\",\n        \"address\": \"Aso housing estate, lugbe\",\n        \"phone_number\": \"08028492844\",\n        \"phone_code\": \"234\",\n        \"email\": \"king@gmail.com\",\n        \"vehicle_plate_number\": \"Ae93480G\",\n        \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/CvvdCXduNkboQLuaMOm00FnAFmIZH7EoU5bjWstL.jpg\",\n        \"total_completed_delivery\": 0,\n        \"active\": true,\n        \"created_at\": \"2023-12-03T07:47:46.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deactivate riders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rider_uuids[]",
+									"value": "{{rider_uuid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/deactivate",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"deactivate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deactivate riders",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rider_uuids[]",
+											"value": "{{rider_uuid}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/deactivate",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"deactivate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Jan 2024 19:35:14 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Jan 2024 19:35:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Riders deactivated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "rider delivery history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/delivery_history/{{rider_uuid}}?paginate=1&per_page=10",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"delivery_history",
+								"{{rider_uuid}}"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "rider delivery history",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/delivery_history/{{rider_uuid}}?paginate=1&per_page=10",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"delivery_history",
+										"{{rider_uuid}}"
+									],
+									"query": [
+										{
+											"key": "paginate",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jan 2024 02:10:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jan 2024 02:10:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"uuid\": \"4560f59a-d071-4854-a098-2978ba373004\",\n                \"order_number\": \"14192541\",\n                \"fleet_identity_number\": \"68316349\",\n                \"status\": \"Awaiting-Pickup\",\n                \"delivery_type\": \"intra_state\",\n                \"sender_longitude\": null,\n                \"sender_latitude\": null,\n                \"customer_longitude\": null,\n                \"customer_latitude\": null,\n                \"delivery_fee\": \"3000\",\n                \"currency\": \"NGN\",\n                \"note\": null,\n                \"creation_mode\": \"Manual\",\n                \"created_at\": \"2024-01-06T17:02:09.000000Z\",\n                \"customer_detail\": {\n                    \"uuid\": \"21803e28-08b7-4b23-b3f6-49161f8a6a4c\",\n                    \"customer_name\": \"TundeNasri\",\n                    \"customer_email\": \"sinoma@gmail.com\",\n                    \"customer_phone_number\": \"08065302534\",\n                    \"customer_phone_code\": \"234\",\n                    \"customer_address\": \"12 Ahmadu Bello way, Central Business District, Abuja\",\n                    \"created_at\": \"2024-01-06T07:28:13.000000Z\"\n                },\n                \"sender_detail\": {\n                    \"uuid\": \"62c70575-366c-44c3-893e-504abce1f667\",\n                    \"sender_name\": \"Nuel Geek\",\n                    \"sender_phone\": \"08087168391\",\n                    \"sender_email\": \"sender@example.com\",\n                    \"sender_phonecode\": \"234\",\n                    \"sender_address\": \"2 Umuleri street, Lagos\",\n                    \"created_at\": \"2024-01-06T17:02:09.000000Z\",\n                    \"updated_at\": \"2024-01-06T17:03:26.000000Z\"\n                },\n                \"items\": [\n                    {\n                        \"uuid\": \"99594223-8c39-49be-aefb-a1704e2e2650\",\n                        \"item_description\": \"Packaged makeup for mama emma's birthday celebration\",\n                        \"item_quantity\": 2,\n                        \"item_value\": \"43500.00\",\n                        \"currency\": \"NGN\",\n                        \"created_at\": \"2024-01-06T17:02:09.000000Z\"\n                    },\n                    {\n                        \"uuid\": \"801f2638-4a26-444d-9409-c5f54667e449\",\n                        \"item_description\": \"Eva soap pack\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"4000.00\",\n                        \"currency\": \"NGN\",\n                        \"created_at\": \"2024-01-06T17:03:26.000000Z\"\n                    },\n                    {\n                        \"uuid\": \"68751dcf-4440-4b51-9dbc-9e161b21ce2b\",\n                        \"item_description\": \"Cannon Camera\",\n                        \"item_quantity\": 1,\n                        \"item_value\": \"30000.00\",\n                        \"currency\": \"NGN\",\n                        \"created_at\": \"2024-01-06T17:03:26.000000Z\"\n                    }\n                ],\n                \"rider_info\": {\n                    \"uuid\": \"69234d24-61c1-4d68-a232-7a04d71f2b0e\",\n                    \"riderid\": \"71762164\",\n                    \"name\": \"Kelly Chimaobi\",\n                    \"address\": \"Aso housing estate, lugbe\",\n                    \"phone_number\": \"07081131771\",\n                    \"phone_code\": \"234\",\n                    \"email\": \"kyl@gmail.com\",\n                    \"vehicle_plate_number\": \"Ae93480G\",\n                    \"photo\": \"https://usedora-bucket-dev.s3.amazonaws.com/photos/S97Eie0RU6bdafmq5OjV9HeZkuCYdL0UNaT4SP52.jpg\",\n                    \"total_completed_delivery\": 0,\n                    \"active\": false,\n                    \"number_of_ongoing_deliveries\": 0,\n                    \"total_revenue_by_rider\": \"0\",\n                    \"rider_ongoing_deliveries\": null,\n                    \"created_at\": \"2024-01-06T08:02:20.000000Z\"\n                }\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/riders/delivery_history/69234d24-61c1-4d68-a232-7a04d71f2b0e\",\n        \"per_page\": 5,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update delivery pickup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/delivery/pickup?order_number=adafada&pickup_otp=746886",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"delivery",
+								"pickup"
+							],
+							"query": [
+								{
+									"key": "order_number",
+									"value": "adafada"
+								},
+								{
+									"key": "pickup_otp",
+									"value": "746886"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update delivery dropoff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/delivery/dropoff?order_number=adafada&dropoff_otp=746886",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"delivery",
+								"dropoff"
+							],
+							"query": [
+								{
+									"key": "order_number",
+									"value": "adafada"
+								},
+								{
+									"key": "dropoff_otp",
+									"value": "746886"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "e57b7b63-b3ed-4309-be37-b29a611e8063|HOpjSWJJKGHLKcA94JPPfh8almPtSx6XiP1JBkKc500ce689",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rider_uuids\":[\"1550c152-2523-4f3d-931e-92ce8a4c80cc\", \"2550c152-2523-4f3d-931e-92ce8a4c80cc\",\"3550c152-2523-4f3d-931e-92ce8a4c80cc\",\"4550c152-2523-4f3d-931e-92ce8a4c80cc\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{STAGING_URL}}/riders/delete-rider",
+							"host": [
+								"{{STAGING_URL}}"
+							],
+							"path": [
+								"riders",
+								"delete-rider"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/delete-rider/1550c152-2523-4f3d-931e-92ce8a4c80cc",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"delete-rider",
+										"1550c152-2523-4f3d-931e-92ce8a4c80cc"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jul 2024 18:04:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Rider delete successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel Pending invites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{fleet_auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/cancel-rider-invite/0d861d21-95a3-4d07-b7bb-988ef4118087",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"cancel-rider-invite",
+								"0d861d21-95a3-4d07-b7bb-988ef4118087"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders/cancel-rider-invite/9b2a7ad9-aefb-4495-9d17-f893e817e594",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders",
+										"cancel-rider-invite",
+										"9b2a7ad9-aefb-4495-9d17-f893e817e594"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jul 2024 20:37:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Riders invite cancelled successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Pending Riders Invites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "8d4a121c-6d90-4e24-9feb-168ea6b56d04|7KBLc8mB8DBN7hDVs6jYbdYkXp9L4NwQlvQH5Lte63925f5a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders?pending_invites=1",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders"
+							],
+							"query": [
+								{
+									"key": "pending_invites",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Pending Riders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/riders?pending_invites=1",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"riders"
+									],
+									"query": [
+										{
+											"key": "pending_invites",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jul 2024 20:36:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_number_of_riders\": 1,\n        \"total_active_riders\": 1,\n        \"total_deactivated_riders\": 0,\n        \"total_number_of_fulfilled_orders\": 9,\n        \"total_revenue\": 31050,\n        \"riders\": [\n            {\n                \"uuid\": \"9b2a7ad9-aefb-4495-9d17-f893e817e594\",\n                \"riderid\": \"9b2a7ad9-aefb-4495-9d17-f893e817e594\",\n                \"name\": null,\n                \"address\": null,\n                \"phone_number\": null,\n                \"phone_code\": \"234\",\n                \"email\": \"moses@gmail.com\",\n                \"vehicle_plate_number\": null,\n                \"photo\": null,\n                \"total_completed_delivery\": 0,\n                \"invite_status\": \"pending\",\n                \"active\": false,\n                \"number_of_ongoing_deliveries\": 0,\n                \"total_revenue_by_rider\": 0,\n                \"rider_ongoing_deliveries\": null,\n                \"created_at\": \"2024-07-04T20:12:47.000000Z\"\n            },\n            {\n                \"uuid\": \"4d778510-c8d2-407e-ba73-4a333b671a21\",\n                \"riderid\": \"4d778510-c8d2-407e-ba73-4a333b671a21\",\n                \"name\": \"angwamoses@gmail.com\",\n                \"address\": \"My home\",\n                \"phone_number\": \"07089183428\",\n                \"phone_code\": \"234\",\n                \"email\": \"angwamoses@gmail.com\",\n                \"vehicle_plate_number\": null,\n                \"photo\": null,\n                \"total_completed_delivery\": 0,\n                \"invite_status\": \"pending\",\n                \"active\": false,\n                \"number_of_ongoing_deliveries\": 0,\n                \"total_revenue_by_rider\": 0,\n                \"rider_ongoing_deliveries\": null,\n                \"created_at\": \"2024-07-04T20:12:45.000000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Rider Ongoing Deliveries",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{x-api-key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/riders/ongoing-deliveries/:uuid",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"riders",
+								"ongoing-deliveries",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

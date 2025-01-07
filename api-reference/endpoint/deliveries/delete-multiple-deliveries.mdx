@@ -1,11 +1,11 @@
 ---
-title: "Delete Delivery"
-api: "POST /deliveries/delete/{delivery_uuid}"
+title: "Delete Multiple Delivery"
+api: "POST /deliveries/delete-multiple-deliveries"
 ---
 
 ### 📝 Summary
 
-This endpoint allows users to retrieve the details of a specific delivery by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+This endpoint allows users to retrieve the details of a multiple deliveries by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
 
 ---
 
@@ -74,9 +74,9 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 <ResponseExample>
     ```json sample response
     {
-        "status": "error",
-        "message": "Delivery does not exist or may have been processed!"
-    }
+    "status": "success",
+    "message": "Deliveries deleted."
+}
     ```
 </ResponseExample>
 

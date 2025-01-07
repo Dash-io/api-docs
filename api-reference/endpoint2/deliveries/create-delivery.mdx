@@ -1,11 +1,10 @@
 ---
-title: "Delete Delivery"
-api: "POST /deliveries/delete/{delivery_uuid}"
+openapi: post /deliveries/create
 ---
 
 ### 📝 Summary
 
-This endpoint allows users to retrieve the details of a specific delivery by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+This endpoint allows users to create a new delivery request in the system. It accepts details such as sender and recipient information, delivery address, package details, and delivery preferences. Upon successful creation, it returns a unique delivery ID and the status of the delivery request.
 
 ---
 
@@ -53,30 +52,3 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
             ]
         }
     }
-    
-    ```
-</Expandable>
-### 📤 Responses
-
-##### ✅ 200 OK
-
-<Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
-</Expandable>
-
-<ResponseExample>
-    ```json sample response
-    {
-        "status": "error",
-        "message": "Delivery does not exist or may have been processed!"
-    }
-    ```
-</ResponseExample>
-
