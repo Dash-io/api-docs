@@ -47,7 +47,8 @@
                     "group": "Authentication",
                     "icon": "shield",
                     "pages": [
-                      "api-reference/authentication"
+                      "api-reference/endpoint/authentication/authentication",
+                      "api-reference/endpoint/authentication/base_url"
                     ]
                   },
             {
