@@ -6,105 +6,116 @@ api: "GET /riders/get/{{rider_uuid}}"
 
 ### 📝 Summary
 
-This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+This endpoint retrieves detailed information about a specific rider using their unique identifier. It is typically used to view rider details, including profile information, current status, and activity history.
+
 
 ---
 
 
 
-### 📥 Sample Request
-### Query Parameters
+### 📥 Requests
+### Path Parameters
 <Expandable>
-**Description:** User data (including UUID).
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
 | `rider_uuid`   | string   | ✅ Yes       |          |
 </Expandable>
 
-### Body
-<Expandable>
-**Description:** multipart/form-data
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `delivery_uuid[0]`   | string   |        |          |
-|`delivery__uuid[1]`| string     |    |       |           |           |
-</Expandable>
 
 ### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Response
 
 ##### ✅ 200 OK
+##### ❌ 422 Bad Request
 
 <Expandable>
-**Description:** application/json
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
 | `data`   | object   |        |           |
-| `data.created_at`      | string   |        |                  |
-| `data.customer_detail` | object   |        |  |
-| `status`    | string   | ✅ Yes       | Status of the request     |
-| `data.customer_detail.created_at` |   string |   |    |
-| `data.customer_detail.customer_address`  |   string  |   |    |
-| `data.customer_detail.customer_email`    |   any /null   |   |    |
-| `data.customer_detail.customer_name` |   string  |   |    |
-| `data.customer_detail.customer_phone_code`   |   string  |   |
-| `data.customer_detail.customer_phone_number` |   string  |   |    |
-| `data.customer_detail.uuid`  |   string  |   |    |
-| `data.customer_latitude`  |   string| |   |   |
-| `data.customer_longitude`  |   string| |   |   |
-| `data.delivery_fee`  |   string| |   |   |
-| `data.delivery_type`  |   string| |   |   |
-| `data.fleet_id`  |   any / null| |   |   |
-| `data.items`  |   object| |   |   |
-| `data.order_number`  |   string| |   |   |
-| `data.sender_detail`  |   object| |   |   |
-| `data.sender_detail.created_at`  |   string| |   |   |
-| `data.sender_detail.sender_address`  |   string| |   |   |
-| `data.sender_detail.sender_email`  |   any / null| |   |   |
-| `data.sender_detail.sender_phonecode`  |   string| |   |   |
-| `data.sender_detail.updated_at`  |   string| |   |   |
-| `data.sender_detail.uuid`  |   string| |   |   |
-| `data.sender_latitude`  |   string| |   |   |
-| `data.sender_longitude`  |   string| |   |   |
-| `data.status`  |   string| |   |   |
-| `data.uuid`  |   string| |   |   |
+| `data.active`      | boolean  |        |                  |
+| `data.address`      | string   |        |                  |
+| `data.created_at` | object   |        |  |
+| `data.email`    | string   |        |      |
+| `data.name` |   string |   |    |
+| `data.number_of_ongoing_deliveries` |   number |   |    |
+| `data.ongoing_deliveries` |   object|   |    |
+| `data.ongoing_deliveries.created_at`  |   string  |   |    |
+| `data.ongoing_deliveries.customer_detail`    |   object   |   |    |
+| `data.ongoing_deliveries.customer_detail.created_at` |   string  |   |    |
+| `data.ongoing_deliveries.customer_detail.customer_address`   |   string  |   |
+| `data.ongoing_deliveries.customer_detail.customer_email`  |   any / null| |   |   |
+| `data.ongoing_deliveries.customer_detail.customer_name` |   string  |   |    |
+| `data.ongoing_deliveries.customer_detail.customer_phone_code`  |   string| |   |   |
+| `data.ongoing_deliveries.customer_detail.customer_phone_number`  |   string  |   |    |
+| `data.ongoing_deliveries.customer_detail.uuid`  |   string| |   |   |
+| `data.ongoing_deliveries.customer_detail.latitude`  |   string| |   |   |
+| `data.ongoing_deliveries.customer_longitude`  |   any / null| |   |   |
+| `data.ongoing_deliveries.delivery_fee`  |   string| |   |   |
+| `data.ongoing_deliveries.delivery_type`  |   string| |   |   |
+| `data.ongoing_deliveries.fleet_id`  |   any / null| |   |   |
+| `data.ongoing_deliveries.items`  |   any| |   |   |
+| `data.ongoing_deliveries.order_number`  |   string| |   |   |
+| `data.ongoing_deliveries.organization_detail`  |   object| |   |   |
+| `data.ongoing_deliveries.organization_detail.business_address`  |   any / null| |   |   |
+| `data.ongoing_deliveries.organization_detail.created_at`  |   string| |   |   |
+| `data.ongoing_deliveries.organization_detail.fleet_identity_number`  |   any / null| |   |   |
+| `data.ongoing_deliveries.organization_detail.logo`  |   any / null| |   |   |
+| `data.ongoing_deliveries.organization_detail.phone_code`  |   string| |   |   |
+| `data.ongoing_deliveries.organization_detail.phone_number`  |   string| |   |   |
+| `data.ongoing_deliveries.organization_detail.updated_at`  |   string| |   |   |
+| `data.ongoing_deliveries.organization_detail.uuid`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_detail`  |   object| |   |   |
+| `data.ongoing_deliveries.sender_detail.created_at`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_detail.sender_address`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_detail.sender_email`  |   any / null| |   |   |
+| `data.ongoing_deliveries.sender_detail.sender_phonecode`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_detail.updated_at`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_detail.uuid`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_latitude`  |   string| |   |   |
+| `data.ongoing_deliveries.sender_longitude`  |   string| |   |   |
+| `data.ongoing_deliveries.status`  |   string| |   |   |
+| `data.ongoing_deliveries.uuid`  |   string| |   |   |
+| `data.phone_code`  |   string  |   |    |
+| `data.phone_number`    |   string   |   |    |
+| `data.photo` |   string  |   |    |
+| `data.rider_id`      | string   |        |                  |
+| `data.total_completed_delivery`      | number   |        |                  |
+| `data.rider_uuid`   |   number  |   |
+| `data.vehicle_plate_number` |   string  |   |    |
 | `status`  |   string| |   |   |
+
+
+
+
+
+| `data.riders.data.rider_ongoing_deliveries.status`  |   string| |   |   |
+| `data.riders.data.rider_ongoing_deliveries.uuid`  |   string| |   |   |
+
+
+
+
+
+
+| `data.name` |   string |   |    |
+| `data.phone_code`  |   string  |   |    |
+| `data.phone_number`    |   string   |   |    |
+| `data.photo` |   string  |   |    |
+| `data.rider_id`      | string   |        |                  |
+| `data.total_completed_delivery`      | number   |        |                  |
+| `data.rider_uuid`   |   number  |   |
+| `data.vehicle_plate_number` |   string  |   |    |
+| `status`  |   string| |   |   |
+
 </Expandable>
 
 <ResponseExample>

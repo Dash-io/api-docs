@@ -6,25 +6,32 @@ api: "GET /riders/create"
 
 ### 📝 Summary
 
-This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+This endpoint allows the creation of a new rider profile in the system. It collects essential rider details, such as personal information, contact details, and identification, enabling them to start performing delivery tasks.
 
 ---
 
 
 
-### 📥 Sample Request
-### Query Parameters
+### 📥 Requests
+### Body
 <Expandable>
-**Description:** User data (including UUID).
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `rider_uuid`   | string   | ✅ Yes       |          |
+| `rider_address`   | string   |        |          |
+| `rider_email`   | string   |        |          |
+| `rider_name`   | string   |        |          |
+| `rider_phone`   | string   |        |          |
+| `rider_phonecode`   | string   |        |          |
+| `rider_photo`   | file   |        |          |
+| `vehicle_plate_number`   | string   |        |          |
+
 </Expandable>
 
 ### Body
 <Expandable>
-**Description:** multipart/form-data
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
@@ -35,75 +42,30 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 ### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Response
 
 ##### ✅ 200 OK
+##### ❌ 422 Bad Request
 
 <Expandable>
-**Description:** application/json
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
 | `data`   | object   |        |           |
-| `data.created_at`      | string   |        |                  |
-| `data.customer_detail` | object   |        |  |
-| `status`    | string   | ✅ Yes       | Status of the request     |
-| `data.customer_detail.created_at` |   string |   |    |
-| `data.customer_detail.customer_address`  |   string  |   |    |
-| `data.customer_detail.customer_email`    |   any /null   |   |    |
-| `data.customer_detail.customer_name` |   string  |   |    |
-| `data.customer_detail.customer_phone_code`   |   string  |   |
-| `data.customer_detail.customer_phone_number` |   string  |   |    |
-| `data.customer_detail.uuid`  |   string  |   |    |
-| `data.customer_latitude`  |   string| |   |   |
-| `data.customer_longitude`  |   string| |   |   |
-| `data.delivery_fee`  |   string| |   |   |
-| `data.delivery_type`  |   string| |   |   |
-| `data.fleet_id`  |   any / null| |   |   |
-| `data.items`  |   object| |   |   |
-| `data.order_number`  |   string| |   |   |
-| `data.sender_detail`  |   object| |   |   |
-| `data.sender_detail.created_at`  |   string| |   |   |
-| `data.sender_detail.sender_address`  |   string| |   |   |
-| `data.sender_detail.sender_email`  |   any / null| |   |   |
-| `data.sender_detail.sender_phonecode`  |   string| |   |   |
-| `data.sender_detail.updated_at`  |   string| |   |   |
-| `data.sender_detail.uuid`  |   string| |   |   |
-| `data.sender_latitude`  |   string| |   |   |
-| `data.sender_longitude`  |   string| |   |   |
-| `data.status`  |   string| |   |   |
-| `data.uuid`  |   string| |   |   |
+| `data.address`      | string   |        |                  |
+| `data.created_at` | object   |        |  |
+| `data.email`    | string   |        |      |
+| `data.name` |   string |   |    |
+| `data.phone_code`  |   string  |   |    |
+| `data.phone_number`    |   string   |   |    |
+| `data.photo` |   string  |   |    |
+| `data.rider_uuid`   |   number  |   |
+| `data.vehicle_plate_number` |   string  |   |    |
 | `status`  |   string| |   |   |
 </Expandable>
 

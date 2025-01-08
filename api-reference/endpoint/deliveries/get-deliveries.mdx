@@ -12,7 +12,7 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 
 
 
-### 📥 
+### 📥 Requests
 ##### Query Parameters
 <Expandable>
 **Description:** 
@@ -23,6 +23,10 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 | `per_page`      | string   |        |                  |
 | `filter` | string   |        | All/Last 3 days/Last 7 days/Last 14 days/Last Month |
 | `start_date`    | string   |        |      |
+| `end_date`    | string   |        |      |
+| `delivery_status`    | string   |        |   pending/awaiting_pickup/in_transit/delivered/cancelled/declined   |
+| `create_mode`    | string   |        |   automated/manual/via booking/imported   |
+| `search`    | string   |        |      |
 </Expandable>
 
 ##### Sample Request
@@ -62,16 +66,76 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 ### 📤 Responses
 
 ##### ✅ 200 OK
+##### ❌ 422 Bad Request
 
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `data`   | object   |        |           |
+| `data.deliveries`      | object   |        |                  |
+| `data.deliveries.current_page` | number   |        |  |
+| `data.deliveries.data.created_at`    | string   |       |      |
+| `data.deliveries.data.customer_detail`    | object   |       |      |
+| `data.deliveries.data.customer_detail.created_at`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_address`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_email`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_name`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_phone_code`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_phone_number`    | string   |       |      |
+| `data.deliveries.data.customer_detail.customer_state_id`    | number   |       |      |
+| `data.deliveries.data.customer_detail.id`    | string   |       |      |
+| `data.deliveries.data.delivery_detail`    | object   |       |      |
+| `data.deliveries.data.delivery_detail.created_at`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.delivery_number_of_parcels`    | number   |       |      |
+| `data.deliveries.data.delivery_detail.delivery_total_order_value`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.delivery_unit_weight`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.sender_address`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.sender_name`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.sender_phone`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.sender_phonecode`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.updated_at`    | string   |       |      |
+| `data.deliveries.data.delivery_detail.uuid`    | string   |       |      |
+| `data.deliveries.data.items`    | object   |       |      |
+| `data.deliveries.data.items.created_at`    | string   |       |      |
+| `data.deliveries.data.items.item_description`    | string   |       |      |
+| `data.deliveries.data.items.item_quantity`    | number   |       |      |
+| `data.deliveries.data.items.item_value`    | string   |       |      |
+| `data.deliveries.data.items.item_weight`    | string   |       |      |
+| `data.deliveries.data.items.uuid`    | string   |       |      |
+| `data.deliveries.data.organization_detail`    | object   |       |      |
+| `data.deliveries.data.organization_detail.business_address`    | string   |       |      |
+| `data.deliveries.data.organization_detail.city`    | string   |       |      |
+| `data.deliveries.data.organization_detail.country_id`    | number   |       |      |
+| `data.deliveries.data.organization_detail.created_at`    | string   |       |      |
+| `data.deliveries.data.organization_detail.logo`    | string   |       |      |
+| `data.deliveries.data.organization_detail.state_id`    | number   |       |      |
+| `data.deliveries.data.organization_detail.updated_at`    | string   |       |      |
+| `data.deliveries.data.organization_detail.uuid`    | string   |       |      |
+| `data.deliveries.data.status`    | string   |       |      |
+| `data.deliveries.data.uuid`    | string   |       |      |
+| `data.deliveries.from`    | number   |       |      |
+| `data.deliveries.last`    | number   |       |      |
+| `data.deliveries.last_page_url`    | string   |       |      |
+| `data.deliveries.links`    | object   |       |      |
+| `data.deliveries.links.active`    | boolean   |       |      |
+| `data.deliveries.links.label`    | string   |       |      |
+| `data.deliveries.links.url`    | string / null   |       |      |
+| `data.deliveries.next_page_url`    | any / null   |       |      |
+| `data.deliveries.path`    | string  |       |      |
+| `data.deliveries.per_page`    | number   |       |      |
+| `data.deliveries.prevt_page_url`    | any / null   |       |      |
+| `data.deliveries.to`    | number   |       |      |
+| `data.deliveries.total`    | number   |       |      |
+| `data.delivery_count`    | object   |       |      |
+| `data.delivery_counts.overall_user_awaiting_pickup_deliveries`    | number   |       |      |
+| `data.delivery_counts.overall_user_cancelled_deliveries`    | number   |       |      |
+| `data.delivery_counts.overall_user_delivered_deliveries`    | number   |       |      |
+| `data.delivery_counts.overall_user_in_transit_deliveries`    | number   |       |      |
+| `message`    | string   |       |      |
+| `status`    | number   |       |      |
+
 </Expandable>
 
 <ResponseExample>

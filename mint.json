@@ -47,7 +47,8 @@
                     "group": "Authentication",
                     "icon": "shield",
                     "pages": [
-                      "api-reference/authentication"
+                      "api-reference/endpoint/authentication/authentication",
+                      "api-reference/endpoint/authentication/base_url"
                     ]
                   },
             {
@@ -82,7 +83,6 @@
                 "api-reference/endpoint/riders/update-delivery-dropoff",
                 "api-reference/endpoint/riders/delete-rider",
                 "api-reference/endpoint/riders/cancel-pending-invites",
-                "api-reference/endpoint/riders/pending-rider-invites",
                 "api-reference/endpoint/riders/rider-ongoing-deliveries"
               ]
             }
