@@ -10,7 +10,7 @@ This section explains how to authenticate your API requests using an API key.
 To authenticate, include your **API Key** in the request header as shown below:
 
 ```http
-GET /delivery
+GET /example
 Host: api.example.com
 x-api-key: YOUR_API_KEY
 ```
@@ -32,5 +32,5 @@ x-api-key: YOUR_API_KEY
 
 #### Curl Example:
 ```bash
-curl -X GET "https://api.example.com/delivery" \
--H "x-api-key: YOUR_API_KEY"
+curl -X GET "https://dev.api.fleet.usedora.com/api/v1/deliveries" \
+-H "x-api-key: abaydeDaHIvJ7BVxERk9la4KzXXANZ2blrEjD5gVZro4kFBHEValcpQaaOhe9ejS"
