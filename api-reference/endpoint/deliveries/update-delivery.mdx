@@ -9,66 +9,99 @@ This endpoint allows users to update the details of an existing delivery. Users 
 
 ---
 
-### 📥 Sample Request
+### 📥 Requests
 ##### Body Parameters
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** multipart/form-data
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `customer_address`   | string   |        |         |
+| `customer_email`      | string   |        |                 |
+| `customer_name` | string   |       |  |
+| `customer_phone_code`    | string   |        |     |
+| `customer_phone_number`    | string   |        |     |
+| `delivery_fee`    | string   |        |     |
+| `items[0][item_description]`    | string   |        |     |
+| `items[0][item_quantity]`    | string   |        |  optional    |
+| `items[0][item_uuid]`    | string   |        |      |
+| `items[0][item_value]`    | string   |        |  optional    |
+| `items[1][item_description]`    | string   |        |      |
+| `items[1][item_quantity]`    | string   |        |      |
+| `items[1][item_value]`    | string   |        |      |
+| `riderid`    | string   |        |      |
+| `sender_address`    | string   |        |      |
+| `sender_email`    | string   |        |      |
+| `sender_name`    | string   |        |      |
+| `sender_phone`    | string   |        |      |
+| `sender_phonecode`    | string   |        |      |
+
+| `customer_phone_code`    | string   |        |     |
 </Expandable>
 
 ##### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Responses
 
 ##### ✅ 200 OK
+##### ❌ 400 Bad Request
 
 <Expandable>
 **Description:** Success response containing a message, user data (including UUID), and status.
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `data`   | object   |     |           |
+| `data.created_at`      | string   |        |                |
+| `data.customer_detail` | object   |        |  |
+| `data.customer_detail.created_at`    | string   |        |     |
+| `data.customer_detail.customer_address`    | string   |        |     |
+| `data.customer_detail.customer_email`    | any / null   |        |     |
+| `data.customer_detail.customer_name`    | string   |        |     |
+| `data.customer_detail.customer_phone_code`    | string   |        |     |
+| `data.customer_detail.customer_phone_number`    | string   |        |     |
+| `data.customer_detail.uuid`    | string   |        |     |
+| `data.sender_latitude`    | string   |        |      |
+| `data.sender_longitude`    | string   |        |      |
+| `data.delivery_fee`    | string   |        |      |
+| `data.delivery_type`    | string   |        |      |
+| `data.fleet_id`    | any / null   |        |      |
+| `data.items`    | object   |        |      |
+| `data.items.created_at`    | string   |        |      |
+| `data.items.item_description`    | string   |        |      |
+| `data.items.item_quantity`    | number   |        |      |
+| `data.items.item_value`    | string   |        |      |
+| `data.items.uuid`    | string   |        |      |
+| `data.order_number`    | string  |        |      |
+| `data.organization_detail`    | object  |        |      |
+| `data.organization_detail.business_address`    | any / null  |        |      |
+| `data.organization_detail.created_at`    | string  |        |      |
+| `data.organization_detail.fleet_identity_number`    | any / null  |        |      |
+| `data.organization_detail.logo`    | any / null |        |      |
+| `data.organization_detail.phone_code`    | string  |        |      |
+| `data.organization_detail.phone_number`    | string  |        |      |
+| `data.organization_detail.updated_at`    | string  |        |      |
+| `data.organization_detail.uuid`    | string  |        |      |
+| `data.sender_detail`    | object  |        |      |
+| `data.sender_detail.created_at`    | string   |        |      |
+| `data.sender_detail.sender_address`    | string   |        |      |
+| `data.sender_detail.sender_email`    | any / null   |        |      |
+| `data.sender_detail.sender_name`    | string  |        |      |
+| `data.sender_detail.sender_phone`    | string   |        |      |
+| `data.sender_detail.sender_phonecode`    | string   |        |      |
+| `data.sender_detail.updated_at`    | string   |        |      |
+| `data.sender_detail.uuid`    | string   |        |      |
+| `data.sender_latitude`    | string   |        |      |
+| `data.sender_longitude`    | string   |        |      |
+| `data.status`    | string   |        |      |
+| `data.uuid`    | string   |        |      |
+| `message`    | string   |        |      |
+| `status`    | string   |        |      |
 </Expandable>
 
 <ResponseExample>

@@ -9,22 +9,39 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 
 ---
 
-### 📥 Sample Request
+### 📥 Request
 ##### Body Parameters
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** multipart/form-data
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `delivery_uuid`   | string   |        |           |
 </Expandable>
 
 ##### Sample Request
 <Expandable>
     ```json sample request
+    
+    
+    ```
+</Expandable>
+### 📤 Responses
+
+##### ✅ 200 OK
+##### ❌ 400 Bad Request
+
+<Expandable>
+**Description:** 
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| ``   |    |        |          |
+
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
     
     ```
 </ResponseExample>

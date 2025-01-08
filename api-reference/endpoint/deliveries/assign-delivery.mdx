@@ -10,13 +10,12 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 
 ---
 
-### Authorisations
-`Authorisation` `string` `header` `required`
 
 
 
-### 📥 Sample Request
-### Query Parameters
+
+### 📥 Requests
+### Path Parameters
 <Expandable>
 **Description:** User data (including UUID).
 
@@ -38,40 +37,14 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 ### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Response
 
 ##### ✅ 200 OK
+##### ❌ 400 Bad Request
 
 <Expandable>
 **Description:** application/json
@@ -81,7 +54,6 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 | `data`   | object   |        |           |
 | `data.created_at`      | string   |        |                  |
 | `data.customer_detail` | object   |        |  |
-| `status`    | string   | ✅ Yes       | Status of the request     |
 | `data.customer_detail.created_at` |   string |   |    |
 | `data.customer_detail.customer_address`  |   string  |   |    |
 | `data.customer_detail.customer_email`    |   any /null   |   |    |

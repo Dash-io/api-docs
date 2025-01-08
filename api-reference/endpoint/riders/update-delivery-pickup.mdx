@@ -6,108 +6,43 @@ api: "POST /deliveries/pickup"
 
 ### 📝 Summary
 
-This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+This endpoint allows updating the pickup details of a specific delivery, including the pickup time, location, or any other necessary modifications. This is typically used when there are changes or updates to the pickup details for a delivery.
 
 ---
 
-### Authorisations
-`Authorisation` `string` `header` `required`
 
 
 
-### 📥 Sample Request
+### 📥 Requests
 ### Query Parameters
 <Expandable>
-**Description:** User data (including UUID).
+**Description:** 
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `rider_uuid`   | string   | ✅ Yes       |          |
+| `order_number`   | string   | ✅ Yes       |          |
+| `pickup_otp`   | string   |        |          |
 </Expandable>
 
-### Body
-<Expandable>
-**Description:** multipart/form-data
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `delivery_uuid[0]`   | string   |        |          |
-|`delivery__uuid[1]`| string     |    |       |           |           |
-</Expandable>
 
 ### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Response
 
 ##### ✅ 200 OK
+##### ❌ 400 Bad Request
 
 <Expandable>
 **Description:** application/json
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `data`   | object   |        |           |
-| `data.created_at`      | string   |        |                  |
-| `data.customer_detail` | object   |        |  |
-| `status`    | string   | ✅ Yes       | Status of the request     |
-| `data.customer_detail.created_at` |   string |   |    |
-| `data.customer_detail.customer_address`  |   string  |   |    |
-| `data.customer_detail.customer_email`    |   any /null   |   |    |
-| `data.customer_detail.customer_name` |   string  |   |    |
-| `data.customer_detail.customer_phone_code`   |   string  |   |
-| `data.customer_detail.customer_phone_number` |   string  |   |    |
-| `data.customer_detail.uuid`  |   string  |   |    |
-| `data.customer_latitude`  |   string| |   |   |
-| `data.customer_longitude`  |   string| |   |   |
-| `data.delivery_fee`  |   string| |   |   |
-| `data.delivery_type`  |   string| |   |   |
-| `data.fleet_id`  |   any / null| |   |   |
-| `data.items`  |   object| |   |   |
-| `data.order_number`  |   string| |   |   |
-| `data.sender_detail`  |   object| |   |   |
-| `data.sender_detail.created_at`  |   string| |   |   |
-| `data.sender_detail.sender_address`  |   string| |   |   |
-| `data.sender_detail.sender_email`  |   any / null| |   |   |
-| `data.sender_detail.sender_phonecode`  |   string| |   |   |
-| `data.sender_detail.updated_at`  |   string| |   |   |
-| `data.sender_detail.uuid`  |   string| |   |   |
-| `data.sender_latitude`  |   string| |   |   |
-| `data.sender_longitude`  |   string| |   |   |
-| `data.status`  |   string| |   |   |
-| `data.uuid`  |   string| |   |   |
-| `status`  |   string| |   |   |
+|    |    |        |           |
 </Expandable>
 
 <ResponseExample>

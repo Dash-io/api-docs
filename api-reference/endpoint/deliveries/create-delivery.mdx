@@ -10,66 +10,109 @@ This endpoint allows users to create a new delivery request in the system. It ac
 
 ---
 
-### 📥 Sample Request
+### 📥 Requests
 ##### Body Parameters
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** multipart/form-data
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `creation_date`   | string   |        |          |
+| `customer_address`      | string   |        |                 |
+| `customer_email` | string   |        |  |
+| `customer_name`    | string   |        |  optional    |
+| `customer_phone_number`    | string   |        |      |
+| `delivery_fee`    | string   |        |      |
+| `iam_sender`    | string   |        |      |
+| `is_paid`    | string   |        |      |
+| `items[0][item_description]`    | string   |        |      |
+| `items[0][item_quantity]`    | string   |        |  optional    |
+| `items[0][item_value]`    | string   |        |  optional    |
+| `items[1][item_description]`    | string   |        |      |
+| `items[1][item_quantity]`    | string   |        |      |
+| `items[1][item_value]`    | string   |        |      |
+| `receivers[0][customer_address]`    | string   |        |      |
+| `receivers[0][customer_name]`    | string   |        |      |
+| `receivers[0][customer_phone_code]`    | string   |        |      |
+| `receivers[0][customer_phone_number]`    | string   |        |      |
+| `receivers[1][customer_address]`    | string   |        |      |
+| `receivers[1][customer_name]`    | string   |        |      |
+| `receivers[1][customer_phone_code]`    | string   |        |      |
+| `receivers[1][customer_phone_number]`    | string   |        |      |
+| `riderid`    | string   |        |      |
+| `send_sms`    | string   |        | True Or False     |
+| `sender_address`    | string   |        |      |
+| `sender_email`    | string   |        |      |
+| `sender_name`    | string   |        |      |
+| `sender_phone`    | string   |        |      |
+| `sender_phonecode`    | string   |        |      |
 </Expandable>
 
 ##### Sample Request
 <Expandable>
     ```json sample request
-    {
-        "sender_address": "10 John Street, Ipaja, Lagos",
-        "customer_name": "TundeNasri",
-        "customer_email": "sinoma@example.com",
-        "customer_state_id": 4,
-        "customer_house_number": 4,
-        "customer_phone_number": "0802839***8",
-        "phone_code": 234,
-        "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
-        "delivery_total_order_value": 10000,
-        "delivery_number_of_parcels": 1,
-        "delivery_unit_weight": 10,
-        "items": {
-            [
-                "item_description": "Freshfish",
-                "item_quantity": 1,
-                "item_weight": 0.1,
-                "item_value": 10000
-            ],
-            [
-                "item_uuid" : "48555811-5c4e-47xxxxx",
-                "item_description": "Mellon",
-                "item_quantity": 0.5,
-                "item_weight": 0,
-                "item_value": 10000
-            ]
-        }
-    }
+    
     
     ```
 </Expandable>
 ### 📤 Responses
 
 ##### ✅ 200 OK
+##### ❌ 400 Bad Request
 
 <Expandable>
-**Description:** Success response containing a message, user data (including UUID), and status.
+**Description:** application/json
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `message`   | string   | ✅ Yes       | Response message          |
-| `data`      | object   | ✅ Yes       | User data                 |
-| `data.uuid` | string   | ✅ Yes       | Unique identifier for user |
-| `status`    | string   | ✅ Yes       | Status of the request     |
+| `data`   | object   |       |           |
+| `data.created_at`      | string   |        |                 |
+| `data.creation_mode` | any / null   |        |  |
+| `data.currecncy`    | string   |        |      |
+| `data.customer_detail`    | object   |        |      |
+| `data.customer_detail.created_at`    | string   |        |      |
+| `data.customer_detail.customer_address`    | string   |        |      |
+| `data.customer_detail.customer_email`    | any / null   |        |      |
+| `data.customer_detail.customer_name`    | string   |        |      |
+| `data.customer_detail.customer_phone_code`    | string   |        |      |
+| `data.customer_detail.customer_phone_number`    | string   |        |      |
+| `data.customer_detail.uuid`    | string   |        |      |
+| `data.customer_latitude`    | any / null   |        |      |
+| `data.customer_longitude`    | any / null   |        |      |
+| `data.delivery_fee`    | string   |        |      |
+| `data.delivery_info_from_rider`    | any / null   |        |      |
+| `data.dropoff_at`    | any / null   |        |      |
+| `data.fleet_identity_number`    | string   |        |      |
+| `data.is_paid`    | boolean   |        |      |
+| `data.items`    | object   |        |      |
+| `data.items.created_at`    | string   |        |      |
+| `data.items.currency`    | string   |        |      |
+| `data.items.item_description`    | string   |        |      |
+| `data.items.item_quantity`    | number   |        |      |
+| `data.items.item_value`    | string   |        |      |
+| `data.items.uuid`    | string   |        |      |
+| `data.note`    | any / null   |        |      |
+| `data.order_number`    | string  |        |      |
+| `data.pickup_at`    | any / null   |        |      |
+| `data.rider_info`    | any / null   |        |      |
+| `data.sender_detail`    | object   |        |      |
+| `data.sender_detail.business_owned`    | boolean   |        |      |
+| `data.sender_detail.created_at`    | string   |        |      |
+| `data.sender_detail.sender_address`    | string   |        |      |
+| `data.sender_detail.sender_email`    | string   |        |      |
+| `data.sender_detail.sender_name`    | string  |        |      |
+| `data.sender_detail.sender_phone`    | string   |        |      |
+| `data.sender_detail.sender_phonecode`    | string   |        |      |
+| `data.sender_detail.updated_at`    | string   |        |      |
+| `data.sender_detail.uuid`    | string   |        |      |
+| `data.sender_latitude`    | any / null   |        |      |
+| `data.sender_longitude`    | any / null   |        |      |
+| `data.service_charge`    | any / null   |        |      |
+| `data.status`    | string   |        |      |
+| `data.status_label`    | string   |        |      |
+| `data.uuid`    | string   |        |      |
+| `message`    | string   |        |      |
+| `status`    | string   |        |      |
 </Expandable>
 
 <ResponseExample>

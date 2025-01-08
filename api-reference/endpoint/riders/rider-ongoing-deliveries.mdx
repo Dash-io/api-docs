@@ -6,7 +6,7 @@ api: "GET /riders/ongoing-deliveries"
 
 ### 📝 Summary
 
-This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+This endpoint retrieves a list of ongoing deliveries assigned to a specific rider. Ongoing deliveries are those that are currently in progress or pending completion. This information helps track real-time deliveries for active riders.
 
 ---
 
@@ -69,6 +69,7 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 ### 📤 Response
 
 ##### ✅ 200 OK
+##### ❌ 400 Bad Request
 
 <Expandable>
 **Description:** application/json

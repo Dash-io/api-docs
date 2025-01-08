@@ -69,7 +69,7 @@
             },
             {
               "group": "Manage Riders",
-              "icon": "van-shuttle",
+              "icon": "bike",
               "pages": [
                 "api-reference/endpoint/riders/create-rider",
                 "api-reference/endpoint/riders/get-riders",
