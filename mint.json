@@ -36,7 +36,7 @@
     {
       "name": "API Documentation",
       "icon": "rectangle-terminal",
-      "url": "v1"
+      "url": "api-references"
     }
   ],
     "navigation": [
@@ -46,10 +46,7 @@
                 {
                     "group": "Authentication",
                     "icon": "shield",
-                    "pages": [
-                      "api-reference/endpoint/authentication/authentication",
-                      "api-reference/endpoint/authentication/base_url"
-                    ]
+                    "pages":["authentication"]
                   },
             {
               "group": "Manage Deliveries",
