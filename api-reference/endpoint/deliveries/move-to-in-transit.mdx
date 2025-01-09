@@ -1,6 +1,6 @@
 ---
 title: "Move to In-Transit"
-api: "GET /deliveries/move_to_in_transit"
+api: "POST /deliveries/move_to_in_transit"
 ---
 
 ### 📝 Summary
@@ -16,16 +16,10 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `delivery_uuid[0]`   | string   |        |           |
+| `delivery_uuid[0]`   | object   |        |           |
 </Expandable>
 
-##### Sample Request
-<Expandable>
-    ```json sample request
-    
-    
-    ```
-</Expandable>
+
 ### 📤 Responses
 
 ##### ✅ 200 OK

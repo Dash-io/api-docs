@@ -1,6 +1,6 @@
 ---
 title: "Delete Rider"
-api: "DELETE /riders/delete-rider/{{rider_uuid}}"
+api: "DELETE /riders/delete-rider"
 ---
 
 
@@ -20,16 +20,10 @@ This endpoint permanently deletes a rider's account from the system. It is typic
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `rider_uuids`   | string   |        |          |
+| `rider_uuids`   | object   |        |          |
 </Expandable>
 
-### Sample Request
-<Expandable>
-    ```json sample request
-    
-    
-    ```
-</Expandable>
+
 ### 📤 Response
 
 ##### ✅ 200 OK
