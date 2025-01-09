@@ -73,11 +73,8 @@
                 "api-reference/endpoint/riders/get-riders",
                 "api-reference/endpoint/riders/activate-riders",
                 "api-reference/endpoint/riders/get-rider",
-                "api-reference/endpoint/riders/update-rider",
                 "api-reference/endpoint/riders/deactivate-riders",
                 "api-reference/endpoint/riders/rider-delivery-history",
-                "api-reference/endpoint/riders/update-delivery-pickup",
-                "api-reference/endpoint/riders/update-delivery-dropoff",
                 "api-reference/endpoint/riders/delete-rider",
                 "api-reference/endpoint/riders/cancel-pending-invites",
                 "api-reference/endpoint/riders/rider-ongoing-deliveries"

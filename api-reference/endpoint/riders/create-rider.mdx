@@ -1,6 +1,6 @@
 ---
 title: "Create Rider"
-api: "GET /riders/create"
+api: "POST /riders/create"
 ---
 
 
@@ -19,13 +19,7 @@ This endpoint allows the creation of a new rider profile in the system. It colle
 
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
-| `rider_address`   | string   |        |          |
 | `rider_email`   | string   |        |          |
-| `rider_name`   | string   |        |          |
-| `rider_phone`   | string   |        |          |
-| `rider_phonecode`   | string   |        |          |
-| `rider_photo`   | file   |        |          |
-| `vehicle_plate_number`   | string   |        |          |
 
 </Expandable>
 
@@ -36,16 +30,10 @@ This endpoint allows the creation of a new rider profile in the system. It colle
 | **Field**   | **Type** | **Required** | **Description**          |
 |-------------|----------|-------------:|---------------------------|
 | `delivery_uuid[0]`   | string   |        |          |
-|`delivery__uuid[1]`| string     |    |       |           |           |
+|`delivery_uuid[1]`| string     |    |       |           |           |
 </Expandable>
 
-### Sample Request
-<Expandable>
-    ```json sample request
-    
-    
-    ```
-</Expandable>
+
 ### 📤 Response
 
 ##### ✅ 200 OK
