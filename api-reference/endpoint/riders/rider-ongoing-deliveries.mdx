@@ -77,7 +77,1626 @@ This endpoint retrieves a list of ongoing deliveries assigned to a specific ride
 
 <ResponseExample>
     ```json sample response
-    
+    {
+    "status": "success",
+    "data": [
+        {
+            "uuid": "5792237c-0e66-453e-aef2-2c6997bdd2fd",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "88714156",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Rider Declined",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "2432",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2024-07-13T23:00:00.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "5b892e7a-bb26-4c83-a86d-5ccfe27f9d58",
+                    "delivery_uuid": "5792237c-0e66-453e-aef2-2c6997bdd2fd",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": null,
+                    "customer_name": "Sdfdsf1",
+                    "customer_email": null,
+                    "customer_phone_number": "12435456677",
+                    "customer_phone_code": "234",
+                    "customer_address": "sdfsdfsdfsd",
+                    "created_at": "2024-07-14T15:13:27.000000Z",
+                    "items": [
+                        {
+                            "uuid": "48e9a284-20de-4232-8370-657752844f84",
+                            "item_description": "sdfs",
+                            "item_quantity": 243,
+                            "item_value": "3242.00",
+                            "currency": "NGN",
+                            "created_at": "2024-07-14T15:13:27.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "af3c8ff5-b667-4f16-99ee-fdfbf393df5a",
+                "sender_name": "Dsf",
+                "sender_phone": "1234456789",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "zxfsdsdf",
+                "business_owned": false,
+                "created_at": "2024-07-14T15:13:27.000000Z",
+                "updated_at": "2024-07-14T15:13:27.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "3fc90259-1eeb-406b-8096-74ed0fd3f371",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "Awaiting Pickup",
+                "is_grouped": false,
+                "picked_up_at": null,
+                "dropped_off_at": null,
+                "cancelled_reason": "I will not work with this business",
+                "created_at": "2024-07-24T16:16:05.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "87b30a45-04c2-4cb9-87c4-7ab5ca61e1c9",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "59876221",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": "8.539144",
+            "sender_latitude": "7.7321516",
+            "customer_longitude": "8.539144",
+            "customer_latitude": "7.7321516",
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-19T11:41:04.000000Z",
+            "pickup_at": "2025-01-07T15:25:36.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "86a6ddf0-1a9a-43f6-b778-ffe2ea53935d",
+                    "delivery_uuid": "87b30a45-04c2-4cb9-87c4-7ab5ca61e1c9",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "7062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2024-07-19T11:41:04.000000Z",
+                    "items": []
+                }
+            ],
+            "sender_detail": {
+                "uuid": "1052ea9c-5ab9-433e-af8a-fb0838110be1",
+                "sender_name": "Enki Business Ltd",
+                "sender_phone": "7062423707",
+                "sender_email": "angwamoses@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": false,
+                "created_at": "2024-07-19T11:41:04.000000Z",
+                "updated_at": "2024-07-19T11:41:04.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "f1b2acfa-bdac-47d4-9340-64d5b235d8ce",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-07 15:25:35",
+                "dropped_off_at": null,
+                "cancelled_reason": "Order came in late",
+                "created_at": "2024-08-23T11:31:01.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "232f3af2-dfa2-48d4-b9e4-f4683eecbc83",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "58474523",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-19T12:53:57.000000Z",
+            "pickup_at": "2025-01-07T15:56:07.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "f915035e-1b6a-469f-bde6-6d3e3cf6e132",
+                    "delivery_uuid": "232f3af2-dfa2-48d4-b9e4-f4683eecbc83",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "7062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2024-07-19T12:53:57.000000Z",
+                    "items": []
+                }
+            ],
+            "sender_detail": {
+                "uuid": "dad24ea0-9cd5-4682-bafd-e076425631a2",
+                "sender_name": "Enki Business",
+                "sender_phone": "7062423707",
+                "sender_email": "angwamoses@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": false,
+                "created_at": "2024-07-19T12:53:57.000000Z",
+                "updated_at": "2024-07-19T12:53:57.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "ce0ac75e-56d8-48ee-9281-5c30c3a0beb6",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-07 15:56:07",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-20T14:45:07.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "7e3f6949-45b4-4150-8c8b-39aec9424331",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "60171320",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Pending",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-19T13:19:53.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "b7276f2f-c0f2-4025-81cf-71b73d045479",
+                    "delivery_uuid": "7e3f6949-45b4-4150-8c8b-39aec9424331",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": null,
+                    "customer_name": "Ogbole Angwa",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "7062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2024-07-19T13:19:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "e9804a15-56e8-45ac-82a3-ebb72f85ae67",
+                            "item_description": "Yam tubers",
+                            "item_quantity": 20,
+                            "item_value": "30000.00",
+                            "currency": "NGN",
+                            "created_at": "2024-07-19T13:19:53.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "9cf8dd15-4b12-4eed-98b3-5538dac51b56",
+                "sender_name": "Enki Business",
+                "sender_phone": "7062423707",
+                "sender_email": "angwamoses@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "Flat 4, Msg Qtrs",
+                "business_owned": false,
+                "created_at": "2024-07-19T13:19:53.000000Z",
+                "updated_at": "2024-07-19T13:19:53.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "f79923c3-2a87-45a2-8411-b600f9e3ff09",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "Awaiting Pickup",
+                "is_grouped": false,
+                "picked_up_at": null,
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-16T11:09:45.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "41ca03b0-f392-442d-af33-8f98df3f1454",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "68209472",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-24T16:33:08.000000Z",
+            "pickup_at": "2025-01-07T16:06:14.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "26e0e8d2-76f3-426a-8ddc-c26a9d0098bc",
+                    "delivery_uuid": "41ca03b0-f392-442d-af33-8f98df3f1454",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Chimaobi Nice",
+                    "customer_email": null,
+                    "customer_phone_number": "8087876754",
+                    "customer_phone_code": "234",
+                    "customer_address": "Mararaba, Nassarawa state",
+                    "created_at": "2024-07-24T16:33:08.000000Z",
+                    "items": [
+                        {
+                            "uuid": "e030b163-706e-4378-8d55-8725d3a288ce",
+                            "item_description": "New Item",
+                            "item_quantity": null,
+                            "item_value": null,
+                            "currency": "NGN",
+                            "created_at": "2024-07-24T16:33:08.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "2ed3b00b-a4d7-44f5-83bd-9083978ba8d3",
+                "sender_name": "",
+                "sender_phone": "8083776411",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Grandeur squares and cubes estate, lugbe Abuja",
+                "business_owned": false,
+                "created_at": "2024-07-24T16:33:08.000000Z",
+                "updated_at": "2024-07-24T16:33:08.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "655af250-abb8-4715-ab93-6ea848fa884f",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-07 16:06:13",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-16T11:09:46.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "666d0bb1-7c1a-4571-8924-410268551cb1",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "29639449",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": "7.3445666",
+            "sender_latitude": "8.95625",
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-25T23:28:55.000000Z",
+            "pickup_at": "2025-01-07T16:05:11.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "69274978-1512-4e83-9701-a6d37dbe5644",
+                    "delivery_uuid": "666d0bb1-7c1a-4571-8924-410268551cb1",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Anosike Nice",
+                    "customer_email": null,
+                    "customer_phone_number": "8076686788",
+                    "customer_phone_code": "234",
+                    "customer_address": "Grandeur squares and cubes estate",
+                    "created_at": "2024-07-25T23:28:55.000000Z",
+                    "items": [
+                        {
+                            "uuid": "a9607672-033a-4f3c-a08f-bef244503e4d",
+                            "item_description": "Fuel and gas cylinder",
+                            "item_quantity": 1,
+                            "item_value": "80000.00",
+                            "currency": "NGN",
+                            "created_at": "2024-07-25T23:28:55.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "3c7575ea-aeb6-4b6e-8707-0893d89b0160",
+                "sender_name": "",
+                "sender_phone": "8097877876",
+                "sender_email": "chimaobinice@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "Aso housing estate, lugbe abuja",
+                "business_owned": false,
+                "created_at": "2024-07-25T23:28:55.000000Z",
+                "updated_at": "2024-07-25T23:28:55.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "bdbf0f3a-67ce-4856-bd70-125042707e8a",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-07 16:05:11",
+                "dropped_off_at": null,
+                "cancelled_reason": "Delivery cancelled by the business.",
+                "created_at": "2024-08-16T11:09:47.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "54014ad8-d81e-4438-a9f4-0b188b674a22",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "65399180",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2024-07-13T23:00:00.000000Z",
+            "pickup_at": "2024-12-28T20:20:47.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "fdffaaee-ef5c-4cd3-a1ea-3c30b5231112",
+                    "delivery_uuid": "54014ad8-d81e-4438-a9f4-0b188b674a22",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Dsfdgfd",
+                    "customer_email": null,
+                    "customer_phone_number": "09976745435",
+                    "customer_phone_code": "234",
+                    "customer_address": "dsfdsfds",
+                    "created_at": "2024-07-14T13:09:01.000000Z",
+                    "items": [
+                        {
+                            "uuid": "cbdeffd6-d595-40ec-9eaa-a56ebac6f11d",
+                            "item_description": "fgddf",
+                            "item_quantity": 34,
+                            "item_value": "453.00",
+                            "currency": "NGN",
+                            "created_at": "2024-07-14T13:09:01.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "7dd6ba5e-3543-4682-9e5a-6b9dec3021b5",
+                "sender_name": "D@g.com",
+                "sender_phone": "8064733458",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "fdgdfgd",
+                "business_owned": false,
+                "created_at": "2024-07-14T13:09:01.000000Z",
+                "updated_at": "2024-07-14T13:09:01.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "5df552b7-81b0-4454-a025-895df2edd3c8",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2024-12-28 20:20:47",
+                "dropped_off_at": null,
+                "cancelled_reason": "I'm not interested in taking this orders",
+                "created_at": "2024-08-23T12:20:54.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "8b700d1d-17ef-45a1-b902-4779e30e1d59",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "61350194",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-18T18:24:58.000000Z",
+            "pickup_at": "2025-01-01T09:29:14.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "f7c5096c-d1cb-4d33-b5ce-b2950213e001",
+                    "delivery_uuid": "8b700d1d-17ef-45a1-b902-4779e30e1d59",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Gospel Ezenwa",
+                    "customer_email": "chimaobinice@gmail.com",
+                    "customer_phone_number": "9099898362",
+                    "customer_phone_code": "234",
+                    "customer_address": "Mararaba, Nassarawa state",
+                    "created_at": "2024-07-18T18:24:58.000000Z",
+                    "items": []
+                }
+            ],
+            "sender_detail": {
+                "uuid": "a1c56d19-f3a3-4159-ad58-76ea9dbb937d",
+                "sender_name": "Kingsley Nzubechi",
+                "sender_phone": "8089878372",
+                "sender_email": "abasszz786@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "Aso Housing estate Lugbe, Abuja",
+                "business_owned": false,
+                "created_at": "2024-07-18T18:24:58.000000Z",
+                "updated_at": "2024-07-18T18:24:58.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "6ee2c998-736a-4968-a86c-98db1591b92a",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-01 09:29:14",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-23T11:56:58.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "f96ab216-b3c6-41d1-826e-17103c7da827",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "37664826",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-19T12:12:56.000000Z",
+            "pickup_at": "2025-01-04T00:50:50.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "ee8f2187-1dda-4139-a142-c615366a230d",
+                    "delivery_uuid": "f96ab216-b3c6-41d1-826e-17103c7da827",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "7062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2024-07-19T12:12:56.000000Z",
+                    "items": []
+                }
+            ],
+            "sender_detail": {
+                "uuid": "f070113a-2123-4e1f-a5b5-14762aed97bf",
+                "sender_name": "Enki Business",
+                "sender_phone": "7062423707",
+                "sender_email": "angwamoses@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": false,
+                "created_at": "2024-07-19T12:12:56.000000Z",
+                "updated_at": "2024-07-19T12:12:56.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "3d34f7ab-dbb1-42a0-a959-a2622ea763f4",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-04 00:50:49",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-22T12:14:36.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "5d26f10e-b6fd-4945-8e26-518d5c65a68b",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "69675460",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "3175",
+            "service_charge": "175",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Via Booking",
+            "created_at": "2024-07-19T13:04:14.000000Z",
+            "pickup_at": "2025-01-07T15:56:29.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "1d96fdff-2bc9-4a1c-9f2d-c5810be0215c",
+                    "delivery_uuid": "5d26f10e-b6fd-4945-8e26-518d5c65a68b",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "7062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2024-07-19T13:04:14.000000Z",
+                    "items": []
+                }
+            ],
+            "sender_detail": {
+                "uuid": "6d468fda-ba82-4799-8d57-318ddf334693",
+                "sender_name": "Enki Business",
+                "sender_phone": "7062423707",
+                "sender_email": "angwamoses@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": false,
+                "created_at": "2024-07-19T13:04:14.000000Z",
+                "updated_at": "2024-07-19T13:04:14.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "75e58903-8ff4-48b0-a38c-3b9b98d94bbd",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-07 15:56:28",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2024-08-19T21:49:20.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "98433833-6ef4-4376-ae2b-a31423ede57e",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "NE8cm",
+            "fleet_identity_number": "78218528",
+            "status": "Pending",
+            "status_label": "Pending",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "500",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-05T23:00:00.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "52ffb324-dce2-4ca1-9f06-ae137cad1f01",
+                    "delivery_uuid": "98433833-6ef4-4376-ae2b-a31423ede57e",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "f737d0c9-4057-4c2f-bbfb-7ca157f21f40",
+                            "item_description": "Bags of Casava",
+                            "item_quantity": 3,
+                            "item_value": "15000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "c768c109-a8a7-4600-abca-c4a59c837b14",
+                    "delivery_uuid": "462dbaea-da54-4019-9ed0-c9f7cc40c75d",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Enki Business",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "afd3c895-f085-4a6b-a47b-d1f453e47212",
+                            "item_description": "Bags of groundnut",
+                            "item_quantity": 2,
+                            "item_value": "30000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d8563a24-3ebe-430c-bfd3-42bb9b6dc247",
+                    "delivery_uuid": "1f53091b-1fc6-4ad7-824e-e431c390c5c0",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "54e47b4d-6eec-448a-8710-dfbb8b078a3f",
+                            "item_description": "Yams",
+                            "item_quantity": 3,
+                            "item_value": "6000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "f10d700f-6b3f-4342-8ccc-9c8eb646ff33",
+                "sender_name": "Nuel Logistics",
+                "sender_phone": "8083776411",
+                "sender_email": "nuel@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": true,
+                "created_at": "2024-04-10T23:26:19.000000Z",
+                "updated_at": "2025-01-06T12:36:53.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "462dbaea-da54-4019-9ed0-c9f7cc40c75d",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "C4alp",
+            "fleet_identity_number": "78218528",
+            "status": "Pending",
+            "status_label": "Pending",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "500",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-05T23:00:00.000000Z",
+            "pickup_at": null,
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "52ffb324-dce2-4ca1-9f06-ae137cad1f01",
+                    "delivery_uuid": "98433833-6ef4-4376-ae2b-a31423ede57e",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "f737d0c9-4057-4c2f-bbfb-7ca157f21f40",
+                            "item_description": "Bags of Casava",
+                            "item_quantity": 3,
+                            "item_value": "15000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "c768c109-a8a7-4600-abca-c4a59c837b14",
+                    "delivery_uuid": "462dbaea-da54-4019-9ed0-c9f7cc40c75d",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Enki Business",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "afd3c895-f085-4a6b-a47b-d1f453e47212",
+                            "item_description": "Bags of groundnut",
+                            "item_quantity": 2,
+                            "item_value": "30000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d8563a24-3ebe-430c-bfd3-42bb9b6dc247",
+                    "delivery_uuid": "1f53091b-1fc6-4ad7-824e-e431c390c5c0",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "54e47b4d-6eec-448a-8710-dfbb8b078a3f",
+                            "item_description": "Yams",
+                            "item_quantity": 3,
+                            "item_value": "6000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "f10d700f-6b3f-4342-8ccc-9c8eb646ff33",
+                "sender_name": "Nuel Logistics",
+                "sender_phone": "8083776411",
+                "sender_email": "nuel@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": true,
+                "created_at": "2024-04-10T23:26:19.000000Z",
+                "updated_at": "2025-01-06T12:36:53.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "1f53091b-1fc6-4ad7-824e-e431c390c5c0",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "JVRaY",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": "8.539144",
+            "sender_latitude": "7.7321516",
+            "customer_longitude": "8.539144",
+            "customer_latitude": "7.7321516",
+            "delivery_fee": "500",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-05T23:00:00.000000Z",
+            "pickup_at": "2025-01-08T00:51:08.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "52ffb324-dce2-4ca1-9f06-ae137cad1f01",
+                    "delivery_uuid": "98433833-6ef4-4376-ae2b-a31423ede57e",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "f737d0c9-4057-4c2f-bbfb-7ca157f21f40",
+                            "item_description": "Bags of Casava",
+                            "item_quantity": 3,
+                            "item_value": "15000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "c768c109-a8a7-4600-abca-c4a59c837b14",
+                    "delivery_uuid": "462dbaea-da54-4019-9ed0-c9f7cc40c75d",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Enki Business",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "afd3c895-f085-4a6b-a47b-d1f453e47212",
+                            "item_description": "Bags of groundnut",
+                            "item_quantity": 2,
+                            "item_value": "30000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d8563a24-3ebe-430c-bfd3-42bb9b6dc247",
+                    "delivery_uuid": "1f53091b-1fc6-4ad7-824e-e431c390c5c0",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Angwa Moses",
+                    "customer_email": "angwamoses@gmail.com",
+                    "customer_phone_number": "07062423707",
+                    "customer_phone_code": "234",
+                    "customer_address": "MSG Teachers Qtrs, Makurdi",
+                    "created_at": "2025-01-06T12:36:53.000000Z",
+                    "items": [
+                        {
+                            "uuid": "54e47b4d-6eec-448a-8710-dfbb8b078a3f",
+                            "item_description": "Yams",
+                            "item_quantity": 3,
+                            "item_value": "6000.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-06T12:36:53.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "f10d700f-6b3f-4342-8ccc-9c8eb646ff33",
+                "sender_name": "Nuel Logistics",
+                "sender_phone": "8083776411",
+                "sender_email": "nuel@gmail.com",
+                "sender_phonecode": "234",
+                "sender_address": "MSG Teachers Qtrs, Makurdi",
+                "business_owned": true,
+                "created_at": "2024-04-10T23:26:19.000000Z",
+                "updated_at": "2025-01-06T12:36:53.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "18e195e8-9275-4741-88c1-1719546679b9",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "uLMsh",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "1000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-07T23:00:00.000000Z",
+            "pickup_at": "2025-01-08T15:31:12.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "f2b43ecd-29e9-469e-a710-2d8b0cee747a",
+                    "delivery_uuid": "18e195e8-9275-4741-88c1-1719546679b9",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/Pxh7fRJca8qXH91bfM8MlHOWB7eyITtTatr5UDxq.jpg",
+                    "customer_name": "Sala",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-08T15:10:43.000000Z",
+                    "items": [
+                        {
+                            "uuid": "5b5fab39-18d7-4ead-a0df-57135bbdce63",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-08T15:10:43.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d2b171a4-005c-4979-9a1d-c1aa4a437a90",
+                    "delivery_uuid": "a6627921-47da-4c72-9b1a-f38ffa60385b",
+                    "status": "Delivered",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/Ec2baTaOg1xQqofXuIHiZ0uI5AuqJNmC7OOuMaoI.jpg",
+                    "customer_name": "Sala 2",
+                    "customer_email": "abdullahijimoh3.ja@gmail.com",
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-08T15:10:43.000000Z",
+                    "items": [
+                        {
+                            "uuid": "118f4c3e-badf-4eea-bf4d-0174ea883864",
+                            "item_description": "book",
+                            "item_quantity": 2,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-08T15:10:43.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "f1a0ce84-d98e-4af9-9d21-77958774ce92",
+                "sender_name": "Fela",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-08T15:10:43.000000Z",
+                "updated_at": "2025-01-08T15:10:43.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "e4107c59-3682-42b0-ae5d-e1115d1b5cd2",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "Awaiting Pickup",
+                "is_grouped": false,
+                "picked_up_at": null,
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2025-01-08T17:50:08.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "64cd0fa0-a0bc-436c-a08d-ab9950791809",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "tWa4C",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "2000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-06T23:00:00.000000Z",
+            "pickup_at": "2025-01-07T22:10:35.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "389a2bec-5978-4fcc-a1cb-897a756ecd1d",
+                    "delivery_uuid": "9f674816-5ce0-4383-a063-d73ce8718aa8",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Den2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T22:06:51.000000Z",
+                    "items": [
+                        {
+                            "uuid": "b9d03b66-ee29-4365-b388-1f25d57267f2",
+                            "item_description": "pend",
+                            "item_quantity": 1,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T22:06:51.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "cff60237-322e-40e2-881a-4c0ceefa6532",
+                    "delivery_uuid": "64cd0fa0-a0bc-436c-a08d-ab9950791809",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/W7HswXiAWD18GIeyCv3D7P8OV5auGiHjWztJ7ewN.jpg",
+                    "customer_name": "Den1",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T22:06:51.000000Z",
+                    "items": [
+                        {
+                            "uuid": "6125bad4-0651-4587-ac1b-e7cbd28a1f95",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T22:06:51.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "5559a6e5-e75b-4d78-ac35-1a3a99291c75",
+                "sender_name": "Kilo",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-07T22:06:51.000000Z",
+                "updated_at": "2025-01-07T22:06:51.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "d47e1415-43a7-4ca5-aaa4-9399680b21c2",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "fTQ7H",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "1000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-06T23:00:00.000000Z",
+            "pickup_at": "2025-01-07T21:47:49.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "3beac173-8fff-4ad8-8da9-b47adc207506",
+                    "delivery_uuid": "fe64148d-4614-4770-85f1-29fc2c070d54",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Den2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T21:45:06.000000Z",
+                    "items": [
+                        {
+                            "uuid": "0cb59ff4-5dc9-4618-a947-35367c5bca31",
+                            "item_description": "pen",
+                            "item_quantity": 1,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T21:45:06.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "6c17ddef-127f-4994-a211-c9d1e8b73fa5",
+                    "delivery_uuid": "d47e1415-43a7-4ca5-aaa4-9399680b21c2",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/PzRukFgYFkTKy31izTcJiWU3b8JGpNVehfm7V7Dg.jpg",
+                    "customer_name": "Den 1",
+                    "customer_email": "abdullahijimoh3.ja@gmail.com",
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T21:45:06.000000Z",
+                    "items": [
+                        {
+                            "uuid": "e1643c39-fb1b-497c-b621-8e4006ffd06f",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T21:45:06.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "11e6ce3a-365b-46d2-acc6-ee2a6f247c0c",
+                "sender_name": "Lala",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-07T21:45:06.000000Z",
+                "updated_at": "2025-01-07T21:45:06.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "afae9182-7ecc-47ec-896c-ad7b0889913c",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "szIaN",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "3000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-06T23:00:00.000000Z",
+            "pickup_at": "2025-01-07T21:05:53.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "b3a54dc1-e138-47f1-bcf9-b394eaa6b962",
+                    "delivery_uuid": "f8414557-6b64-4e92-877f-56687bc2eefa",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Mana 1",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T21:03:46.000000Z",
+                    "items": [
+                        {
+                            "uuid": "2d00a233-ef66-4c13-a7be-ea29117c034e",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T21:03:47.000000Z"
+                        },
+                        {
+                            "uuid": "be2c377f-1634-4f66-b9ae-c5ec665fed1a",
+                            "item_description": "book",
+                            "item_quantity": 2,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T21:03:47.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "0a49fef6-97c7-4def-9de8-5c99dc5df318",
+                    "delivery_uuid": "afae9182-7ecc-47ec-896c-ad7b0889913c",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/z1zXLUqUlQG8YwESALXitLfp9m38XT8E3rz0omhp.jpg",
+                    "customer_name": "Mana 2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T21:03:47.000000Z",
+                    "items": [
+                        {
+                            "uuid": "c22f9885-6640-461f-b4d2-e97624a8ac42",
+                            "item_description": "pen",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T21:03:47.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "6f943afd-b51a-4d70-aefb-d5212c802db7",
+                "sender_name": "Lala",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-07T21:03:46.000000Z",
+                "updated_at": "2025-01-07T21:03:46.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "0e400d3c-bd07-4a2a-a68a-3561adb50eec",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "TjaW2",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "2000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-06T23:00:00.000000Z",
+            "pickup_at": "2025-01-07T20:58:58.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "677978c5-9624-4b9a-af13-328f1c848118",
+                    "delivery_uuid": "5bd4744a-0e38-4eae-9252-2e8dc6756dc8",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Dema 2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T20:55:44.000000Z",
+                    "items": [
+                        {
+                            "uuid": "92d729da-78ba-4691-8585-75c21ed40b4e",
+                            "item_description": "book",
+                            "item_quantity": 2,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T20:55:44.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "f5ff1718-f35e-4e81-882c-dbcc9e103fbe",
+                    "delivery_uuid": "0e400d3c-bd07-4a2a-a68a-3561adb50eec",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/xWuRmpH3IpZW0kj9ZoBwbPZdKCgW70WhFxdAUgjL.jpg",
+                    "customer_name": "Dema 1",
+                    "customer_email": "abdullahijimoh3.ja@gmail.com",
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T20:55:44.000000Z",
+                    "items": [
+                        {
+                            "uuid": "35ae7142-c62a-4ca0-acf8-80f2f1eac29d",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "100.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T20:55:44.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "d1dd8b9d-1f59-4cc8-bcc7-3bb13adac7ab",
+                "sender_name": "Lala",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-07T20:55:44.000000Z",
+                "updated_at": "2025-01-07T20:55:44.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "042b66b4-7342-43cc-91dd-5608422d6d68",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "t4cI9",
+            "fleet_identity_number": "78218528",
+            "status": "Awaiting-Pickup",
+            "status_label": "Delivered",
+            "sender_longitude": "8.675277",
+            "sender_latitude": "9.081999",
+            "customer_longitude": "8.675277",
+            "customer_latitude": "9.081999",
+            "delivery_fee": "3000",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-06T23:00:00.000000Z",
+            "pickup_at": "2025-01-07T17:48:29.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "cefe9e7e-a9f5-4ed0-8582-256802a26732",
+                    "delivery_uuid": "c5a8d958-0193-4386-b67f-b72ba09ba0ca",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco 2",
+                    "customer_email": "abdullahijimoh3.ja@gmail.com",
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T17:21:15.000000Z",
+                    "items": [
+                        {
+                            "uuid": "a29cea82-e844-436f-84ab-46aa068fb5f8",
+                            "item_description": "Pen",
+                            "item_quantity": 1,
+                            "item_value": "500.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T17:21:15.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "e82e26c9-df66-4b1d-9065-20c2349fc67f",
+                    "delivery_uuid": "c66045fa-8234-47a0-bac5-8155d767c3b6",
+                    "status": "Pending",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco 3",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T17:21:15.000000Z",
+                    "items": [
+                        {
+                            "uuid": "7cd4c9a5-5740-4512-ab4b-59f35289d7e0",
+                            "item_description": "Book",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T17:21:15.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "41d33f61-26bc-4f55-9e12-1a92d0598672",
+                    "delivery_uuid": "042b66b4-7342-43cc-91dd-5608422d6d68",
+                    "status": "Awaiting-Pickup",
+                    "dropoff_photo": "https://usedora-bucket-dev.s3.amazonaws.com/delivery_process/bMMR05zZF4TQiEt4svcQgAKc9VhWGAB5pT2jfytD.jpg",
+                    "customer_name": "Deco",
+                    "customer_email": "abdullahijimoh3.ja@gmail.com",
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "Nigeria",
+                    "created_at": "2025-01-07T17:21:14.000000Z",
+                    "items": [
+                        {
+                            "uuid": "abd537eb-20e7-4407-836f-868d2c78d52e",
+                            "item_description": "Book",
+                            "item_quantity": 1,
+                            "item_value": "500.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T17:21:14.000000Z"
+                        },
+                        {
+                            "uuid": "7e94fe93-7296-482a-9d58-dcf0a5d5ca28",
+                            "item_description": "Pen",
+                            "item_quantity": 1,
+                            "item_value": "300.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-07T17:21:14.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "44d82bf9-6c71-444d-b62f-df63ecb4e79e",
+                "sender_name": "Lala",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Nigeria",
+                "business_owned": false,
+                "created_at": "2025-01-07T17:21:14.000000Z",
+                "updated_at": "2025-01-07T17:21:14.000000Z"
+            },
+            "delivery_info_from_rider": null,
+            "is_paid": false
+        },
+        {
+            "uuid": "370fff76-b259-4456-8de2-f1c6f179b74a",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "aSBGB",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": "3.2887349",
+            "sender_latitude": "6.6338844",
+            "customer_longitude": "3.2887349",
+            "customer_latitude": "6.6338844",
+            "delivery_fee": "1500",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-08T23:00:00.000000Z",
+            "pickup_at": "2025-01-09T09:17:18.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "37fd0aa2-5be9-4313-80de-1f875e217b11",
+                    "delivery_uuid": "370fff76-b259-4456-8de2-f1c6f179b74a",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco1",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                    "created_at": "2025-01-09T08:03:05.000000Z",
+                    "items": [
+                        {
+                            "uuid": "201a9b2f-bd83-4120-b10f-f7dc62c6f5ee",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-09T08:03:06.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "35dedd1b-596a-4854-8287-4f04611ce5e8",
+                    "delivery_uuid": "b1a71541-2ace-413b-b588-329007362e81",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                    "created_at": "2025-01-09T08:03:06.000000Z",
+                    "items": [
+                        {
+                            "uuid": "3ac17941-729c-4520-b836-9f4675280474",
+                            "item_description": "pen",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-09T08:03:06.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "09942464-363d-47c6-8db2-b2b1aa4dd0c6",
+                "sender_name": "Fela",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                "business_owned": false,
+                "created_at": "2025-01-09T08:03:05.000000Z",
+                "updated_at": "2025-01-09T08:03:05.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "895ed4eb-c300-484d-af96-296802937691",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-09 09:17:18",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2025-01-09T08:03:54.000000Z"
+            },
+            "is_paid": false
+        },
+        {
+            "uuid": "b1a71541-2ace-413b-b588-329007362e81",
+            "rider_uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+            "order_number": "ZlRgq",
+            "fleet_identity_number": "78218528",
+            "status": "In-Transit",
+            "status_label": "In-Transit",
+            "sender_longitude": null,
+            "sender_latitude": null,
+            "customer_longitude": null,
+            "customer_latitude": null,
+            "delivery_fee": "1500",
+            "service_charge": "0",
+            "currency": "NGN",
+            "note": null,
+            "creation_mode": "Manual",
+            "created_at": "2025-01-08T23:00:00.000000Z",
+            "pickup_at": "2025-01-09T09:17:17.000000Z",
+            "dropoff_at": null,
+            "customer_detail": [
+                {
+                    "uuid": "37fd0aa2-5be9-4313-80de-1f875e217b11",
+                    "delivery_uuid": "370fff76-b259-4456-8de2-f1c6f179b74a",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco1",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                    "created_at": "2025-01-09T08:03:05.000000Z",
+                    "items": [
+                        {
+                            "uuid": "201a9b2f-bd83-4120-b10f-f7dc62c6f5ee",
+                            "item_description": "book",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-09T08:03:06.000000Z"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "35dedd1b-596a-4854-8287-4f04611ce5e8",
+                    "delivery_uuid": "b1a71541-2ace-413b-b588-329007362e81",
+                    "status": "In-Transit",
+                    "dropoff_photo": null,
+                    "customer_name": "Deco2",
+                    "customer_email": null,
+                    "customer_phone_number": "08101299987",
+                    "customer_phone_code": "234",
+                    "customer_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                    "created_at": "2025-01-09T08:03:06.000000Z",
+                    "items": [
+                        {
+                            "uuid": "3ac17941-729c-4520-b836-9f4675280474",
+                            "item_description": "pen",
+                            "item_quantity": 1,
+                            "item_value": "200.00",
+                            "currency": "NGN",
+                            "created_at": "2025-01-09T08:03:06.000000Z"
+                        }
+                    ]
+                }
+            ],
+            "sender_detail": {
+                "uuid": "09942464-363d-47c6-8db2-b2b1aa4dd0c6",
+                "sender_name": "Fela",
+                "sender_phone": "08101299987",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "10 Williams Okoro Street, Peace Estate, Aboru, Iyana Ipaja, Lagos",
+                "business_owned": false,
+                "created_at": "2025-01-09T08:03:05.000000Z",
+                "updated_at": "2025-01-09T08:03:05.000000Z"
+            },
+            "delivery_info_from_rider": {
+                "id": "41bf4031-f8a7-4ae2-be4b-8235551bbe89",
+                "rider_id": "6b8b5c9f-9182-407d-85cb-7fce108620e9",
+                "status": "In Transit",
+                "is_grouped": false,
+                "picked_up_at": "2025-01-09 09:17:17",
+                "dropped_off_at": null,
+                "cancelled_reason": null,
+                "created_at": "2025-01-09T09:03:52.000000Z"
+            },
+            "is_paid": false
+        }
+    ]
+}
     ```
 </ResponseExample>
 
