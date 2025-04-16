@@ -90,7 +90,7 @@
         "linkedin": "https://www.linkedin.com/company/usedora"
     },
     "api": {
-     "baseUrl": "https://dev.api.fleet.usedora.com/api/v1", 
+     "baseUrl": "https://dev.api.fleets.usedora.com/api/v1", 
      "playground": {
         "mode": "hide"
       }
