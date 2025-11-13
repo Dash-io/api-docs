@@ -1,0 +1,85 @@
+---
+title: "Create Rider"
+api: "POST /riders/create"
+---
+
+
+### 📝 Summary
+
+This endpoint allows the creation of a new rider profile in the system. It collects essential rider details, such as personal information, contact details, and identification, enabling them to start performing delivery tasks.
+
+---
+
+
+
+### Requests
+### Body Parameters
+
+<Expandable>
+```json
+"{\r\n    \"rider_emails\":[\"kingddsassa@gmail.com\"],\r\n    \"commission_value\": 10,\r\n    \"commission_type\" : \"commission\" //commission, fixed\r\n}"
+```
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» rider_emails|body|[string]| yes |none|
+|» commission_value|body|integer| yes |none|
+|» commission_type|body|string| yes |none|
+
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|object|true|none||none|
+|»» uuid|string|true|none||none|
+|»» riderid|integer|true|none||none|
+|»» name|string|true|none||none|
+|»» address|string|true|none||none|
+|»» phone_number|string|true|none||none|
+|»» phone_code|string|true|none||none|
+|»» email|string|true|none||none|
+|»» vehicle_plate_number|string|true|none||none|
+|»» photo|string|true|none||none|
+|»» created_at|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+  "status": "success",
+  "data": {
+    "uuid": "9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc",
+    "riderid": 45689646,
+    "name": "Nice Chimaobi",
+    "address": "Aso housing estate, lugbe",
+    "phone_number": "08028492844",
+    "phone_code": "234",
+    "email": "king@gmail.com",
+    "vehicle_plate_number": "Ae93480G",
+    "photo": "https://usedora-bucket-dev.s3.amazonaws.com/photos/oNhnn9x1fxoiPkJ3kbJUxYWNa6L4iusIChYI2B8G.jpg",
+    "created_at": "2023-12-03T07:47:46.000000Z"
+  }
+}
+    ```
+</ResponseExample>
+
+

@@ -1,0 +1,425 @@
+---
+title: "Get Rider"
+api: "GET /riders/get/{{rider_uuid}}"
+---
+
+
+### 📝 Summary
+
+This endpoint retrieves detailed information about a specific rider using their unique identifier. It is typically used to view rider details, including profile information, current status, and activity history.
+
+
+---
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|object|true|none||none|
+|»» uuid|string|true|none||none|
+|»» riderid|string|true|none||none|
+|»» name|string|true|none||none|
+|»» address|string|true|none||none|
+|»» phone_number|string|true|none||none|
+|»» phone_code|string|true|none||none|
+|»» email|string|true|none||none|
+|»» vehicle_plate_number|string|true|none||none|
+|»» photo|string|true|none||none|
+|»» total_completed_delivery|integer|true|none||none|
+|»» active|boolean|true|none||none|
+|»» number_of_ongoing_deliveries|integer|true|none||none|
+|»» ongoing_deliveries|[object]|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» order_number|string|true|none||none|
+|»»» fleet_id|null|true|none||none|
+|»»» status|string|true|none||none|
+|»»» delivery_type|string|true|none||none|
+|»»» sender_longitude|string|true|none||none|
+|»»» sender_latitude|string|true|none||none|
+|»»» customer_longitude|string|true|none||none|
+|»»» customer_latitude|string|true|none||none|
+|»»» delivery_fee|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» customer_detail|object|true|none||none|
+|»»»» uuid|string|true|none||none|
+|»»»» customer_name|string|true|none||none|
+|»»»» customer_email|null|true|none||none|
+|»»»» customer_phone_number|string|true|none||none|
+|»»»» customer_phone_code|string|true|none||none|
+|»»»» customer_address|string|true|none||none|
+|»»»» created_at|string|true|none||none|
+|»»» sender_detail|object|true|none||none|
+|»»»» uuid|string|true|none||none|
+|»»»» sender_name|string|true|none||none|
+|»»»» sender_phone|string|true|none||none|
+|»»»» sender_email|null|true|none||none|
+|»»»» sender_phonecode|string|true|none||none|
+|»»»» sender_address|string|true|none||none|
+|»»»» created_at|string|true|none||none|
+|»»»» updated_at|string|true|none||none|
+|»»» items|[object]|true|none||none|
+|»»»» uuid|string|true|none||none|
+|»»»» item_description|string|true|none||none|
+|»»»» item_quantity|integer|true|none||none|
+|»»»» item_value|string|true|none||none|
+|»»»» created_at|string|true|none||none|
+|»»» organization_detail|object|true|none||none|
+|»»»» uuid|string|true|none||none|
+|»»»» fleet_identity_number|null|true|none||none|
+|»»»» business_address|null|true|none||none|
+|»»»» phone_number|string|true|none||none|
+|»»»» phone_code|string|true|none||none|
+|»»»» logo|null|true|none||none|
+|»»»» created_at|string|true|none||none|
+|»»»» updated_at|string|true|none||none|
+|»» created_at|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+  "status": "success",
+  "data": {
+    "uuid": "9dbb0847-a2ba-4cdb-b904-72fd9ab2f3bc",
+    "riderid": "45689646",
+    "name": "Kelly Chimaobi",
+    "address": "Aso housing estate, lugbe",
+    "phone_number": "08028492844",
+    "phone_code": "234",
+    "email": "king@gmail.com",
+    "vehicle_plate_number": "Ae93480G",
+    "photo": "https://usedora-bucket-dev.s3.amazonaws.com/photos/CvvdCXduNkboQLuaMOm00FnAFmIZH7EoU5bjWstL.jpg",
+    "total_completed_delivery": 0,
+    "active": true,
+    "number_of_ongoing_deliveries": 6,
+    "ongoing_deliveries": [
+      {
+        "uuid": "ed05dfc1-a055-46b2-b2e6-679005749ef7",
+        "order_number": "190482668017",
+        "fleet_id": null,
+        "status": "Awaiting Pickup",
+        "delivery_type": "intra_state",
+        "sender_longitude": "7.3445666",
+        "sender_latitude": "8.95625",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-04T22:04:44.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "aeb0e264-73bf-4a92-b089-6aa01f1d87f3",
+          "sender_name": "Ac Nice",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "Aso housing estate, lugbe",
+          "created_at": "2023-12-04T22:04:44.000000Z",
+          "updated_at": "2023-12-04T22:04:44.000000Z"
+        },
+        "items": [],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      },
+      {
+        "uuid": "1f42c4f9-5b57-42b8-96b7-77b07d282d85",
+        "order_number": "952080652375",
+        "fleet_id": null,
+        "status": "Awaiting Pickup",
+        "delivery_type": "intra_state",
+        "sender_longitude": "7.3445666",
+        "sender_latitude": "8.95625",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-04T22:27:13.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "cce0d5df-c1cb-4fed-b1a7-29677b585a5d",
+          "sender_name": "Ac Nice",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "Aso housing estate, lugbe",
+          "created_at": "2023-12-04T22:27:13.000000Z",
+          "updated_at": "2023-12-04T22:27:13.000000Z"
+        },
+        "items": [],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      },
+      {
+        "uuid": "0b4f765e-4ef1-4649-86fd-65c6c4d5f882",
+        "order_number": "337850592853",
+        "fleet_id": null,
+        "status": "Awaiting Pickup",
+        "delivery_type": "intra_state",
+        "sender_longitude": "7.3445666",
+        "sender_latitude": "8.95625",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-05T00:50:10.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "aecc7eb3-f0ca-40aa-9b9a-5ec4f520c1ef",
+          "sender_name": "Ac Nice",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "Aso housing estate, lugbe",
+          "created_at": "2023-12-05T00:50:10.000000Z",
+          "updated_at": "2023-12-05T00:50:10.000000Z"
+        },
+        "items": [
+          {
+            "uuid": "05b19768-6711-4468-9412-48648101f557",
+            "item_description": "Freshfish",
+            "item_quantity": 1,
+            "item_value": "10000.00",
+            "created_at": "2023-12-05T00:50:10.000000Z"
+          }
+        ],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      },
+      {
+        "uuid": "e207ecc7-dcab-439e-88e8-f3e630e53697",
+        "order_number": "387451602924",
+        "fleet_id": null,
+        "status": "Awaiting Pickup",
+        "delivery_type": "intra_state",
+        "sender_longitude": "7.3445666",
+        "sender_latitude": "8.95625",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-05T00:51:00.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "cadb63c6-577b-4b30-ac6a-c4ca30884631",
+          "sender_name": "Nuel Geek",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "Aso housing estate, lugbe",
+          "created_at": "2023-12-05T00:51:00.000000Z",
+          "updated_at": "2023-12-05T00:51:00.000000Z"
+        },
+        "items": [
+          {
+            "uuid": "68222706-82e4-4a30-a298-c64bd6240f99",
+            "item_description": "Freshfish",
+            "item_quantity": 1,
+            "item_value": "10000.00",
+            "created_at": "2023-12-05T00:51:00.000000Z"
+          }
+        ],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      },
+      {
+        "uuid": "65238f36-88db-477a-a9bc-738867ca2bab",
+        "order_number": "784051429645",
+        "fleet_id": null,
+        "status": "Awaiting Pickup",
+        "delivery_type": "intra_state",
+        "sender_longitude": "7.3445666",
+        "sender_latitude": "8.95625",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-05T01:01:18.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "536c2419-3041-4392-aa0f-d80eeddae637",
+          "sender_name": "Nuel Geek",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "Aso housing estate, lugbe",
+          "created_at": "2023-12-05T01:01:18.000000Z",
+          "updated_at": "2023-12-05T01:01:18.000000Z"
+        },
+        "items": [
+          {
+            "uuid": "12d3f0e3-60a9-4455-9fbc-dbb2af959382",
+            "item_description": "Freshfish",
+            "item_quantity": 1,
+            "item_value": "10000.00",
+            "created_at": "2023-12-05T01:01:18.000000Z"
+          }
+        ],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      },
+      {
+        "uuid": "b0febc7b-91a0-43d2-a933-fc1c27dd25c3",
+        "order_number": "531886487269",
+        "fleet_id": null,
+        "status": "In Transit",
+        "delivery_type": "state_to_state",
+        "sender_longitude": "3.3096414",
+        "sender_latitude": "6.5352628",
+        "customer_longitude": "7.4974495",
+        "customer_latitude": "9.0339358",
+        "delivery_fee": "NGN3,000.00",
+        "created_at": "2023-12-05T01:02:02.000000Z",
+        "customer_detail": {
+          "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+          "customer_name": "TundeNasri",
+          "customer_email": null,
+          "customer_phone_number": "08065302534",
+          "customer_phone_code": "234",
+          "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+          "created_at": "2023-12-04T22:03:06.000000Z"
+        },
+        "sender_detail": {
+          "uuid": "2743f3a5-b692-4c10-99f7-b3b941f0c3eb",
+          "sender_name": "Nuel Geek",
+          "sender_phone": "08087168391",
+          "sender_email": null,
+          "sender_phonecode": "234",
+          "sender_address": "2 Umuleri street, Lagos",
+          "created_at": "2023-12-05T01:02:02.000000Z",
+          "updated_at": "2023-12-06T00:45:41.000000Z"
+        },
+        "items": [
+          {
+            "uuid": "cbf13cbb-b817-42ce-b948-12344ff7507f",
+            "item_description": "Freshfish",
+            "item_quantity": 1,
+            "item_value": "10000.00",
+            "created_at": "2023-12-06T00:45:41.000000Z"
+          },
+          {
+            "uuid": "7cf6577f-c6e1-40fa-aa98-443ca27cdc3f",
+            "item_description": "Freshfish",
+            "item_quantity": 1,
+            "item_value": "10000.00",
+            "created_at": "2023-12-06T01:00:27.000000Z"
+          },
+          {
+            "uuid": "a758c1cb-011a-4f96-9f5e-249bff763e07",
+            "item_description": "Canno Camera",
+            "item_quantity": 1,
+            "item_value": "30000.00",
+            "created_at": "2023-12-06T01:00:54.000000Z"
+          },
+          {
+            "uuid": "a67c925e-c9bd-4829-ac2b-c429437f50e1",
+            "item_description": "Eva soap pack",
+            "item_quantity": 1,
+            "item_value": "4000.00",
+            "created_at": "2023-12-05T01:02:02.000000Z"
+          }
+        ],
+        "organization_detail": {
+          "uuid": "9a7519bc-a726-4bff-a9aa-e77d627e2688",
+          "fleet_identity_number": null,
+          "business_address": null,
+          "phone_number": "8081939285",
+          "phone_code": "234",
+          "logo": null,
+          "created_at": "2023-11-30T16:57:27.000000Z",
+          "updated_at": "2023-11-30T16:57:27.000000Z"
+        }
+      }
+    ],
+    "created_at": "2023-12-03T07:47:46.000000Z"
+  }
+}
+    ```
+</ResponseExample>
+
+

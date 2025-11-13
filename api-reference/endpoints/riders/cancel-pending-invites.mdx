@@ -1,0 +1,40 @@
+---
+title: "Cancel Pending Invites"
+api: "DELETE /riders/cancel-rider-invite/{{rider_uuid}}"
+---
+
+
+### 📝 Summary
+
+This endpoint allows the cancellation of pending rider invitations that have not yet been accepted. It can be used to revoke access for riders who were invited but are no longer required to join the platform.
+
+---
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Riders invite cancelled successfully."
+}
+    ```
+</ResponseExample>
+
+

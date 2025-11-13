@@ -1,0 +1,45 @@
+---
+title: 'Quickstart'
+---
+
+Let's get you up and running in 5 minutes. This guide will walk you through getting your API key, creating your first delivery, and seeing the result.
+
+### 1. Get Your API Key
+
+Before you can make any API calls, you need to get your API key.
+
+You can find your API key in the **Settings > API Keys** section of your [Dora Dashboard](https://usedora.com/auth/login).
+
+<video 
+  autoPlay 
+  muted 
+  loop 
+  playsInline 
+  className="w-full aspect-video rounded-xl"
+>
+  <source src="/assets/dora-api-key.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<Info>
+  This guide uses the **Development** environment:
+  `https://dev.api.fleets.usedora.com/api/v1`
+</Info>
+
+### 2. Make Your First Call (Create Delivery)
+
+Now, let's use that key to create your first delivery. Open your terminal and paste in the following `curl` command, replacing `YOUR_API_KEY` with your **Development API Key**.
+
+This command creates a simple delivery with the minimum required fields.
+
+```bash
+curl --request POST \
+     --url [https://dev.api.fleets.usedora.com/api/v1/deliveries](https://dev.api.fleets.usedora.com/api/v1/deliveries) \
+     --header 'x-api-key: YOUR_API_KEY' \
+     --header 'Content-Type: application/json' \
+     --data '{
+        "pickup_address": "123 Main St, Lagos, Nigeria",
+        "dropoff_address": "456 Market Rd, Lagos, Nigeria",
+        "customer_name": "John Doe",
+        "customer_phone": "+2348012345678"
+     }'

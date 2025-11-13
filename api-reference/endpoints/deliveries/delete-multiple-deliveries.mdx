@@ -1,0 +1,58 @@
+---
+title: "Delete Multiple Delivery"
+api: "POST /deliveries/delete-multiple-deliveries"
+---
+
+### 📝 Summary
+
+This endpoint allows users to retrieve the details of a multiple deliveries by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+
+---
+
+### Requests
+##### Body 
+<Expandable>
+**Description:** 
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `delivery_uuid[]`   | object   |       |          |
+</Expandable>
+
+
+### Params
+
+<Expandable>
+**Description:** 
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» delivery_uuid[]|body|string| yes |none|
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Deliveries deleted."
+}
+    ```
+</ResponseExample>
+

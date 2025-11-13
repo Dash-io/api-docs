@@ -1,51 +1,53 @@
 ---
-title: Overview
+title: 'Overview'
 ---
 
-This page shows you how to access your API keys and authenticate your requests to the platform. Whether you're working in a development or production environment, you'll need to use the appropriate API key and base URL for your requests. Follow the steps below to retrieve your keys and understand the differences between environments.
+All requests to the Dora API must be authenticated using an API key. We use a custom **`x-api-key`** header to pass this key.
+
+### Environments
+
+Your account has two separate environments, each with its own API key and base URL.
+
+| **Environment** | **Base URL** | **Purpose** |
+| :--- | :--- | :--- |
+| **Development** | `https://dev.api.fleets.usedora.com/api/v1` | Testing & Sandbox |
+| **Production** | `https://api.fleet.sa.usedora.com/api/v1` | Live Data Access |
+
+<Warning>
+  **Data is separate.** Deliveries or riders created in the Development environment will **not** appear in Production, and vice-versa.
+</Warning>
+
+### 🔑 Accessing Your API Keys
+
+You can find your keys in your Dora dashboard settings:
+
+1.  **For Development:**
+    * Log in at [xdev.fleet.usedora.com](https://xdev.fleet.usedora.com).
+    * Navigate to **Settings > API Key**.
+    * Copy the **Development API Key**.
+
+2.  **For Production:**
+    * Log in at [fleet.usedora.com](https://fleet.usedora.com).
+    * Navigate to **Settings > API Key**.
+    * Copy the **Production API Key**.
 
 
----
-### 🔑 Accessing Your API Key from Platform Settings
 
+### How to Use Your Key
 
-
-#### 🚧 **For Development**
-   - Visit the **Development Environment** site: [xdev fleet](https://xdev.fleet.usedora.com).
-   - Login and navigate to the **API Key** section in **Settings**.
-   - Copy the **Development API Key** displayed.
-
-#### 🚀 **For Production**
-   - Visit the **Production Environment** site: [prod fleet](https://fleet.usedora.com).
-   - Login and navigate to the **API Key** section in **Settings**.
-   - Copy the **Production API Key** displayed.
-
-### 🆕 **Generate New API Key (if needed)**
-   - If you don't already have an API key, click the **Generate Key** button in the respective environment.
-   - Copy the generated API key by clicking the **Copy** icon next to it.
-
----
-
-### ⚠️ Important Notes
-- Keep your API key secure and do not share it with others.
-- If you suspect your API key has been compromised, revoke it immediately and generate a new one.
-
----
-
-### Example Usage with API Key
+To authenticate an API request, you must include the `x-api-key` header with every call.
 
 ```bash
-curl -X GET "https://api.usedora.com/api/v1" \
--H "x-api-key: vxe9ehOaaQpclaVHEBkF4orZVg5DjErbl2ZNAXXXzK4al9kREVB7JvIHDaedyaiu"
+curl --request GET \
+     --url [https://dev.api.fleets.usedora.com/api/v1/deliveries](https://dev.api.fleets.usedora.com/api/v1/deliveries) \
+     --header 'x-api-key: YOUR_API_KEY'
 ```
+Errors
 
-
-### 📝 **Environnment Endpoints**
-
-| **Environment** | **Base URL**                | **API Key**        | **Purpose**       |
-|------------------|-----------------------------|--------------------|-------------------|
-| **Development** | `https://dev.api.fleets.usedora.com/api/v1` | ✅ Yes | Testing & Sandbox |
-| **Production**  | `https://api.usedora.com/api/v1`     | ✅ Yes | Live Data Access  |
-
-
-
+If your API key is missing or invalid, the API will return a 401 Unauthorized error.
+```
+{
+  "status": "error",
+  "message": "Unauthenticated."
+}
+```

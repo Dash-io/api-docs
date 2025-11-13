@@ -41,43 +41,74 @@
   ],
     "navigation": [
         {
-          "group": "REST API Documentation",
-            "pages": [
-                {
-                    "group": "Authentication",
-                    "icon": "shield",
-                    "pages":["authentication"]
-                  },
+          "group": "Home",
+          "icon": "house",
+          "pages": [
+            {
+              "group": "Getting Started",
+              "icon": "map-signs",
+              "pages": [
+                "getting-started/introduction",
+                "getting-started/quickstart"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Guides",
+          "icon": "rocket",
+          "pages": [
+            {
+              "group": "Core Concepts",
+              "icon": "puzzle-piece",
+              "pages": [
+                "guides/creating-a-delivery",
+                "guides/managing-riders",
+                "guides/tracking-a-delivery"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Application API (REST)",
+          "icon": "globe",
+          "pages": [
+            {
+              "group": "Authentication",
+              "icon": "shield",
+              "pages":["authentication"]
+            },
             {
               "group": "Manage Deliveries",
               "icon": "boxes-packing",
               "pages": [
-                "api-reference/endpoint/deliveries/get-deliveries",
-                "api-reference/endpoint/deliveries/move-to-in-transit",
-                "api-reference/endpoint/deliveries/move-to-in-delivered",
-                "api-reference/endpoint/deliveries/create-delivery",
-                "api-reference/endpoint/deliveries/assign-delivery",
-                "api-reference/endpoint/deliveries/get-delivery",
-                "api-reference/endpoint/deliveries/delete-delivery",
-                "api-reference/endpoint/deliveries/delete-multiple-deliveries",
-                "api-reference/endpoint/deliveries/update-delivery",
-                "api-reference/endpoint/deliveries/download-pdf",
-                "api-reference/endpoint/deliveries/update-delivery-status"
+                "api-reference/endpoints/deliveries/get-deliveries",
+                "api-reference/endpoints/deliveries/move-to-in-transit",
+                "api-reference/endpoints/deliveries/move-to-in-delivered",
+                "api-reference/endpoints/deliveries/create-delivery",
+                "api-reference/endpoints/deliveries/assign-delivery",
+                "api-reference/endpoints/deliveries/get-delivery",
+                "api-reference/endpoints/deliveries/delete-delivery",
+                "api-reference/endpoints/deliveries/delete-multiple-deliveries",
+                "api-reference/endpoints/deliveries/update-delivery",
+                "api-reference/endpoints/deliveries/download-pdf",
+                "api-reference/endpoints/deliveries/update-delivery-status",
+                "api-reference/endpoints/deliveries/get-delivery-fee"
               ]
             },
             {
               "group": "Manage Riders",
               "icon": "van-shuttle",
               "pages": [
-                "api-reference/endpoint/riders/create-rider",
-                "api-reference/endpoint/riders/get-riders",
-                "api-reference/endpoint/riders/activate-riders",
-                "api-reference/endpoint/riders/get-rider",
-                "api-reference/endpoint/riders/deactivate-riders",
-                "api-reference/endpoint/riders/rider-delivery-history",
-                "api-reference/endpoint/riders/delete-rider",
-                "api-reference/endpoint/riders/cancel-pending-invites",
-                "api-reference/endpoint/riders/rider-ongoing-deliveries"
+                "api-reference/endpoints/riders/create-rider",
+                "api-reference/endpoints/riders/get-riders",
+                "api-reference/endpoints/riders/activate-riders",
+                "api-reference/endpoints/riders/get-rider",
+                "api-reference/endpoints/riders/deactivate-riders",
+                "api-reference/endpoints/riders/rider-delivery-history",
+                "api-reference/endpoints/riders/delete-rider",
+                "api-reference/endpoints/riders/cancel-pending-invites",
+                "api-reference/endpoints/riders/rider-ongoing-deliveries"
               ]
             }
           ]

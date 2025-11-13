@@ -1,0 +1,63 @@
+---
+title: "Get Delivery Fee"
+api: "POST /booking_inbound/link_code/get_delivery_fee"
+---
+
+
+### 📝 Summary
+
+This endpoint allows users to calculate the cost for a potential delivery. By providing necessary parameters such as the pickup location, delivery destination, and package dimensions/weight, the system will compute and return the estimated delivery fee and any associated taxes or surcharges. This enables users to determine the final price before confirming a delivery request.
+
+---
+
+
+
+
+
+### Requests
+### Body Parameters
+
+<Expandable>
+```json
+{
+  "sender_address": "Aso housing estate, Lugbe, Abuja",
+  "receiver_address": "Grandeur squares and cubes estate, FHA, Lugbe, Abuja"
+}
+```
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» sender_address|body|string| yes |none|
+|» receiver_address|body|string| yes |none|
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200 ✅ |[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    
+    ```
+</ResponseExample>
+
+

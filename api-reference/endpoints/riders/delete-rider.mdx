@@ -1,0 +1,65 @@
+---
+title: "Delete Rider"
+api: "DELETE /riders/delete-rider"
+---
+
+
+### 📝 Summary
+
+This endpoint permanently deletes a rider's account from the system. It is typically used when a rider leaves the platform, requests account deletion, or their account needs to be removed for compliance reasons.
+
+---
+
+
+### Body Parameters
+<Expandable>
+**Description:** 
+
+```json
+{
+  "rider_uuids": [
+    "1550c152-2523-4f3d-931e-92ce8a4c80cc",
+    "2550c152-2523-4f3d-931e-92ce8a4c80cc",
+    "3550c152-2523-4f3d-931e-92ce8a4c80cc",
+    "4550c152-2523-4f3d-931e-92ce8a4c80cc"
+  ]
+}
+```
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» rider_uuids|body|[string]| yes |none|
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Rider delete successfully."
+}
+    ```
+</ResponseExample>
+
+
