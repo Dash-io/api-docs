@@ -1,0 +1,200 @@
+---
+title: "Assign Delivery"
+api: "POST /deliveries/assign/{{rider_uuid}}"
+---
+
+### 📝 Summary
+
+This endpoint allows users to assign a delivery request to a specific rider. By providing the delivery ID and the driver's information, the delivery request will be linked to the assigned personnel for processing and fulfillment. Once successfully assigned, the delivery status is updated accordingly.
+
+---
+
+### Requests
+
+### Body
+
+<Expandable>
+**Description:**
+
+| **Field**    | **Type** | **Required** | **Description** |
+| ------------ | -------- | -----------: | --------------- |
+| `delivery_uuid` | string   |       ✅ Yes |                 |
+
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:**
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» delivery_uuid[]|body|string| yes |none|
+
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:**
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|[object]|true|none||none|
+|»» uuid|string|true|none||none|
+|»» order_number|string|true|none||none|
+|»» fleet_id|null|true|none||none|
+|»» status|string|true|none||none|
+|»» delivery_type|string|true|none||none|
+|»» sender_longitude|string|true|none||none|
+|»» sender_latitude|string|true|none||none|
+|»» customer_longitude|string|true|none||none|
+|»» customer_latitude|string|true|none||none|
+|»» delivery_fee|string|true|none||none|
+|»» created_at|string|true|none||none|
+|»» customer_detail|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» customer_name|string|true|none||none|
+|»»» customer_email|null|true|none||none|
+|»»» customer_phone_number|string|true|none||none|
+|»»» customer_phone_code|string|true|none||none|
+|»»» customer_address|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»» sender_detail|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» sender_name|string|true|none||none|
+|»»» sender_phone|string|true|none||none|
+|»»» sender_email|null|true|none||none|
+|»»» sender_phonecode|string|true|none||none|
+|»»» sender_address|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» updated_at|string|true|none||none|
+|»» items|[object]|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» item_description|string|true|none||none|
+|»»» item_quantity|integer|true|none||none|
+|»»» item_value|string|true|none||none|
+|»»» created_at|string|true|none||none|
+
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "data": [
+        {
+            "uuid": "e207ecc7-dcab-439e-88e8-f3e630e53697",
+            "order_number": "387451602924",
+            "fleet_id": null,
+            "status": "Awaiting Pickup",
+            "delivery_type": "intra_state",
+            "sender_longitude": "7.3445666",
+            "sender_latitude": "8.95625",
+            "customer_longitude": "7.4974495",
+            "customer_latitude": "9.0339358",
+            "delivery_fee": "NGN3,000.00",
+            "created_at": "2023-12-05T00:51:00.000000Z",
+            "customer_detail": {
+                "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+                "customer_name": "TundeNasri",
+                "customer_email": null,
+                "customer_phone_number": "08065302534",
+                "customer_phone_code": "234",
+                "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+                "created_at": "2023-12-04T22:03:06.000000Z"
+            },
+            "sender_detail": {
+                "uuid": "cadb63c6-577b-4b30-ac6a-c4ca30884631",
+                "sender_name": "Nuel Geek",
+                "sender_phone": "08087168391",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "Aso housing estate, lugbe",
+                "created_at": "2023-12-05T00:51:00.000000Z",
+                "updated_at": "2023-12-05T00:51:00.000000Z"
+            },
+            "items": [
+                {
+                    "uuid": "68222706-82e4-4a30-a298-c64bd6240f99",
+                    "item_description": "Freshfish",
+                    "item_quantity": 1,
+                    "item_value": "10000.00",
+                    "created_at": "2023-12-05T00:51:00.000000Z"
+                }
+            ]
+        },
+        {
+            "uuid": "b0febc7b-91a0-43d2-a933-fc1c27dd25c3",
+            "order_number": "531886487269",
+            "fleet_id": null,
+            "status": "In Transit",
+            "delivery_type": "state_to_state",
+            "sender_longitude": "3.3096414",
+            "sender_latitude": "6.5352628",
+            "customer_longitude": "7.4974495",
+            "customer_latitude": "9.0339358",
+            "delivery_fee": "NGN3,000.00",
+            "created_at": "2023-12-05T01:02:02.000000Z",
+            "customer_detail": {
+                "uuid": "caf911a3-7b66-4599-9b3a-aa26d7730e69",
+                "customer_name": "TundeNasri",
+                "customer_email": null,
+                "customer_phone_number": "08065302534",
+                "customer_phone_code": "234",
+                "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+                "created_at": "2023-12-04T22:03:06.000000Z"
+            },
+            "sender_detail": {
+                "uuid": "2743f3a5-b692-4c10-99f7-b3b941f0c3eb",
+                "sender_name": "Nuel Geek",
+                "sender_phone": "08087168391",
+                "sender_email": null,
+                "sender_phonecode": "234",
+                "sender_address": "2 Umuleri street, Lagos",
+                "created_at": "2023-12-05T01:02:02.000000Z",
+                "updated_at": "2023-12-06T00:45:41.000000Z"
+            },
+            "items": [
+                {
+                    "uuid": "cbf13cbb-b817-42ce-b948-12344ff7507f",
+                    "item_description": "Freshfish",
+                    "item_quantity": 1,
+                    "item_value": "10000.00",
+                    "created_at": "2023-12-06T00:45:41.000000Z"
+                },
+                {
+                    "uuid": "7cf6577f-c6e1-40fa-aa98-443ca27cdc3f",
+                    "item_description": "Freshfish",
+                    "item_quantity": 1,
+                    "item_value": "10000.00",
+                    "created_at": "2023-12-06T01:00:27.000000Z"
+                },
+                {
+                    "uuid": "a758c1cb-011a-4f96-9f5e-249bff763e07",
+                    "item_description": "Canno Camera",
+                    "item_quantity": 1,
+                    "item_value": "30000.00",
+                    "created_at": "2023-12-06T01:00:54.000000Z"
+                },
+                {
+                    "uuid": "a67c925e-c9bd-4829-ac2b-c429437f50e1",
+                    "item_description": "Eva soap pack",
+                    "item_quantity": 1,
+                    "item_value": "4000.00",
+                    "created_at": "2023-12-05T01:02:02.000000Z"
+                }
+            ]
+        }
+    ]
+}
+    ```
+</ResponseExample>

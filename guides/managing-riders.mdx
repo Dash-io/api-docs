@@ -1,0 +1,109 @@
+---
+title: 'Managing Riders'
+---
+
+This guide covers the two main tasks for rider management: creating a new rider in your fleet and assigning a delivery to an available rider.
+
+### 1. Creating a Rider
+
+Before you can assign deliveries, you need to add riders to your fleet. You can do this via the dashboard or the API.
+
+<video 
+  autoPlay 
+  muted 
+  loop 
+  playsInline 
+  className="w-full aspect-video rounded-xl"
+>
+  <source src="/assets/dora-rider-invite.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+To create a rider via the API, send a `POST` request to the `/riders` endpoint:
+
+```bash
+curl --request POST \
+     --url [https://dev.api.fleets.usedora.com/api/v1/riders](https://dev.api.fleets.usedora.com/api/v1/riders) \
+     --header 'x-api-key: YOUR_API_KEY' \
+     --header 'Content-Type: application/json' \
+     --data '{
+        "first_name": "Tunde",
+        "last_name": "Bello",
+        "phone": "+2349012345678",
+        "email": "tunde.bello@example.com",
+        "vehicle_type": "motorcycle"
+     }'
+```
+
+Save the id from the response. This is the Rider ID.
+
+```
+{
+  "status": "success",
+  "data": {
+    "id": "rdr_123tunde456",
+    "first_name": "Tunde",
+    "last_name": "Bello",
+    // ...
+  }
+}
+```
+
+2. Assigning a Delivery to a Rider
+
+Now, let's connect the delivery you created in the last guide to the rider you just made.
+
+<video 
+  autoPlay 
+  muted 
+  loop 
+  playsInline 
+  className="w-full aspect-video rounded-xl"
+>
+  <source src="/assets/dora-assign-rider.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+To assign a delivery, you use the assign-delivery endpoint. This is a POST request that links a delivery_id to a rider_id.
+
+You will need:
+
+    The Delivery ID (e.g., del_abc789xyz1) from the previous guide.
+
+    The Rider ID (e.g., rdr_123tunde456) from the step above.
+
+```bash
+curl --request POST \
+     --url [https://dev.api.fleets.usedora.com/api/v1/deliveries/assign-delivery](https://dev.api.fleets.usedora.com/api/v1/deliveries/assign-delivery) \
+     --header 'x-api-key: YOUR_API_KEY' \
+     --header 'Content-Type: application/json' \
+     --data '{
+        "delivery_id": "del_abc789xyz1",
+        "rider_id": "rdr_123tunde456"
+     }'
+```
+
+The Response
+
+A successful assignment will return the updated delivery object. Notice the status is now assigned and the rider object is populated.
+
+```
+{
+  "status": "success",
+  "data": {
+    "id": "del_abc789xyz1",
+    "status": "assigned", // <-- Updated!
+    "customer_name": "Jane Smith",
+    // ...
+    "rider": {
+      "id": "rdr_123tunde456",
+      "first_name": "Tunde",
+      "phone": "+2349012345678"
+    }
+  }
+}
+```
+
+Next Step
+
+The delivery is now in the hands of your rider. The next and final step is to monitor its progress. Let's move on to Tracking a Delivery.

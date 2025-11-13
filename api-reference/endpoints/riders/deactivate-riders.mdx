@@ -1,0 +1,61 @@
+---
+title: "Deactivate Riders"
+api: "POST /riders/deactivate"
+---
+
+
+### 📝 Summary
+
+This endpoint deactivates a rider's account, preventing them from accepting or completing delivery tasks. It is typically used for riders who violate platform policies, are inactive for extended periods, or are temporarily suspended.
+
+---
+
+
+
+### Requests
+### Body Parameters
+<Expandable>
+**Description:** 
+
+```yaml
+"rider_uuids[]": "{{rider_uuid}}"
+
+```
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» rider_uuids[]|body|string| yes |none|
+</Expandable>
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "Riders deactivated successfully"
+}
+    ```
+</ResponseExample>
+
+

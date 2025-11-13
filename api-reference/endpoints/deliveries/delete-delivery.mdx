@@ -1,0 +1,49 @@
+---
+title: "Delete Delivery"
+api: "POST /deliveries/delete/{delivery_uuid}"
+---
+
+### 📝 Summary
+
+This endpoint allows users to retrieve the details of a specific delivery by providing the unique delivery ID. It returns all relevant information related to the delivery, including the delivery status, sender and recipient details, assigned driver, and vehicle information.
+
+---
+
+### Requests
+##### Body
+<Expandable>
+**Description:** 
+
+| **Field**   | **Type** | **Required** | **Description**          |
+|-------------|----------|-------------:|---------------------------|
+| `delivered`   | string   | ✅ Yes       |           |
+</Expandable>
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+        "status": "error",
+        "message": "Delivery does not exist or may have been processed!"
+    }
+    ```
+</ResponseExample>
+

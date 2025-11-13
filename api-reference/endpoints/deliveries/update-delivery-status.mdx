@@ -1,0 +1,165 @@
+---
+title: "Update Delivery Status"
+api: "POST /deliveries/update_status"
+---
+
+### 📝 Summary
+
+This endpoint allows updating the status of a specific delivery. The status can reflect various stages of the delivery process, such as pending, in transit, completed, or failed. This is typically used when there is a change in the delivery’s current state, helping to track its progress.
+
+---
+
+### Requests
+##### Body Parameters
+
+<Expandable>
+```yaml
+delivery_uuid: "{{delivery_uuid}}"
+status: in_transit
+pickup_otp: "097857"
+dropoff_otp: "098798"
+note: Reason for cancellation
+
+```
+</Expandable>
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» delivery_uuid|body|string| yes |none|
+|» status|body|string| yes |accepted | in_transit | delivered | cancelled|
+|» pickup_otp|body|string| no |required if status is in_transit|
+|» dropoff_otp|body|string| no |required if status is delivered|
+|» note|body|string| no |Reason for cancellation|
+</Expandable>
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|object|true|none||none|
+|»» uuid|string|true|none||none|
+|»» order_number|string|true|none||none|
+|»» status|string|true|none||none|
+|»» delivery_type|string|true|none||none|
+|»» sender_longitude|string|true|none||none|
+|»» sender_latitude|string|true|none||none|
+|»» customer_longitude|string|true|none||none|
+|»» customer_latitude|string|true|none||none|
+|»» created_at|string|true|none||none|
+|»» customer_detail|object|true|none||none|
+|»»» id|string|true|none||none|
+|»»» customer_name|string|true|none||none|
+|»»» customer_email|string|true|none||none|
+|»»» customer_state_id|integer|true|none||none|
+|»»» customer_phone_number|string|true|none||none|
+|»»» customer_phone_code|string|true|none||none|
+|»»» customer_address|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»» delivery_detail|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» sender_name|string|true|none||none|
+|»»» sender_phone|string|true|none||none|
+|»»» sender_phonecode|string|true|none||none|
+|»»» sender_address|string|true|none||none|
+|»»» delivery_total_order_value|string|true|none||none|
+|»»» delivery_number_of_parcels|integer|true|none||none|
+|»»» delivery_unit_weight|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» updated_at|string|true|none||none|
+|»» items|[object]|true|none||none|
+|»»» uuid|string|false|none||none|
+|»»» item_description|string|false|none||none|
+|»»» item_quantity|integer|false|none||none|
+|»»» item_weight|string|false|none||none|
+|»»» item_value|string|false|none||none|
+|»»» created_at|string|false|none||none|
+|»» organization_detail|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» business_address|string|true|none||none|
+|»»» country_id|integer|true|none||none|
+|»»» state_id|integer|true|none||none|
+|»»» city|string|true|none||none|
+|»»» logo|string|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» updated_at|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+  "status": "success",
+  "data": {
+    "uuid": "e85616da-906c-4984-8980-069e7f3b2cd9",
+    "order_number": "664481112612",
+    "status": "Order Accepted",
+    "delivery_type": "intra_state",
+    "sender_longitude": "7.4724033",
+    "sender_latitude": "9.0820999",
+    "customer_longitude": "7.4974495",
+    "customer_latitude": "9.0339358",
+    "created_at": "2023-10-30T18:45:33.000000Z",
+    "customer_detail": {
+      "id": "8670aeb6-8299-4f0f-8915-31c7db66a7c0",
+      "customer_name": "TundeNasri",
+      "customer_email": "sinoma@gmail.com",
+      "customer_state_id": 304,
+      "customer_phone_number": "08065302534",
+      "customer_phone_code": "234",
+      "customer_address": "12 Ahmadu Bello way, Central Business District, Abuja",
+      "created_at": "2023-10-30T18:45:33.000000Z"
+    },
+    "delivery_detail": {
+      "uuid": "dc09555f-42ac-426b-963c-7d301ea4deb3",
+      "sender_name": "Ac Nice",
+      "sender_phone": "08087168391",
+      "sender_phonecode": "234",
+      "sender_address": "T-pumpy estate, phase 20 lugbe, Abuja",
+      "delivery_total_order_value": "10000.00",
+      "delivery_number_of_parcels": 1,
+      "delivery_unit_weight": "10.00",
+      "created_at": "2023-10-30T18:45:33.000000Z",
+      "updated_at": "2023-10-30T18:45:33.000000Z"
+    },
+    "items": [
+      {
+        "uuid": "aee2ca50-bed0-40b3-90da-534097c39f91",
+        "item_description": "Freshfish",
+        "item_quantity": 1,
+        "item_weight": "10.00",
+        "item_value": "10000.00",
+        "created_at": "2023-10-30T18:45:33.000000Z"
+      }
+    ],
+    "organization_detail": {
+      "uuid": "355c96cd-aa77-459e-9107-1223bea38f9b",
+      "business_address": "Aso Housing Estate, Airport road, Abuja",
+      "country_id": 161,
+      "state_id": 303,
+      "city": "Abuja",
+      "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/mwFmcQ7ppveoNULRwL3AEyKtwoHT2KViXte8AYJA.jpg",
+      "created_at": "2023-10-15T10:57:05.000000Z",
+      "updated_at": "2023-10-28T16:40:21.000000Z"
+    }
+  },
+  "message": "Delivery status updated"
+}
+    ```
+</ResponseExample>

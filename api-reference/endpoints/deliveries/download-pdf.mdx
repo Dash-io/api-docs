@@ -1,0 +1,38 @@
+---
+title: "Download PDF"
+api: "GET /deliveries/download_pdf/{delivery_uuid}"
+---
+
+### 📝 Summary
+
+This endpoint allows users to download the delivery details in PDF format. The PDF will contain comprehensive information regarding the delivery, including status, pickup and dropoff locations, rider details, and any other relevant metadata. This is useful for generating physical or digital reports.
+
+---
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+    "status": "success",
+    "message": "pdf generated."
+}
+    ```
+</ResponseExample>
+

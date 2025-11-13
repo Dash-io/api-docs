@@ -1,0 +1,154 @@
+---
+title: "Create Delivery"
+api: "POST /deliveries/create"
+---
+
+
+### 📝 Summary
+
+This endpoint allows users to create a new delivery request in the system. It accepts details such as sender and recipient information, delivery address, package details, and delivery preferences. Upon successful creation, it returns a unique delivery ID and the status of the delivery request.
+
+---
+
+### Requests
+##### Body Parameters
+
+### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object| no |none|
+|» creation_date|body|string| yes |none|
+|» delivery_fee|body|integer| yes |none|
+|» iam_sender|body|boolean| yes |none|
+|» riderid|body|string| yes |none|
+|» send_sms|body|boolean| yes |none|
+|» sender_address|body|string| yes |none|
+|» sender_email|body|string| yes |none|
+|» sender_name|body|string| yes |none|
+|» sender_phone|body|string| yes |none|
+|» sender_phonecode|body|string| yes |none|
+|» receivers|body|[object]| yes |none|
+|»» customer_address|body|string| no |none|
+|»» customer_name|body|string| no |none|
+|»» customer_phone_number|body|string| no |none|
+|»» customer_phone_code|body|string| no |none|
+|»» item_type|body|string| no |none|
+|»» items|body|[object]| no |none|
+|»»» item_description|body|string| no |none|
+|»»» item_quantity|body|integer| no |none|
+|»»» item_value|body|integer| no |none|
+</Expandable>
+
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Data Schema
+
+<Expandable>
+**Description:** 
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|object|true|none||none|
+|»» uuid|string|true|none||none|
+|»» order_number|string|true|none||none|
+|»» fleet_identity_number|string|true|none||none|
+|»» status|string|true|none||none|
+|»» status_label|string|true|none||none|
+|»» sender_longitude|null|true|none||none|
+|»» sender_latitude|null|true|none||none|
+|»» customer_longitude|null|true|none||none|
+|»» customer_latitude|null|true|none||none|
+|»» delivery_fee|integer|true|none||none|
+|»» total_delivery_amount|integer|true|none||none|
+|»» service_charge|integer|true|none||none|
+|»» rider_commission|null|true|none||none|
+|»» currency|string|true|none||none|
+|»» note|null|true|none||none|
+|»» creation_mode|null|true|none||none|
+|»» created_at|string|true|none||none|
+|»» pickup_at|null|true|none||none|
+|»» dropoff_at|null|true|none||none|
+|»» customer_detail|[any]|true|none||none|
+|»» sender_detail|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» sender_name|string|true|none||none|
+|»»» sender_phone|string|true|none||none|
+|»»» sender_email|string|true|none||none|
+|»»» sender_phonecode|string|true|none||none|
+|»»» sender_address|string|true|none||none|
+|»»» business_owned|boolean|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» updated_at|string|true|none||none|
+|»» rider_info|null|true|none||none|
+|»» delivery_info_from_rider|null|true|none||none|
+|»» is_paid|boolean|true|none||none|
+|»» pickup_photo|null|true|none||none|
+|»» dropoff_photo|null|true|none||none|
+|»» cancellation_reason|null|true|none||none|
+|»» cancelled_by|object|true|none||none|
+|»»» name|null|true|none||none|
+|»»» photo|null|true|none||none|
+|» message|string|true|none||none|
+</Expandable>
+
+<ResponseExample>
+    ```json sample response
+    {
+  "status": "success",
+  "data": {
+    "uuid": "9fd136b9-dd33-4006-859b-5e57906f02b4",
+    "order_number": "41127",
+    "fleet_identity_number": "63471915",
+    "status": "Pending",
+    "status_label": "Pending",
+    "sender_longitude": null,
+    "sender_latitude": null,
+    "customer_longitude": null,
+    "customer_latitude": null,
+    "delivery_fee": 5000,
+    "total_delivery_amount": 5250,
+    "service_charge": 125,
+    "rider_commission": null,
+    "currency": "NGN",
+    "note": null,
+    "creation_mode": null,
+    "created_at": "2025-04-15T18:25:54.000000Z",
+    "pickup_at": null,
+    "dropoff_at": null,
+    "customer_detail": [],
+    "sender_detail": {
+      "uuid": "8e09f8fe-147a-4178-b3be-6b7eec4bf849",
+      "sender_name": "Emmanuel Chinatuka",
+      "sender_phone": "08087168391",
+      "sender_email": "chimaobinice@gmail.com",
+      "sender_phonecode": "234",
+      "sender_address": "2 Umuleri street, Lagos",
+      "business_owned": false,
+      "created_at": "2025-04-15T18:25:54.000000Z",
+      "updated_at": "2025-04-15T18:25:54.000000Z"
+    },
+    "rider_info": null,
+    "delivery_info_from_rider": null,
+    "is_paid": true,
+    "pickup_photo": null,
+    "dropoff_photo": null,
+    "cancellation_reason": null,
+    "cancelled_by": {
+      "name": null,
+      "photo": null
+    }
+  },
+  "message": "Delivery created successfully"
+}
+    ```
+</ResponseExample>
