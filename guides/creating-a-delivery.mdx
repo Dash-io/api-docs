@@ -2,75 +2,37 @@
 title: 'Creating a Delivery'
 ---
 
-In the [Quickstart](/getting-started/quickstart), you created a basic delivery. This guide will cover the process in more detail, including all the common fields you'll need.
-
 A **Delivery** is the central object in the Dora API. It represents a single order that needs to be picked up from one location and dropped off at another.
 
-<video 
-  autoPlay 
-  muted 
-  loop 
-  playsInline 
+### Video Guide: Creating a Delivery
+
+This video walks you through the entire delivery creation workflow, including filling out required fields and setting up optional parameters like scheduling and payment methods.
+
+<iframe
   className="w-full aspect-video rounded-xl"
->
-  <source src="/assets/dora-create-a-delivery.webm" type="video/webm" />
-  Your browser does not support the video tag.
-</video>
+  src="https://www.youtube.com/embed/ZPSYZ72IlHU?start=26"
+  title="Dora API Guide: Delivery Creation Tutorial"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
 
 ### The Delivery Lifecycle
 
 A delivery moves through several statuses:
 
 1.  **`pending`**: The delivery has been created but is not assigned to a rider.
-2.  **`assigned`**: A rider has been assigned to the delivery.
-3.  **`in-transit`**: The rider has picked up the package.
-4.  **`delivered`**: The rider has dropped off the package and confirmed delivery.
-5.  **`delivered`**: The rider has dropped off the package and confirmed delivery.
-6.  **`cancelled`**: The delivery was cancelled.
+2.  **`assigned`**: A rider has been assigned to the delivery
+3.  **`awaiting-pickup`**: The rider is yet to pickup the package.
+4.  **`assigned`**: A rider has been assigned to the delivery.
+5.  **`in-transit`**: The rider has picked up the package.
+6.  **`delivered`**: The rider has dropped off the package and confirmed delivery.
+7.  **`declined`**: The rider has declined the the assignment.
+8.  **`cancelled`**: The delivery was cancelled.
 
-### Creating a Detailed Delivery
+### Next Steps: Full API Details
 
-To create a delivery, you send a `POST` request to the `/deliveries` endpoint. Here’s a more complete example with common fields.
+The complete list of parameters, request bodies, and error codes is available in the API Reference.
 
-```bash
-curl --request POST \
-     --url [https://dev.api.fleets.usedora.com/api/v1/deliveries](https://dev.api.fleets.usedora.com/api/v1/deliveries) \
-     --header 'x-api-key: YOUR_API_KEY' \
-     --header 'Content-Type: application/json' \
-     --data '{
-        "customer_name": "Jane Smith",
-        "customer_phone": "+2348011112222",
-        
-        "pickup_address": "100 Adetokbo Ademola St, Victoria Island, Lagos",
-        "pickup_instructions": "Ask for 'Dora Pickup' at the front desk.",
-        
-        "dropoff_address": "50B Fola Osibo Rd, Lekki Phase 1, Lagos",
-        "dropoff_instructions": "Call customer on arrival. Leave at the gate if no answer.",
-        
-        "package_description": "1x box of documents",
-        "payment_method": "card",
-        "payment_status": "paid"
-     }'
-```
+* **View API Endpoint:** **[Manage Deliveries: Create Delivery](/api-reference/endpoints/deliveries/create-delivery)** ```
 
-The Response
-
-If successful, the API returns the full delivery object with a 201 status.
-
-Save the id from this response. You'll need it for the next steps, like assigning a rider.
-
-```
-{
-  "status": "success",
-  "data": {
-    "id": "del_abc789xyz1",
-    "status": "pending",
-    "customer_name": "Jane Smith",
-    // ... all other fields
-  }
-}
-```
-
-Next Step
-
-Now that you have a pending delivery, the next step is to get a rider to pick it up. Let's move on to Managing Riders.
