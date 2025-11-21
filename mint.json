@@ -63,8 +63,7 @@
               "icon": "puzzle-piece",
               "pages": [
                 "guides/creating-a-delivery",
-                "guides/managing-riders",
-                "guides/tracking-a-delivery"
+                "guides/managing-riders"
               ]
             }
           ]
