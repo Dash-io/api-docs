@@ -8,7 +8,7 @@ Let's get you up and running in 5 minutes. This guide will walk you through gett
 
 Before you can make any API calls, you need to get your API key.
 
-You can find your API key in the **Settings > API Keys** section of your [Dora Dashboard](https://usedora.com/auth/login).
+You can find your API key in the **Settings > General > API Keys** section of your [Dora Dashboard](https://fleet.usedora.com/dashboard).
 
 <video 
   autoPlay 
@@ -32,14 +32,39 @@ Now, let's use that key to create your first delivery. Open your terminal and pa
 
 This command creates a simple delivery with the minimum required fields.
 
+<Expandable>
 ```bash
 curl --request POST \
-     --url [https://dev.api.fleets.usedora.com/api/v1/deliveries](https://dev.api.fleets.usedora.com/api/v1/deliveries) \
+  --url [https://dev.api.fleets.usedora.com/api/v1/deliveries/create] (https://dev.api.fleets.usedora.com/api/v1/deliveries/create) \
      --header 'x-api-key: YOUR_API_KEY' \
      --header 'Content-Type: application/json' \
      --data '{
-        "pickup_address": "123 Main St, Lagos, Nigeria",
-        "dropoff_address": "456 Market Rd, Lagos, Nigeria",
-        "customer_name": "John Doe",
-        "customer_phone": "+2348012345678"
-     }'
+  "creation_date": "2025-08-28",
+  "delivery_fee": 0,
+  "iam_sender": true,
+  "riderid": "2ce7ff7a-2c76-4e18-b681-41121ef48631",
+  "send_sms": true,
+  "sender_address": "85 Allen Avenue, Ikeja, Lagos, Nigeria",
+  "sender_email": "devs@venco.co",
+  "sender_name": "Takasuki",
+  "sender_phone": "8131013478",
+  "sender_phonecode": "234",
+  "receivers": [
+    {
+      "customer_address": "Penthouse - DC, Demo Estate, 404, Not Found Road, Lagos, Nigeria",
+      "customer_name": "Victor Maduforo",
+      "customer_phone_number": "8131013478",
+      "customer_phone_code": "234",
+      "item_type": "manual",
+      "items": [
+        {
+          "item_description": "Midea 463L Top Mount Direct Cool Refrigerator - SBS (MDRT645MTU46)",
+          "item_quantity": 1,
+          "item_value": 30
+        }
+      ]
+    }
+  ]
+}'
+```
+</Expandable>
