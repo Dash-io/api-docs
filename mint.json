@@ -111,6 +111,21 @@
               ]
             }
           ]
+        },
+        {
+          "group": "Webhooks",
+          "icon": "webhook",
+          "pages": [
+            {
+              "group": "Getting Started",
+              "icon": "map-signs",
+              "pages": [
+                "webhooks/introduction",
+                "webhooks/setting-up-webhooks",
+                "webhooks/webhook-events"
+              ]
+            }
+          ]
         }
     ],
     "footerSocials": {

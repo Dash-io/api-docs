@@ -1,0 +1,289 @@
+# Receiving Webhooks from Dora
+
+## Overview
+When you configure a webhook URL in your Custom Website integration, Dora will automatically send HTTP POST requests to your endpoint whenever delivery events occur.
+
+## Setup
+
+1. **Configure Webhook URL**
+   - Go to Integrations → Custom Website
+   - Enter your webhook endpoint URL (e.g., `https://yoursite.com/webhooks/dora`)
+   - Select which events you want to receive
+   - Save the configuration
+
+2. **Implement Webhook Endpoint**
+   - Create an endpoint on your server to receive POST requests
+   - Verify the webhook signature (see below)
+   - Process the event data
+
+## Webhook Events
+
+Dora sends the following events:
+
+| Event | Description |
+|-------|-------------|
+| `delivery.created` | New delivery created |
+| `delivery.assigned` | Delivery assigned to a rider |
+| `delivery.picked_up` | Rider picked up the package |
+| `delivery.in_transit` | Package is in transit |
+| `delivery.completed` | Delivery completed successfully |
+| `delivery.cancelled` | Delivery was cancelled |
+| `delivery.failed` | Delivery attempt failed |
+
+## Webhook Payload
+
+```json
+{
+  "event": "delivery.completed",
+  "timestamp": "2025-11-25T16:30:00Z",
+  "data": {
+    "delivery_id": "uuid-here",
+    "order_number": "ORDER-12345",
+    "status": "delivered",
+    "customer_name": "John Doe",
+    "customer_phone": "+1234567890",
+    "customer_address": "123 Main St, City",
+    "delivery_fee": 10.00,
+    "payment_status": "paid",
+    "note": "Handle with care",
+    "created_at": "2025-11-25T10:00:00Z",
+    "updated_at": "2025-11-25T16:30:00Z",
+    "picked_up_at": "2025-11-25T15:00:00Z",
+    "dropoff_at": "2025-11-25T16:30:00Z",
+    "rider": {
+      "name": "Jane Smith",
+      "phone": "+0987654321"
+    }
+  }
+}
+```
+
+## HTTP Headers
+
+Dora includes the following headers with each webhook request:
+
+```
+Content-Type: application/json
+X-Dora-Signature: sha256_hash_here
+X-Dora-Event: delivery.completed
+X-Dora-Delivery-ID: uuid-here
+```
+
+## Signature Verification
+
+**IMPORTANT**: Always verify the webhook signature to ensure the request came from Dora.
+
+The `X-Dora-Signature` header contains an HMAC SHA256 hash of the payload using your API key as the secret.
+
+### PHP Example
+
+```php
+<?php
+
+function verifyDoraWebhook($payload, $signature, $apiKey) {
+    $computedSignature = hash_hmac('sha256', $payload, $apiKey);
+    return hash_equals($signature, $computedSignature);
+}
+
+// Webhook endpoint
+$payload = file_get_contents('php://input');
+$signature = $_SERVER['HTTP_X_DORA_SIGNATURE'] ?? '';
+$apiKey = 'your_dora_api_key_here';
+
+if (!verifyDoraWebhook($payload, $signature, $apiKey)) {
+    http_response_code(401);
+    die('Invalid signature');
+}
+
+$event = json_decode($payload, true);
+
+// Process the event
+switch ($event['event']) {
+    case 'delivery.completed':
+        // Update your database
+        updateOrderStatus($event['data']['order_number'], 'delivered');
+        break;
+    
+    case 'delivery.picked_up':
+        // Send notification to customer
+        notifyCustomer($event['data']['customer_phone'], 'Your package is on the way!');
+        break;
+    
+    // Handle other events...
+}
+
+http_response_code(200);
+echo json_encode(['status' => 'received']);
+```
+
+### Node.js Example
+
+```javascript
+const express = require('express');
+const crypto = require('crypto');
+
+const app = express();
+app.use(express.json());
+
+const API_KEY = 'your_dora_api_key_here';
+
+function verifySignature(payload, signature) {
+  const computed = crypto
+    .createHmac('sha256', API_KEY)
+    .update(JSON.stringify(payload))
+    .digest('hex');
+  
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(computed)
+  );
+}
+
+app.post('/webhooks/dora', (req, res) => {
+  const signature = req.headers['x-dora-signature'];
+  
+  if (!verifySignature(req.body, signature)) {
+    return res.status(401).json({ error: 'Invalid signature' });
+  }
+  
+  const event = req.body;
+  
+  // Process the event
+  console.log(`Received event: ${event.event}`);
+  console.log(`Delivery ID: ${event.data.delivery_id}`);
+  
+  switch (event.event) {
+    case 'delivery.completed':
+      // Update your database
+      updateOrderStatus(event.data.order_number, 'delivered');
+      break;
+    
+    case 'delivery.picked_up':
+      // Send SMS notification
+      sendSMS(event.data.customer_phone, 'Your package is on the way!');
+      break;
+  }
+  
+  res.json({ status: 'received' });
+});
+
+app.listen(3000);
+```
+
+### Python/Flask Example
+
+```python
+import hmac
+import hashlib
+import json
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+API_KEY = 'your_dora_api_key_here'
+
+def verify_signature(payload, signature):
+    computed = hmac.new(
+        API_KEY.encode(),
+        payload.encode(),
+        hashlib.sha256
+    ).hexdigest()
+    return hmac.compare_digest(signature, computed)
+
+@app.route('/webhooks/dora', methods=['POST'])
+def dora_webhook():
+    payload = request.get_data(as_text=True)
+    signature = request.headers.get('X-Dora-Signature', '')
+    
+    if not verify_signature(payload, signature):
+        return jsonify({'error': 'Invalid signature'}), 401
+    
+    event = request.json
+    
+    # Process the event
+    if event['event'] == 'delivery.completed':
+        update_order_status(event['data']['order_number'], 'delivered')
+    elif event['event'] == 'delivery.picked_up':
+        notify_customer(event['data']['customer_phone'])
+    
+    return jsonify({'status': 'received'})
+
+if __name__ == '__main__':
+    app.run(port=5000)
+```
+
+## Retry Logic
+
+If your endpoint returns a non-2xx status code or times out, Dora will retry the webhook:
+
+- **Attempt 1**: Immediate
+- **Attempt 2**: After 1 minute
+- **Attempt 3**: After 5 minutes
+- **Attempt 4**: After 15 minutes
+
+After 3 failed attempts, the webhook will be marked as failed.
+
+## Best Practices
+
+1. **Respond Quickly**
+   - Return a 200 status code immediately
+   - Process the event asynchronously (queue it)
+   - Don't perform long-running operations in the webhook handler
+
+2. **Verify Signatures**
+   - Always verify the `X-Dora-Signature` header
+   - Use constant-time comparison to prevent timing attacks
+
+3. **Handle Duplicates**
+   - Webhooks may be sent multiple times
+   - Use `delivery_id` to detect and ignore duplicates
+
+4. **Monitor Failures**
+   - Log all webhook requests
+   - Set up alerts for repeated failures
+   - Check the webhook events log in Dora dashboard
+
+5. **Use HTTPS**
+   - Always use HTTPS for your webhook endpoint
+   - Dora will not send webhooks to HTTP URLs
+
+## Testing Webhooks
+
+You can test your webhook endpoint using tools like:
+
+- **ngrok**: Expose your local server to the internet
+- **RequestBin**: Inspect webhook payloads
+- **Postman**: Manually send test requests
+
+Example test payload:
+```bash
+curl -X POST https://yoursite.com/webhooks/dora \
+  -H "Content-Type: application/json" \
+  -H "X-Dora-Signature: your_computed_signature" \
+  -H "X-Dora-Event: delivery.completed" \
+  -d '{
+    "event": "delivery.completed",
+    "timestamp": "2025-11-25T16:30:00Z",
+    "data": {
+      "delivery_id": "test-uuid",
+      "order_number": "TEST-001",
+      "status": "delivered"
+    }
+  }'
+```
+
+## Troubleshooting
+
+**Webhooks not being received?**
+- Check that your URL is publicly accessible
+- Verify your server is running and responding
+- Check firewall rules
+- Review server logs for errors
+
+**Signature verification failing?**
+- Ensure you're using the correct API key
+- Verify you're hashing the raw request body
+- Check for encoding issues
+
+**Need help?**
+- Email: support@dora.com
+- Webhook logs: Available in your Dora dashboard
