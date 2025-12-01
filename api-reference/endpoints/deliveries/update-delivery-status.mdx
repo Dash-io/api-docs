@@ -10,7 +10,22 @@ This endpoint allows updating the status of a specific delivery. The status can 
 ---
 
 ### Requests
-##### Body Parameters
+##### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`body`|body|object| no |none|
+|`delivery_uuid`|body|string| yes |none|
+|`status`|body|string| yes |accepted | in_transit | delivered | cancelled|
+|`pickup_otp`|body|string| no |required if status is in_transit|
+|`dropoff_otp`|body|string| no |required if status is delivered|
+|`note`|body|string| no |Reason for cancellation|
+</Expandable>
+
+##### Example
 
 <Expandable>
 ```yaml
@@ -23,84 +38,13 @@ note: Reason for cancellation
 ```
 </Expandable>
 
-### Params
-
-<Expandable>
-**Description:** 
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object| no |none|
-|» delivery_uuid|body|string| yes |none|
-|» status|body|string| yes |accepted | in_transit | delivered | cancelled|
-|» pickup_otp|body|string| no |required if status is in_transit|
-|» dropoff_otp|body|string| no |required if status is delivered|
-|» note|body|string| no |Reason for cancellation|
-</Expandable>
-
-
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» uuid|string|true|none||none|
-|»» order_number|string|true|none||none|
-|»» status|string|true|none||none|
-|»» delivery_type|string|true|none||none|
-|»» sender_longitude|string|true|none||none|
-|»» sender_latitude|string|true|none||none|
-|»» customer_longitude|string|true|none||none|
-|»» customer_latitude|string|true|none||none|
-|»» created_at|string|true|none||none|
-|»» customer_detail|object|true|none||none|
-|»»» id|string|true|none||none|
-|»»» customer_name|string|true|none||none|
-|»»» customer_email|string|true|none||none|
-|»»» customer_state_id|integer|true|none||none|
-|»»» customer_phone_number|string|true|none||none|
-|»»» customer_phone_code|string|true|none||none|
-|»»» customer_address|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»» delivery_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» sender_name|string|true|none||none|
-|»»» sender_phone|string|true|none||none|
-|»»» sender_phonecode|string|true|none||none|
-|»»» sender_address|string|true|none||none|
-|»»» delivery_total_order_value|string|true|none||none|
-|»»» delivery_number_of_parcels|integer|true|none||none|
-|»»» delivery_unit_weight|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|»» items|[object]|true|none||none|
-|»»» uuid|string|false|none||none|
-|»»» item_description|string|false|none||none|
-|»»» item_quantity|integer|false|none||none|
-|»»» item_weight|string|false|none||none|
-|»»» item_value|string|false|none||none|
-|»»» created_at|string|false|none||none|
-|»» organization_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» business_address|string|true|none||none|
-|»»» country_id|integer|true|none||none|
-|»»» state_id|integer|true|none||none|
-|»»» city|string|true|none||none|
-|»»» logo|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|» message|string|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response

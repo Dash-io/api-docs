@@ -32,7 +32,7 @@ Dora sends the following events:
 
 ## Webhook Payload
 
-```json
+```json json
 {
   "event": "delivery.completed",
   "timestamp": "2025-11-25T16:30:00Z",
@@ -40,9 +40,42 @@ Dora sends the following events:
     "delivery_id": "uuid-here",
     "order_number": "ORDER-12345",
     "status": "delivered",
-    "customer_name": "John Doe",
-    "customer_phone": "+1234567890",
-    "customer_address": "123 Main St, City",
+    "receiver_detail": [
+      {
+        "uuid": "receiver-uuid",
+        "delivery_uuid": "delivery-uuid",
+        "status": "delivered",
+        "dropoff_photo": "https://...",
+        "customer_name": "John Doe",
+        "customer_email": "john@example.com",
+        "customer_phone_number": "1234567890",
+        "customer_phone_code": "+1",
+        "customer_address": "123 Main St, City, State",
+        "created_at": "2025-11-25T10:00:00Z",
+        "items": [
+          {
+            "uuid": "item-uuid",
+            "name": "Product A",
+            "quantity": 2,
+            "price": 75.00,
+            "description": "Product description"
+          }
+        ]
+      }
+    ],
+    "sender_detail": [
+      {
+        "uuid": "sender-uuid",
+        "sender_name": "ABC Store",
+        "sender_phone": "0987654321",
+        "sender_email": "store@example.com",
+        "sender_phonecode": "+1",
+        "sender_address": "456 Business Ave, City",
+        "business_owned": true,
+        "created_at": "2025-11-25T10:00:00Z",
+        "updated_at": "2025-11-25T10:00:00Z"
+      }
+    ],
     "delivery_fee": 10.00,
     "payment_status": "paid",
     "note": "Handle with care",
@@ -75,9 +108,12 @@ X-Dora-Delivery-ID: uuid-here
 
 The `X-Dora-Signature` header contains an HMAC SHA256 hash of the payload using your API key as the secret.
 
-### PHP Example
+### Code Example
 
-```php
+
+<div class="code-scroll">
+<CodeGroup dropdown>
+```php php
 <?php
 
 function verifyDoraWebhook($payload, $signature, $apiKey) {
@@ -102,11 +138,29 @@ switch ($event['event']) {
     case 'delivery.completed':
         // Update your database
         updateOrderStatus($event['data']['order_number'], 'delivered');
+        
+        // Access receiver details
+        foreach ($event['data']['receiver_detail'] as $receiver) {
+            $customerName = $receiver['customer_name'];
+            $customerPhone = $receiver['customer_phone_number'];
+            $customerAddress = $receiver['customer_address'];
+            
+            // Process items
+            foreach ($receiver['items'] as $item) {
+                logItem($item['name'], $item['quantity']);
+            }
+        }
         break;
     
     case 'delivery.picked_up':
         // Send notification to customer
-        notifyCustomer($event['data']['customer_phone'], 'Your package is on the way!');
+        $receiver = $event['data']['receiver_detail'][0] ?? null;
+        if ($receiver) {
+            notifyCustomer(
+                $receiver['customer_phone_code'] . $receiver['customer_phone_number'], 
+                'Your package is on the way!'
+            );
+        }
         break;
     
     // Handle other events...
@@ -116,9 +170,8 @@ http_response_code(200);
 echo json_encode(['status' => 'received']);
 ```
 
-### Node.js Example
 
-```javascript
+```javascript javascript
 const express = require('express');
 const crypto = require('crypto');
 
@@ -156,11 +209,21 @@ app.post('/webhooks/dora', (req, res) => {
     case 'delivery.completed':
       // Update your database
       updateOrderStatus(event.data.order_number, 'delivered');
+      
+      // Access receiver details
+      event.data.receiver_detail.forEach(receiver => {
+        console.log(`Delivered to: ${receiver.customer_name}`);
+        console.log(`Address: ${receiver.customer_address}`);
+      });
       break;
     
     case 'delivery.picked_up':
       // Send SMS notification
-      sendSMS(event.data.customer_phone, 'Your package is on the way!');
+      const receiver = event.data.receiver_detail[0];
+      if (receiver) {
+        const phone = receiver.customer_phone_code + receiver.customer_phone_number;
+        sendSMS(phone, 'Your package is on the way!');
+      }
       break;
   }
   
@@ -170,9 +233,8 @@ app.post('/webhooks/dora', (req, res) => {
 app.listen(3000);
 ```
 
-### Python/Flask Example
 
-```python
+```python python
 import hmac
 import hashlib
 import json
@@ -202,14 +264,26 @@ def dora_webhook():
     # Process the event
     if event['event'] == 'delivery.completed':
         update_order_status(event['data']['order_number'], 'delivered')
+        
+        # Access receiver details
+        for receiver in event['data']['receiver_detail']:
+            customer_name = receiver['customer_name']
+            customer_address = receiver['customer_address']
+            print(f"Delivered to {customer_name} at {customer_address}")
+            
     elif event['event'] == 'delivery.picked_up':
-        notify_customer(event['data']['customer_phone'])
+        receiver = event['data']['receiver_detail'][0] if event['data']['receiver_detail'] else None
+        if receiver:
+            phone = receiver['customer_phone_code'] + receiver['customer_phone_number']
+            notify_customer(phone)
     
     return jsonify({'status': 'received'})
 
 if __name__ == '__main__':
     app.run(port=5000)
 ```
+</CodeGroup>
+</div>
 
 ## Retry Logic
 

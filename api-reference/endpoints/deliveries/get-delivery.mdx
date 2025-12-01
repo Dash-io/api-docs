@@ -9,77 +9,14 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 
 ---
 
-### Requests
-##### Body
-<Expandable>
-**Description:** 
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `delivery_uuid`   | string   | ✅ Yes       |           |
-</Expandable>
-
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» uuid|string|true|none||none|
-|»» order_number|string|true|none||none|
-|»» fleet_id|null|true|none||none|
-|»» status|string|true|none||none|
-|»» delivery_type|string|true|none||none|
-|»» sender_longitude|string|true|none||none|
-|»» sender_latitude|string|true|none||none|
-|»» customer_longitude|string|true|none||none|
-|»» customer_latitude|string|true|none||none|
-|»» delivery_fee|string|true|none||none|
-|»» created_at|string|true|none||none|
-|»» customer_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» customer_name|string|true|none||none|
-|»»» customer_email|null|true|none||none|
-|»»» customer_phone_number|string|true|none||none|
-|»»» customer_phone_code|string|true|none||none|
-|»»» customer_address|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»» sender_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» sender_name|string|true|none||none|
-|»»» sender_phone|string|true|none||none|
-|»»» sender_email|null|true|none||none|
-|»»» sender_phonecode|string|true|none||none|
-|»»» sender_address|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|»» items|[object]|true|none||none|
-|»»» uuid|string|false|none||none|
-|»»» item_description|string|false|none||none|
-|»»» item_quantity|integer|false|none||none|
-|»»» item_value|string|false|none||none|
-|»»» created_at|string|false|none||none|
-|»» organization_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» fleet_identity_number|null|true|none||none|
-|»»» business_address|null|true|none||none|
-|»»» phone_number|string|true|none||none|
-|»»» phone_code|string|true|none||none|
-|»»» logo|null|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-
-</Expandable>
 
 <ResponseExample>
     ```json sample response

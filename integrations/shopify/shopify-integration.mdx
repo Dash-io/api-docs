@@ -1,0 +1,322 @@
+---
+title: 'Shopify Integration'
+---
+
+Automatically sync orders from your Shopify store to Dora for seamless delivery management.
+
+#### Overview
+The Shopify integration uses OAuth 2.0 to securely connect your Shopify store to Dora. Once connected, orders are automatically synced in real-time via webhooks.
+
+#### Key Features
+
+- ✅ Automatic order syncing
+- ✅ Real-time updates via webhooks
+- ✅ Secure OAuth 2.0 authentication
+- ✅ Automatic delivery creation
+- ✅ Order status synchronization
+
+#### Setup Instructions
+**Prerequisites**
+- Active Shopify store
+- Dora account with admin access
+- Admin permissions on your Shopify store
+
+##### Connection Steps
+- Navigate to Integrations
+- Go to Settings → Integrations in your Dora dashboard
+- Find Shopify and click Connect
+- Enter Store URL
+- Enter your Shopify store URL (e.g., mystore.myshopify.com)
+- Click Continue
+- Authorize Access
+- You'll be redirected to Shopify
+- Review the requested permissions
+- Click Install app to authorize
+- Complete ✅
+- You'll be redirected back to Dora
+- Your Shopify store is now connected
+
+#### How It Works
+
+Order Sync Flow
+- Shopify Order Event → Webhook → Dora API → Delivery Created/Updated
+
+**Supported Events**
+Shopify Event	Dora Action
+- Order Created	Creates a new delivery
+- Order Updated	Updates delivery details
+- Order Cancelled	Cancels the delivery and all assignments
+- Order Fulfilled	Marks delivery as completed
+- App Uninstalled	Deactivates the integration
+
+#### Data Mapping
+When an order is synced from Shopify, the following fields are mapped:
+
+| Shopify Field (Source) | Dora Field (Destination) | Description |
+| :--- | :--- | :--- |
+| `name` (e.g., `#1001`) | `order_number` | The customer's unique order identifier. |
+| `customer.first_name` + `last_name` | `customer_name` | Full name of the package recipient. |
+| `customer.phone` | `customer_phone` | Customer's contact number for delivery/tracking. |
+| `email` | `customer_email` | Customer's email address. |
+| `shipping_address.address1` + `city` | `address` | The final drop-off location for the delivery. |
+| `line_items` | `items` | The array containing the products included in the order. |
+| `note` | `note` | Any special instructions or notes left by the customer. |
+| `financial_status` | `payment_status` | The payment status of the order (e.g., `paid`, `pending`). |
+| `total_price` | `total_amount` | The total value of the order before delivery fees. |
+
+#### API Endpoints
+**OAuth Callback**
+
+<Badge color="green">GET</Badge> /api/integrations/callback/{service_id}
+
+Description: Handles the OAuth callback from Shopify after authorization.
+
+**Params**
+
+| name | Type | Required | Description  |
+| :--- | :--- | :--- |  :---  |
+| `code` | query | yes | Authorization code from Shopify  |
+| `shop` | query | yes | Shopify store domain  |
+| `state` | query | yes | CSRF protection token  |
+| `hmac` | query | yes | Request signature  |
+
+**Response**
+
+<Accordion title="Sample Response.">
+```json sample response
+{
+  "message": "Integration connected successfully",
+  "integration": {
+    "id": "uuid",
+    "service_name": "Shopify",
+    "active": true,
+    "connected_at": "2025-11-29T12:00:00Z"
+  }
+}
+```
+</Accordion>
+
+#### Webhook Endpoint
+
+<Badge color="blue">POST</Badge> /api/integrations/webhook/shopify
+
+**Description:** Receives webhook events from Shopify.
+
+**Headers**
+
+`X-Shopify-Topic` - The webhook event type
+
+`X-Shopify-Hmac-Sha256` - HMAC signature for verification
+
+`X-Shopify-Shop-Domain` - The shop domain
+
+`Content-Type`: application/json
+
+**Example Payload (orders/create)**
+
+<Accordion title="Example Payload.">
+```json example payload
+{
+  "id": 5678901234,
+  "name": "#1001",
+  "email": "customer@example.com",
+  "created_at": "2025-11-29T12:00:00Z",
+  "customer": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone": "+1234567890"
+  },
+  "shipping_address": {
+    "address1": "123 Main St",
+    "city": "New York",
+    "province": "NY",
+    "country": "United States",
+    "zip": "10001",
+    "phone": "+1234567890"
+  },
+  "line_items": [
+    {
+      "title": "Product Name",
+      "quantity": 2,
+      "price": "29.99"
+    }
+  ],
+  "total_price": "59.98",
+  "financial_status": "paid",
+  "note": "Please deliver before 5pm"
+}
+```
+</Accordion>
+
+**Response**
+
+<Accordion title="Sample Response.">
+```json sample response
+{
+  "status": "created",
+  "order_number": "#1001",
+  "delivery_id": "uuid"
+}
+```
+</Accordion>
+
+### Webhook Events
+**orders/create** - Triggered when a new order is placed in Shopify.
+
+**Dora Action:**
+
+- Creates a new delivery record
+- Links to the Shopify integration
+- Sets status to PENDING
+- Stores Shopify order ID in metadata
+
+**orders/updated** - Triggered when order details are modified (address, items, etc.).
+
+**Dora Action:**
+
+- Finds delivery by order_number
+- Updates delivery and receiver details
+- Logs the update in metadata
+
+**orders/cancelled** - Triggered when an order is cancelled in Shopify.
+
+**Dora Action:**
+
+- Finds delivery by order_number
+- Sets delivery status to CANCELLED
+- Cancels all active delivery assignments
+- Creates a status log entry
+- Stores cancellation reason in metadata
+
+**orders/fulfilled** - Triggered when an order is marked as fulfilled in Shopify.
+
+**Dora Action:**
+
+- Finds delivery by order_number
+- Sets delivery status to DELIVERED
+- Updates dropoff_at timestamp
+- Creates a status log entry
+
+**app/uninstalled** - Triggered when the Dora app is uninstalled from Shopify.
+
+**Dora Action:**
+
+- Deactivates the integration
+- Stops processing future webhooks
+- Existing deliveries remain unchanged
+- Security
+
+#### OAuth 2.0 Flow
+The integration uses OAuth 2.0 with the following security measures:
+
+`State Parameter`: CSRF protection via random nonce
+
+`HMAC Validation`: All OAuth callbacks are verified using HMAC-SHA256
+
+`Secure Storage`: Access tokens are encrypted in the database
+
+`HTTPS Only`: All communication uses TLS encryption
+
+#### Webhook Verification
+All incoming webhooks are verified using HMAC signatures:
+
+`HMAC` = base64(hmac-sha256(request_body, client_secret))
+
+The signature is sent in the X-Shopify-Hmac-Sha256 header and verified before processing.
+
+**Permissions Required**
+
+The integration requests the following Shopify API scopes:
+
+- Scope	Purpose
+- read_orders	Read order information
+- read_customers	Read customer details for deliveries
+- write_orders	Update order status when delivered
+- read_fulfillments	Read fulfillment information
+- write_fulfillments	Mark orders as fulfilled
+
+#### Troubleshooting
+**Orders Not Syncing**
+
+**Issue:** New Shopify orders aren't appearing in Dora
+
+**Solutions:**
+
+- Verify the integration is active in Settings → Integrations
+- Check that the order was created AFTER connecting Shopify
+- Review webhook logs for errors
+- Ensure webhooks are registered in Shopify admin
+- Check Webhook Status:
+```sql
+SELECT meta->'webhook_ids' 
+FROM user_service_integrations 
+WHERE service_integration_id = (
+  SELECT id FROM service_integrations WHERE service_name = 'Shopify'
+);
+```
+Connection Expired
+
+**Issue:** Integration shows as inactive
+
+**Solution:**
+
+- Go to Settings → Integrations
+- Click Reconnect on Shopify
+
+**Issue:** Error when entering shop URL
+
+**Solution:**
+
+- Use the .myshopify.com format (e.g., mystore.myshopify.com)
+- Don't use custom domains
+- Ensure no spaces or special characters
+
+#### Rate Limits
+
+**Shopify enforces the following rate limits:**
+
+`REST API`: 2 requests per second (bucket-based)
+
+`Webhooks`: No rate limit on incoming webhooks
+
+**The Dora integration stays well within these limits:**
+
+`OAuth token exchange`: 1 request per connection
+
+`Webhook registration`: 5 requests per connection
+
+`Webhook deletion`: 5 requests per disconnection
+
+#### Testing
+
+**Test with Development Store**
+- Create a Shopify development store in your Partner account
+- Connect the development store to Dora
+- Create a test order in Shopify
+- Verify the delivery appears in Dora
+- Cancel the order and verify it's cancelled in Dora
+
+**Webhook Testing**
+
+Use Shopify's webhook testing tool to send test payloads:
+
+- Go to Shopify Admin → Settings → Notifications → Webhooks
+- Find the registered webhook
+- Click Send test notification
+- Check Dora logs for webhook processing
+
+#### Best Practices
+**Do's ✅**
+
+- Keep the integration connected for automatic syncing
+- Test with a sample order after initial setup
+- Monitor the first few orders to ensure proper syncing
+- Use the .myshopify.com URL format
+
+**Don'ts ❌**
+
+
+- Don't disconnect and reconnect frequently
+- Don't modify order numbers in Dora (must match Shopify)
+- Don't delete the app from Shopify without disconnecting in Dora first
+- Don't use custom domain URLs for connection

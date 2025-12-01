@@ -3,113 +3,49 @@ title: "Rider Delivery History"
 api: "GET /riders/delivery/history/{{rider_uuid}}"
 ---
 
-
 ### 📝 Summary
 
 This endpoint retrieves the delivery history of a specific rider, including details about the deliveries they have completed, their status, and relevant timestamps. The history can be filtered by date, status, and other optional parameters.
 
 ---
 
+### Requests
+##### Params
 
-### Params
 <Expandable>
 **Description:** 
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|paginate|query|string| yes |none|
-|per_page|query|string| yes |none|
-|filter|query|string| yes |all|today|yesterday|
-|start_date|query|string| yes |optional|
-|end_date|query|string| yes |optional|
+|`paginate`|query|string| yes |none|
+|`per_page`|query|string| yes |none|
+|`filter`|query|string| yes |all|today|yesterday|
+|`start_date`|query|string| yes |optional|
+|`end_date`|query|string| yes |optional|
+</Expandable>
+
+##### Example
+
+<Expandable>
+```json
+{
+  "paginate": "1",
+  "per_page": "10",
+  "filter": "all",
+  "start_date": "",
+  "end_date": ""
+}
+```
 </Expandable>
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
 
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» current_page|integer|true|none||none|
-|»» data|[object]|true|none||none|
-|»»» uuid|string|false|none||none|
-|»»» order_number|string|false|none||none|
-|»»» fleet_identity_number|string|false|none||none|
-|»»» status|string|false|none||none|
-|»»» delivery_type|string|false|none||none|
-|»»» sender_longitude|null|false|none||none|
-|»»» sender_latitude|null|false|none||none|
-|»»» customer_longitude|null|false|none||none|
-|»»» customer_latitude|null|false|none||none|
-|»»» delivery_fee|string|false|none||none|
-|»»» currency|string|false|none||none|
-|»»» note|null|false|none||none|
-|»»» creation_mode|string|false|none||none|
-|»»» created_at|string|false|none||none|
-|»»» customer_detail|object|false|none||none|
-|»»»» uuid|string|true|none||none|
-|»»»» customer_name|string|true|none||none|
-|»»»» customer_email|string|true|none||none|
-|»»»» customer_phone_number|string|true|none||none|
-|»»»» customer_phone_code|string|true|none||none|
-|»»»» customer_address|string|true|none||none|
-|»»»» created_at|string|true|none||none|
-|»»» sender_detail|object|false|none||none|
-|»»»» uuid|string|true|none||none|
-|»»»» sender_name|string|true|none||none|
-|»»»» sender_phone|string|true|none||none|
-|»»»» sender_email|string|true|none||none|
-|»»»» sender_phonecode|string|true|none||none|
-|»»»» sender_address|string|true|none||none|
-|»»»» created_at|string|true|none||none|
-|»»»» updated_at|string|true|none||none|
-|»»» items|[object]|false|none||none|
-|»»»» uuid|string|true|none||none|
-|»»»» item_description|string|true|none||none|
-|»»»» item_quantity|integer|true|none||none|
-|»»»» item_value|string|true|none||none|
-|»»»» currency|string|true|none||none|
-|»»»» created_at|string|true|none||none|
-|»»» rider_info|object|false|none||none|
-|»»»» uuid|string|true|none||none|
-|»»»» riderid|string|true|none||none|
-|»»»» name|string|true|none||none|
-|»»»» address|string|true|none||none|
-|»»»» phone_number|string|true|none||none|
-|»»»» phone_code|string|true|none||none|
-|»»»» email|string|true|none||none|
-|»»»» vehicle_plate_number|string|true|none||none|
-|»»»» photo|string|true|none||none|
-|»»»» total_completed_delivery|integer|true|none||none|
-|»»»» active|boolean|true|none||none|
-|»»»» number_of_ongoing_deliveries|integer|true|none||none|
-|»»»» total_revenue_by_rider|string|true|none||none|
-|»»»» rider_ongoing_deliveries|null|true|none||none|
-|»»»» created_at|string|true|none||none|
-|»» first_page_url|string|true|none||none|
-|»» from|integer|true|none||none|
-|»» last_page|integer|true|none||none|
-|»» last_page_url|string|true|none||none|
-|»» links|[object]|true|none||none|
-|»»» url|string¦null|true|none||none|
-|»»» label|string|true|none||none|
-|»»» active|boolean|true|none||none|
-|»» next_page_url|null|true|none||none|
-|»» path|string|true|none||none|
-|»» per_page|integer|true|none||none|
-|»» prev_page_url|null|true|none||none|
-|»» to|integer|true|none||none|
-|»» total|integer|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response

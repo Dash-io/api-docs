@@ -10,23 +10,13 @@ This endpoint allows the cancellation of pending rider invitations that have not
 
 ---
 
-
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» message|string|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response

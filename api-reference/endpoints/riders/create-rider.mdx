@@ -10,57 +10,41 @@ This endpoint allows the creation of a new rider profile in the system. It colle
 
 ---
 
-
-
 ### Requests
-### Body Parameters
-
-<Expandable>
-```json
-"{\r\n    \"rider_emails\":[\"kingddsassa@gmail.com\"],\r\n    \"commission_value\": 10,\r\n    \"commission_type\" : \"commission\" //commission, fixed\r\n}"
-```
-</Expandable>
-
-### Params
+##### Params
 
 <Expandable>
 **Description:** 
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| no |none|
-|» rider_emails|body|[string]| yes |none|
-|» commission_value|body|integer| yes |none|
-|» commission_type|body|string| yes |none|
+|`body`|body|object| no |none|
+|`rider_emails`|body|[string]| yes |none|
+|`commission_value`|body|integer| yes |none|
+|`commission_type`|body|string| yes |none|
 
 </Expandable>
 
+##### Example
+
+<Expandable>
+```json
+{
+  "rider_emails": [
+    "kingddsassa@gmail.com"
+  ],
+  "commission_value": 10,
+  "commission_type": "commission"
+}
+```
+</Expandable>
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» uuid|string|true|none||none|
-|»» riderid|integer|true|none||none|
-|»» name|string|true|none||none|
-|»» address|string|true|none||none|
-|»» phone_number|string|true|none||none|
-|»» phone_code|string|true|none||none|
-|»» email|string|true|none||none|
-|»» vehicle_plate_number|string|true|none||none|
-|»» photo|string|true|none||none|
-|»» created_at|string|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response

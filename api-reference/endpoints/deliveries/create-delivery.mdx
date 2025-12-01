@@ -11,44 +11,73 @@ This endpoint allows users to create a new delivery request in the system. It ac
 ---
 
 ### Requests
-##### Body Parameters
-
-### Params
+##### Params
 
 <Expandable>
 **Description:** 
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object| no |none|
-|» creation_date|body|string| yes |none|
-|» delivery_fee|body|integer| yes |none|
-|» iam_sender|body|boolean| yes |none|
-|» riderid|body|string| yes |none|
-|» send_sms|body|boolean| yes |none|
-|» sender_address|body|string| yes |none|
-|» sender_email|body|string| yes |none|
-|» sender_name|body|string| yes |none|
-|» sender_phone|body|string| yes |none|
-|» sender_phonecode|body|string| yes |none|
-|» receivers|body|[object]| yes |none|
-|»» customer_address|body|string| no |none|
-|»» customer_name|body|string| no |none|
-|»» customer_phone_number|body|string| no |none|
-|»» customer_phone_code|body|string| no |none|
-|»» item_type|body|string| no |none|
-|»» items|body|[object]| no |none|
-|»»» item_description|body|string| no |none|
-|»»» item_quantity|body|integer| no |none|
-|»»» item_value|body|integer| no |none|
+|`body`|body|object| no |none|
+|`creation_date`|body|string| yes |none|
+|`delivery_fee`|body|integer| yes |none|
+|`iam_sender`|body|boolean| yes |none|
+|`riderid`|body|string| yes |none|
+|`send_sms`|body|boolean| yes |none|
+|`sender_address`|body|string| yes |none|
+|`sender_email`|body|string| yes |none|
+|`sender_name`|body|string| yes |none|
+|`sender_phone`|body|string| yes |none|
+|`sender_phonecode`|body|string| yes |none|
+|`receivers`|body|[object]| yes |none|
+|`customer_address`|body|string| no |none|
+|`customer_name`|body|string| no |none|
+|`customer_phone_number`|body|string| no |none|
+|`customer_phone_code`|body|string| no |none|
+|`item_type`|body|string| no |none|
+|`items`|body|[object]| no |none|
+|`item_description`|body|string| no |none|
+|`item_quantity`|body|integer| no |none|
+|`item_value`|body|integer| no |none|
 </Expandable>
 
+##### Example
+<Expandable>
+```yaml
+              creation_date: '2025-08-28'
+              delivery_fee: 0
+              iam_sender: true
+              riderid: 2ce7ff7a-2c76-4e18-b681-41121ef48631
+              send_sms: true
+              sender_address: 85 Allen Avenue, Ikeja, Lagos, Nigeria
+              sender_email: devs@venco.co
+              sender_name: Takasuki
+              sender_phone: '8131013478'
+              sender_phonecode: '234'
+              receivers:
+                - customer_address: >-
+                    Penthouse - DC, Demo Estate, 404, Not Found Road, Lagos,
+                    Nigeria
+                  customer_name: Victor Maduforo
+                  customer_phone_number: '8131013478'
+                  customer_phone_code: '234'
+                  item_type: manual
+                  items:
+                    - item_description: >-
+                        Midea 463L Top Mount Direct Cool Refrigerator - SBS
+                        (MDRT645MTU46)
+                      item_quantity: 1
+                      item_value: 30
+```
+</Expandable>
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
 
 ### Data Schema
 
@@ -57,49 +86,50 @@ This endpoint allows users to create a new delivery request in the system. It ac
 
 |Name|Type|Required|Restrictions|Title|description|
 |---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» uuid|string|true|none||none|
-|»» order_number|string|true|none||none|
-|»» fleet_identity_number|string|true|none||none|
-|»» status|string|true|none||none|
-|»» status_label|string|true|none||none|
-|»» sender_longitude|null|true|none||none|
-|»» sender_latitude|null|true|none||none|
-|»» customer_longitude|null|true|none||none|
-|»» customer_latitude|null|true|none||none|
-|»» delivery_fee|integer|true|none||none|
-|»» total_delivery_amount|integer|true|none||none|
-|»» service_charge|integer|true|none||none|
-|»» rider_commission|null|true|none||none|
-|»» currency|string|true|none||none|
-|»» note|null|true|none||none|
-|»» creation_mode|null|true|none||none|
-|»» created_at|string|true|none||none|
-|»» pickup_at|null|true|none||none|
-|»» dropoff_at|null|true|none||none|
-|»» customer_detail|[any]|true|none||none|
-|»» sender_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» sender_name|string|true|none||none|
-|»»» sender_phone|string|true|none||none|
-|»»» sender_email|string|true|none||none|
-|»»» sender_phonecode|string|true|none||none|
-|»»» sender_address|string|true|none||none|
-|»»» business_owned|boolean|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|»» rider_info|null|true|none||none|
-|»» delivery_info_from_rider|null|true|none||none|
-|»» is_paid|boolean|true|none||none|
-|»» pickup_photo|null|true|none||none|
-|»» dropoff_photo|null|true|none||none|
-|»» cancellation_reason|null|true|none||none|
-|»» cancelled_by|object|true|none||none|
-|»»» name|null|true|none||none|
-|»»» photo|null|true|none||none|
-|» message|string|true|none||none|
+|`data`|object|true|none||none|
+|`data.status`|string|true|none||none|
+|`data.uuid`|string|true|none||none|
+|`data.order_number`|string|true|none||none|
+|`data.fleet_identity_number`|string|true|none||none|
+|`data.status`|string|true|none||none|
+|`data.status_label`|string|true|none||none|
+|`data.sender_longitude`|null|true|none||none|
+|`data.sender_latitude`|null|true|none||none|
+|`data.customer_longitude`|null|true|none||none|
+|`data.customer_latitude`|null|true|none||none|
+|`data.delivery_fee`|integer|true|none||none|
+|`data.total_delivery_amount`|integer|true|none||none|
+|`data.service_charge`|integer|true|none||none|
+|`data.rider_commission`|null|true|none||none|
+|`data.currency`|string|true|none||none|
+|`data.note`|null|true|none||none|
+|`data.creation_mode`|null|true|none||none|
+|`data.created_at`|string|true|none||none|
+|`data.pickup_at`|null|true|none||none|
+|`data.dropoff_at`|null|true|none||none|
+|`data.customer_detail`|array|true|none||none|
+|`data.sender_detail`|object|true|none||none|
+|`data.sender_detail.uuid`|string|true|none||none|
+|`data.sender_detail.sender_name`|string|true|none||none|
+|`data.sender_detail.sender_phone`|string|true|none||none|
+|`data.sender_detail.sender_email`|string|true|none||none|
+|`data.sender_detail.sender_phonecode`|string|true|none||none|
+|`data.sender_detail.sender_address`|string|true|none||none|
+|`data.sender_detail.business_owned`|boolean|true|none||none|
+|`data.sender_detail.created_at`|string|true|none||none|
+|`data.sender_detail.updated_at`|string|true|none||none|
+|`data.rider_info`|null|true|none||none|
+|`data.delivery_info_from_rider`|null|true|none||none|
+|`data.is_paid`|boolean|true|none||none|
+|`data.pickup_photo`|null|true|none||none|
+|`data.dropoff_photo`|null|true|none||none|
+|`data.cancellation_reason`|null|true|none||none|
+|`data.cancelled_by`|object|true|none||none|
+|`data.cancelled_by.name`|null|true|none||none|
+|`data.cancelled_by.photo`|null|true|none||none|
+|`message`|string|true|none||none|
 </Expandable>
+
 
 <ResponseExample>
     ```json sample response

@@ -9,40 +9,23 @@ This endpoint allows users to retrieve the details of a specific delivery by pro
 
 ---
 
-### 📥 Requests
-##### Body
+### Requests
+##### Params
 <Expandable>
-**Description:** multipart/form-data
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `delivery_uuid`   | string   |        |           |
-</Expandable>
-
-### Params
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|object| no |none|
-|» delivery_uuid[0]|body|string| yes |none|
+|`delivery_uuid[0]`|body|string| yes |none|
+</Expandable>
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-
-### Data Schema
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» message|string|true|none||none|
-
-</Expandable>
 
 <ResponseExample>
     ```json sample response
