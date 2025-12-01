@@ -3,52 +3,41 @@ title: "Activate or Remove Riders"
 api: "POST /riders/change_status/{{rider_uuid}}"
 ---
 
-
 ### 📝 Summary
 
 This endpoint activates a rider's account, allowing them to start accepting and completing delivery tasks. It is typically used after verifying the rider's details and compliance with platform requirements.
 
-
 ---
 
 
+### Requests
+##### Params
 
-### 📥 Requests
-#### Body
 <Expandable>
-**Description:** 
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`body`|body|object| no |none|
+|`rider_uuids[]`|body|string| yes |none|
+</Expandable>
 
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `rider_uuids[]`   | object   |        |          |
+##### Example
+<Expandable>
+```json
+{
+  "rider_uuids": "{{rider_uuid}}"
+}
+```
 </Expandable>
 
 
-### 📤 Response
+### Responses
 
-##### ✅ 200 OK
-##### ❌ 422 Bad Request
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-<Expandable>
-**Description:** application/json
 
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `data`   | object   |        |           |
-| `data.active`      | boolean  |        |                  |
-| `data.address`      | string   |        |                  |
-| `data.created_at` | object   |        |  |
-| `data.email`    | string   |        |      |
-| `data.name` |   string |   |    |
-| `data.phone_code`  |   string  |   |    |
-| `data.phone_number`    |   string   |   |    |
-| `data.photo` |   string  |   |    |
-| `data.rider_id`      | string   |        |                  |
-| `data.total_completed_delivery`      | number   |        |                  |
-| `data.rider_uuid`   |   number  |   |
-| `data.vehicle_plate_number` |   string  |   |    |
-| `status`  |   string| |   |   |
-</Expandable>
 
 <ResponseExample>
     ```json sample response

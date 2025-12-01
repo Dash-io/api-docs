@@ -10,13 +10,21 @@ This endpoint allows users to calculate the cost for a potential delivery. By pr
 
 ---
 
-
-
-
-
 ### Requests
-### Body Parameters
+##### Params
 
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`body`|body|object| no |none|
+|`sender_address`|body|string| yes |none|
+|`receiver_address`|body|string| yes |none|
+|`scope`|body|string| yes |none|
+</Expandable>
+
+##### Example
 <Expandable>
 ```json
 {
@@ -27,33 +35,13 @@ This endpoint allows users to calculate the cost for a potential delivery. By pr
 ```
 </Expandable>
 
-### Params
-
-<Expandable>
-**Description:** 
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object| no |none|
-|» sender_address|body|string| yes |none|
-|» receiver_address|body|string| yes |none|
-</Expandable>
-
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200 ✅ |[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-
-</Expandable>
 
 <ResponseExample>
     ```json sample response

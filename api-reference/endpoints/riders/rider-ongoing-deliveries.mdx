@@ -3,45 +3,40 @@ title: "Rider Ongoing Deliveries"
 api: "GET /riders/ongoing-deliveries{{uuid}}"
 ---
 
-
 ### 📝 Summary
 
 This endpoint retrieves a list of ongoing deliveries assigned to a specific rider. Ongoing deliveries are those that are currently in progress or pending completion. This information helps track real-time deliveries for active riders.
 
 ---
 
+### Requests
+##### Params
 
-### Params
 <Expandable>
 **Description:** 
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|uuid|path|string| yes |none|
+|`uuid`|path|string| yes |none|
+</Expandable>
+
+##### Example
+
+<Expandable>
+```json
+{
+  "uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9"
+}
+```
 </Expandable>
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Responses Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|[object]|true|none||none|
-|»» uuid|string|true|none||none|
-|»» rider_uuid|string|true|none||none|
-|»» order_number|string|true|none||none|
-|»» fleet_identity_number|string|true|none||none|
-|»» status|string|true|none||none|
-|»» status_label|string|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response

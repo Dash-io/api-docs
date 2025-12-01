@@ -10,156 +10,62 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 ---
 
 
-
-
 ### Requests
-##### Query Parameters
+##### Params
 <Expandable>
 **Description:** 
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|paginate|query|string| yes |can be 1 or 0|
-|per_page|query|string| yes |none|
-|filter|query|string| yes |all|today|yesterday|created_at|assigned_at|dropoff_at|schedule_date|
-|start_date|query|string| yes |none|
-|end_date|query|string| yes |none|
-|delivery_status|query|string| yes |pending|awaiting_pickup|in_transit|delivered|cancelled|declined|
-|creation_mode|query|string| no |automated|manual|via booking|imported|
-|search|query|string| no |none|
-|group_by|query|string| no |sender_city|receiver_city|
-|tag_id|query|string| no |none|
-|scheduled|query|string| no |none|
-|schedule_date|query|string| no |none|
-|search_all_locations|query|string| no |boolean|
-|partner_id|query|string| no |none|
-|delivery_in_all_locations|query|string| no |none|
-|rider_id|query|string| yes |none|
+|`paginate`|query|string| yes |can be 1 or 0|
+|`per_page`|query|string| yes |none|
+|`filter`|query|string| yes |all, today, yesterday, created_at, assigned_at, dropoff_at, schedule_date|
+|`start_date`|query|string| yes |none|
+|`end_date`|query|string| yes |none|
+|`delivery_status`|query|string| yes |pending, awaiting_pickup, in_transit,delivered, cancelled, declined|
+|`creation_mode`|query|string| no |automated|manual|via booking|imported|
+|`search`|query|string| no |none|
+|`group_by`|query|string| no |sender_city|receiver_city|
+|`tag_id`|query|string| no |none|
+|`scheduled`|query|string| no |none|
+|`schedule_date`|query|string| no |none|
+|`search_all_locations`|query|string| no |boolean|
+|`partner_id`|query|string| no |none|
+|`delivery_in_all_locations`|query|string| no |none|
+|`rider_id`|query|string| yes |none|
 </Expandable>
 
+##### Example
+<Expandable>
+```yaml
+{
+  "paginate": "{{paginate}}",
+  "per_page": "{{per_page}}",
+  "filter": "assigned_at",
+  "start_date": "2025-01-31",
+  "end_date": "2025-11-02",
+  "delivery_status": "pending",
+  "creation_mode": "manual",
+  "search": "prince",
+  "group_by": "receiver_city",
+  "tag_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385",
+  "scheduled": "true",
+  "schedule_date": "2025-06-18",
+  "search_all_locations": "true",
+  "partner_id": "",
+  "delivery_in_all_locations": "1",
+  "rider_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385"
+}
+```
+</Expandable>
 
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-### Data Schema
-
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» message|string|true|none||none|
-|» data|object|true|none||none|
-|»» delivery_counts|object|true|none||none|
-|»»» overall_scheduled_deliveries|integer|true|none||none|
-|»»» overall_user_pending_deliveries|integer|true|none||none|
-|»»» overall_user_awaiting_pickup_deliveries|integer|true|none||none|
-|»»» overall_user_in_transit_deliveries|integer|true|none||none|
-|»»» overall_user_delivered_deliveries|integer|true|none||none|
-|»»» overall_user_cancelled_deliveries|integer|true|none||none|
-|»»» overall_partners_delivered_deliveries|integer|true|none||none|
-|»» grouped_deliveries|null|true|none||none|
-|»» deliveries|object|true|none||none|
-|»»» data|[object]|true|none||none|
-|»»»» uuid|string|true|none||none|
-|»»»» order_number|string|true|none||none|
-|»»»» fleet_identity_number|string|true|none||none|
-|»»»» status|string|true|none||none|
-|»»»» status_label|string|true|none||none|
-|»»»» sender_longitude|null|true|none||none|
-|»»»» sender_latitude|null|true|none||none|
-|»»»» customer_longitude|null|true|none||none|
-|»»»» customer_latitude|null|true|none||none|
-|»»»» delivery_fee|integer|true|none||none|
-|»»»» total_delivery_amount|integer|true|none||none|
-|»»»» service_charge|number|true|none||none|
-|»»»» rider_commission|integer|true|none||none|
-|»»»» currency|string|true|none||none|
-|»»»» location|object|true|none||none|
-|»»»»» id|string|true|none||none|
-|»»»»» name|string|true|none||none|
-|»»»»» currency|string|true|none||none|
-|»»»»» is_default|boolean|true|none||none|
-|»»»»» location_code|string|true|none||none|
-|»»»»» created_at|string|true|none||none|
-|»»»» can_view|boolean|true|none||none|
-|»»»» note|null|true|none||none|
-|»»»» creation_mode|string|true|none||none|
-|»»»» scheduled|boolean|true|none||none|
-|»»»» schedule_date|null|true|none||none|
-|»»»» schedule_time|null|true|none||none|
-|»»»» schedule_date_time|null|true|none||none|
-|»»»» schedule_due_status|null|true|none||none|
-|»»»» created_at|string|true|none||none|
-|»»»» pickup_at|null|true|none||none|
-|»»»» dropoff_at|null|true|none||none|
-|»»»» customer_detail|[object]|true|none||none|
-|»»»»» uuid|string|true|none||none|
-|»»»»» delivery_uuid|string|true|none||none|
-|»»»»» status|string|true|none||none|
-|»»»»» dropoff_photo|null|true|none||none|
-|»»»»» customer_name|string|true|none||none|
-|»»»»» customer_email|null|true|none||none|
-|»»»»» customer_phone_number|string|true|none||none|
-|»»»»» customer_phone_code|string|true|none||none|
-|»»»»» customer_address|string|true|none||none|
-|»»»»» created_at|string|true|none||none|
-|»»»»» items|[object]|true|none||none|
-|»»»»»» uuid|string|true|none||none|
-|»»»»»» item_description|string|true|none||none|
-|»»»»»» item_quantity|integer|true|none||none|
-|»»»»»» item_value|string|true|none||none|
-|»»»»»» item_discount|integer|true|none||none|
-|»»»»»» currency|string|true|none||none|
-|»»»»»» item_type_id|null|true|none||none|
-|»»»»»» item_type|null|true|none||none|
-|»»»»»» created_at|string|true|none||none|
-|»»»» sender_detail|object|true|none||none|
-|»»»»» uuid|string|true|none||none|
-|»»»»» sender_name|string|true|none||none|
-|»»»»» sender_phone|string|true|none||none|
-|»»»»» sender_email|string|true|none||none|
-|»»»»» sender_phonecode|string|true|none||none|
-|»»»»» sender_address|string|true|none||none|
-|»»»»» business_owned|boolean|true|none||none|
-|»»»»» created_at|string|true|none||none|
-|»»»»» updated_at|string|true|none||none|
-|»»»» tag|null|true|none||none|
-|»»»» rider_info|null|true|none||none|
-|»»»» delivery_info_from_rider|null|true|none||none|
-|»»»» is_paid|boolean|true|none||none|
-|»»»» pickup_photo|null|true|none||none|
-|»»»» dropoff_photo|null|true|none||none|
-|»»»» cancellation_reason|null|true|none||none|
-|»»»» cancelled_by|object|true|none||none|
-|»»»»» name|null|true|none||none|
-|»»»»» photo|null|true|none||none|
-|»»»» show_delivery_fee|boolean|true|none||none|
-|»»»» metadata|null|true|none||none|
-|»»»» partner_direction|string|true|none||none|
-|»»» links|object|true|none||none|
-|»»»» first|string|true|none||none|
-|»»»» last|string|true|none||none|
-|»»»» prev|null|true|none||none|
-|»»»» next|null|true|none||none|
-|»»» meta|object|true|none||none|
-|»»»» current_page|integer|true|none||none|
-|»»»» from|integer|true|none||none|
-|»»»» last_page|integer|true|none||none|
-|»»»» links|[object]|true|none||none|
-|»»»»» url|string¦null|true|none||none|
-|»»»»» label|string|true|none||none|
-|»»»»» active|boolean|true|none||none|
-|»»»» path|string|true|none||none|
-|»»»» per_page|integer|true|none||none|
-|»»»» to|integer|true|none||none|
-|»»»» total|integer|true|none||none|
-|» status|string|true|none||none|
-
-</Expandable>
 
 <ResponseExample>
     ```json sample response

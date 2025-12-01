@@ -116,17 +116,35 @@
           "group": "Webhooks",
           "icon": "webhook",
           "pages": [
-            {
-              "group": "Getting Started",
-              "icon": "map-signs",
-              "pages": [
-                "webhooks/introduction",
-                "webhooks/setting-up-webhooks",
-                "webhooks/webhook-events"
+          {
+              "group": "Receiving Webhooks",
+              "icon": "webhook",
+              "pages": ["webhooks/receiving-webhooks"]
+            }
+            
+          ]
+        },
+        {
+          "group": "Integrations",
+          "icon": "puzzle-piece",
+          "pages": [
+          {
+              "group": "Shopify",
+              "icon": "/assets/shopify-icon.svg",
+              "pages":[
+                "integrations/shopify/shopify-integration"
               ]
+            },
+            {
+              "group": "WooCommerce",
+              "icon": "/assets/woocommerce-icon.svg",
+              "pages": [
+                "integrations/woocommerce/woocommerce-integration"
+              ]
+        
             }
           ]
-        }
+          }
     ],
     "footerSocials": {
         "website": "https://usedora.com",

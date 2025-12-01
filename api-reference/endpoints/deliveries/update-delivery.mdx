@@ -10,7 +10,38 @@ This endpoint allows users to update the details of an existing delivery. Users 
 ---
 
 ### Requests
-##### Body
+##### Params
+
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`body`|body|object| no |none|
+|`sender_name`|body|string| yes |none|
+|`sender_address`|body|string| yes |none|
+|`sender_phone`|body|string| yes |none|
+|`sender_phonecode`|body|string| yes |none|
+|`sender_email`|body|string| yes |none|
+|`receivers[0][customer_name]`|body|string| yes |none|
+|`receivers[0][customer_address]`|body|array| yes |none|
+|`receivers[0][customer_phone_number]`|body|string| yes |none|
+|`receivers[0][customer_phone_code]`|body|string| yes |none|
+|`receivers[0][customer_email]`|body|string| yes |none|
+|`receivers[0][items][0][item_uuid]`|body|string| yes |none|
+|`receivers[0][items][0][item_description]`|body|string| yes |none|
+|`receivers[0][items][0][item_quantity]`|body|string| yes |none|
+|`receivers[0][items][0][item_value]`|body|string| yes |none|
+|`receivers[0][items][1][item_description]`|body|string| yes |none|
+|`receivers[0][items][1][item_quantity]`|body|string| yes |none|
+|`receivers[0][items][1][item_value]`|body|string| yes |none|
+|`delivery_fee`|body|string| yes |none|
+|`send_sms`|body|string| yes |True Or False|
+|`creation_date`|body|string| no |none|
+|`receivers[0][customer_detail_id]`|body|string| yes |none|
+</Expandable>
+
+##### Example
 
 <Expandable>
 ```yaml
@@ -41,96 +72,13 @@ creation_date: 13-03-2024
 ```
 </Expandable>
 
-### Params
-
-<Expandable>
-**Description:** 
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object| no |none|
-|» sender_name|body|string| yes |none|
-|» sender_address|body|string| yes |none|
-|» sender_phone|body|string| yes |none|
-|» sender_phonecode|body|string| yes |none|
-|» sender_email|body|string| yes |none|
-|» receivers[0][customer_name]|body|string| yes |none|
-|» receivers[0][customer_address]|body|array| yes |none|
-|» receivers[0][customer_phone_number]|body|string| yes |none|
-|» receivers[0][customer_phone_code]|body|string| yes |none|
-|» receivers[0][customer_email]|body|string| yes |none|
-|» receivers[0][items][0][item_uuid]|body|string| yes |none|
-|» receivers[0][items][0][item_description]|body|string| yes |none|
-|» receivers[0][items][0][item_quantity]|body|string| yes |none|
-|» receivers[0][items][0][item_value]|body|string| yes |none|
-|» receivers[0][items][1][item_description]|body|string| yes |none|
-|» receivers[0][items][1][item_quantity]|body|string| yes |none|
-|» receivers[0][items][1][item_value]|body|string| yes |none|
-|» delivery_fee|body|string| yes |none|
-|» send_sms|body|string| yes |True Or False|
-|» creation_date|body|string| no |none|
-|» receivers[0][customer_detail_id]|body|string| yes |none|
-</Expandable>
-
-
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
-<Expandable>
-**Description:** 
-
-|Name|Type|Required|Restrictions|Title|description|
-|---|---|---|---|---|---|
-|» status|string|true|none||none|
-|» data|object|true|none||none|
-|»» uuid|string|true|none||none|
-|»» order_number|string|true|none||none|
-|»» fleet_id|null|true|none||none|
-|»» status|string|true|none||none|
-|»» delivery_type|string|true|none||none|
-|»» sender_longitude|number|true|none||none|
-|»» sender_latitude|number|true|none||none|
-|»» customer_longitude|number|true|none||none|
-|»» customer_latitude|number|true|none||none|
-|»» delivery_fee|string|true|none||none|
-|»» created_at|string|true|none||none|
-|»» customer_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» customer_name|string|true|none||none|
-|»»» customer_email|null|true|none||none|
-|»»» customer_phone_number|string|true|none||none|
-|»»» customer_phone_code|string|true|none||none|
-|»»» customer_address|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»» sender_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» sender_name|string|true|none||none|
-|»»» sender_phone|string|true|none||none|
-|»»» sender_email|null|true|none||none|
-|»»» sender_phonecode|string|true|none||none|
-|»»» sender_address|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|»» items|[object]|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» item_description|string|true|none||none|
-|»»» item_quantity|integer|true|none||none|
-|»»» item_value|string|true|none||none|
-|»»» created_at|string|true|none||none|
-|»» organization_detail|object|true|none||none|
-|»»» uuid|string|true|none||none|
-|»»» fleet_identity_number|null|true|none||none|
-|»»» business_address|null|true|none||none|
-|»»» phone_number|string|true|none||none|
-|»»» phone_code|string|true|none||none|
-|»»» logo|null|true|none||none|
-|»»» created_at|string|true|none||none|
-|»»» updated_at|string|true|none||none|
-|» message|string|true|none||none|
-</Expandable>
 
 <ResponseExample>
     ```json sample response
