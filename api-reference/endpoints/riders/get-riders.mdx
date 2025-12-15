@@ -11,24 +11,26 @@ This endpoint retrieves a list of all riders in the system, along with relevant 
 ---
 
 ### Requests
-### Query Parameters
+##### Params
 <Expandable>
 **Description:** 
 
-| **Field**   | **Type** | **Required** | **Description**          |
-|-------------|----------|-------------:|---------------------------|
-| `paginate`   | string   |       |          |
-| `per_page`   | string   |       |          |
-| `active`   | string   |       |          |
-| `get_ongoing_deliveries`   | string   |       |          |
-| `pending_invites`   | string   |       |          |
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`paginate`|query|[string]| yes |none|
+|`per_page`|query|[string]| yes |none|
+|`active`|query|[string]| yes |none|
+|`get_ongoing_deliveries`|query|[string]| yes |none|
+|`pending_invites`|query|[string]| yes |none|
 
 </Expandable>
 
-### 📤 Response
+### Responses
 
-##### ✅ 200 OK
-##### ❌ 422 Bad Request
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|<Badge color="green">200</Badge>|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+|<Badge color="red">422</Badge>|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
 <Expandable>
 **Description:** 

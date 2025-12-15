@@ -10,8 +10,17 @@ This endpoint deactivates a rider's account, preventing them from accepting or c
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+**Description:** 
 
+```json
+"rider_uuids[]": "{{rider_uuid}}"
+
+```
+</Expandable>
+
+##### Params
 <Expandable>
 **Description:** 
 
@@ -19,16 +28,6 @@ This endpoint deactivates a rider's account, preventing them from accepting or c
 |---|---|---|---|---|
 |`body`|body|object| no |none|
 |`rider_uuids[]`|body|string| yes |none|
-</Expandable>
-
-##### Example
-<Expandable>
-**Description:** 
-
-```yaml
-"rider_uuids[]": "{{rider_uuid}}"
-
-```
 </Expandable>
 
 ### Responses

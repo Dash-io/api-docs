@@ -11,6 +11,30 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 
 
 ### Requests
+##### Example
+<Expandable>
+```json
+{
+  "paginate": "{{paginate}}",
+  "per_page": "{{per_page}}",
+  "filter": "assigned_at",
+  "start_date": "2025-01-31",
+  "end_date": "2025-11-02",
+  "delivery_status": "pending",
+  "creation_mode": "manual",
+  "search": "prince",
+  "group_by": "receiver_city",
+  "tag_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385",
+  "scheduled": "true",
+  "schedule_date": "2025-06-18",
+  "search_all_locations": "true",
+  "partner_id": "",
+  "delivery_in_all_locations": "1",
+  "rider_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385"
+}
+```
+</Expandable>
+
 ##### Params
 <Expandable>
 **Description:** 
@@ -35,29 +59,6 @@ This endpoint allows users to retrieve the details of a many deliveries by provi
 |`rider_id`|query|string| yes |none|
 </Expandable>
 
-##### Example
-<Expandable>
-```yaml
-{
-  "paginate": "{{paginate}}",
-  "per_page": "{{per_page}}",
-  "filter": "assigned_at",
-  "start_date": "2025-01-31",
-  "end_date": "2025-11-02",
-  "delivery_status": "pending",
-  "creation_mode": "manual",
-  "search": "prince",
-  "group_by": "receiver_city",
-  "tag_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385",
-  "scheduled": "true",
-  "schedule_date": "2025-06-18",
-  "search_all_locations": "true",
-  "partner_id": "",
-  "delivery_in_all_locations": "1",
-  "rider_id": "8c57eac8-9eac-44da-a8bc-b0b7ac6aa385"
-}
-```
-</Expandable>
 
 ### Responses
 

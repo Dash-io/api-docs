@@ -1,5 +1,5 @@
 ---
-title: CLIENT APIs3
+title: CLIENT APIs4
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,7 +19,7 @@ generator: "@tarslib/widdershins v4.0.30"
 
 ---
 
-# CLIENT APIs3
+# CLIENT APIs4
 
 Base URLs:
 
@@ -2339,6 +2339,77 @@ POST /booking_inbound/link_code/get_delivery_fee
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
 
 ### Responses Data Schema
+
+## GET get booking detail via link_code
+
+GET /booking_inbound/link_code/get_booking_link_detail
+
+> Response Examples
+
+> 200 Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "uuid": "649547b5-7f68-4ff0-94e4-3a4a7a7922b5",
+    "profile_id": "8e116ffe-6012-4242-be89-0267db26bef2",
+    "booking_form_template_id": "4ffb790b-631f-4c55-ad75-0e65990c0022",
+    "link_code": "sendstack",
+    "link_url": "https://usedora.com/sendstack",
+    "logo": "https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/X5xQzSnl3Mn1k4YhgvNGVyN2ViP4dkXygIE1fY9U.png",
+    "business_name": "Sendstack",
+    "business_address": "Aso Housing Estate, Airport road, Abuja",
+    "business_phone": "+2348082738270",
+    "pricing": {
+      "uuid": "beefeae8-5bdb-4100-bf46-2c850fc2f722",
+      "pricing_model": "Per Kilometer (KM)",
+      "pricing_model_slug": "per_km",
+      "per_km_amount": "200",
+      "express_delivery": {
+        "express_type": null,
+        "express_value": null
+      },
+      "created_at": "2024-04-01T11:19:38.000000Z",
+      "updated_at": "2024-04-01T11:19:38.000000Z"
+    }
+  }
+}
+```
+
+### Responses
+
+|HTTP Status Code |Meaning|Description|Data schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+
+### Responses Data Schema
+
+HTTP Status Code **200**
+
+|Name|Type|Required|Restrictions|Title|description|
+|---|---|---|---|---|---|
+|» status|string|true|none||none|
+|» data|object|true|none||none|
+|»» uuid|string|true|none||none|
+|»» profile_id|string|true|none||none|
+|»» booking_form_template_id|string|true|none||none|
+|»» link_code|string|true|none||none|
+|»» link_url|string|true|none||none|
+|»» logo|string|true|none||none|
+|»» business_name|string|true|none||none|
+|»» business_address|string|true|none||none|
+|»» business_phone|string|true|none||none|
+|»» pricing|object|true|none||none|
+|»»» uuid|string|true|none||none|
+|»»» pricing_model|string|true|none||none|
+|»»» pricing_model_slug|string|true|none||none|
+|»»» per_km_amount|string|true|none||none|
+|»»» express_delivery|object|true|none||none|
+|»»»» express_type|null|true|none||none|
+|»»»» express_value|null|true|none||none|
+|»»» created_at|string|true|none||none|
+|»»» updated_at|string|true|none||none|
 
 # Riders
 

@@ -11,8 +11,18 @@ This endpoint allows users to calculate the cost for a potential delivery. By pr
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+{
+  "sender_address": "Aso housing estate, Lugbe, Abuja",
+  "receiver_address": "Grandeur squares and cubes estate, FHA, Lugbe, Abuja"
+  "scope":"insterstate" // insterstate, intracity
+}
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:** 
 
@@ -21,18 +31,7 @@ This endpoint allows users to calculate the cost for a potential delivery. By pr
 |`body`|body|object| no |none|
 |`sender_address`|body|string| yes |none|
 |`receiver_address`|body|string| yes |none|
-|`scope`|body|string| yes |none|
-</Expandable>
-
-##### Example
-<Expandable>
-```json
-{
-  "sender_address": "Aso housing estate, Lugbe, Abuja",
-  "receiver_address": "Grandeur squares and cubes estate, FHA, Lugbe, Abuja"
-  "scope":"" // insterstate, intracity
-}
-```
+|`scope`|body|string| yes |interstate, intracity|
 </Expandable>
 
 ### Responses

@@ -10,8 +10,19 @@ This endpoint allows updating the status of a specific delivery. The status can 
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+delivery_uuid: "{{delivery_uuid}}"
+status: in_transit
+pickup_otp: "097857"
+dropoff_otp: "098798"
+note: Reason for cancellation
 
+```
+</Expandable>
+
+##### Params
 <Expandable>
 **Description:** 
 
@@ -23,19 +34,6 @@ This endpoint allows updating the status of a specific delivery. The status can 
 |`pickup_otp`|body|string| no |required if status is in_transit|
 |`dropoff_otp`|body|string| no |required if status is delivered|
 |`note`|body|string| no |Reason for cancellation|
-</Expandable>
-
-##### Example
-
-<Expandable>
-```yaml
-delivery_uuid: "{{delivery_uuid}}"
-status: in_transit
-pickup_otp: "097857"
-dropoff_otp: "098798"
-note: Reason for cancellation
-
-```
 </Expandable>
 
 ### Responses

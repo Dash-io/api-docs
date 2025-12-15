@@ -1,6 +1,6 @@
 ---
 title: "Assign Delivery"
-api: "POST /deliveries/assign/{{rider_uuid}}"
+api: "POST /deliveries/assign/{rider_uuid}"
 ---
 
 ### 📝 Summary
@@ -10,8 +10,14 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```yaml
+delivery_uuid: ae96e085-30fa-4997-86ec-75015771705c
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:**
 
@@ -19,13 +25,6 @@ This endpoint allows users to assign a delivery request to a specific rider. By 
 |---|---|---|---|---|
 |`body`|body|object| no |none|
 |`delivery_uuid[]`|body|string| yes |none|
-</Expandable>
-
-##### Example
-<Expandable>
-```yaml
-delivery_uuid: ae96e085-30fa-4997-86ec-75015771705c
-```
 </Expandable>
 
 ### Responses

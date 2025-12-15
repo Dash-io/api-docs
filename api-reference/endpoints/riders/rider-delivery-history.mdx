@@ -1,6 +1,6 @@
 ---
 title: "Rider Delivery History"
-api: "GET /riders/delivery/history/{{rider_uuid}}"
+api: "GET /riders/delivery/history/{rider_uuid}"
 ---
 
 ### 📝 Summary
@@ -10,8 +10,20 @@ This endpoint retrieves the delivery history of a specific rider, including deta
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+{
+  "paginate": "1",
+  "per_page": "10",
+  "filter": "all",
+  "start_date": "",
+  "end_date": ""
+}
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:** 
 
@@ -24,19 +36,6 @@ This endpoint retrieves the delivery history of a specific rider, including deta
 |`end_date`|query|string| yes |optional|
 </Expandable>
 
-##### Example
-
-<Expandable>
-```json
-{
-  "paginate": "1",
-  "per_page": "10",
-  "filter": "all",
-  "start_date": "",
-  "end_date": ""
-}
-```
-</Expandable>
 
 ### Responses
 
