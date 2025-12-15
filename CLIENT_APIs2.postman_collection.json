@@ -2507,6 +2507,91 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get booking detail via link_code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fleet_base_url}}/booking_inbound/{{link_code}}/get_booking_link_detail",
+							"host": [
+								"{{fleet_base_url}}"
+							],
+							"path": [
+								"booking_inbound",
+								"{{link_code}}",
+								"get_booking_link_detail"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get booking link detail using link code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{fleet_base_url}}/booking-inbound/get_booking_link_detail/{{link_code}}",
+									"host": [
+										"{{fleet_base_url}}"
+									],
+									"path": [
+										"booking-inbound",
+										"get_booking_link_detail",
+										"{{link_code}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 12:07:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Apr 2024 12:07:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"uuid\": \"649547b5-7f68-4ff0-94e4-3a4a7a7922b5\",\n        \"profile_id\": \"8e116ffe-6012-4242-be89-0267db26bef2\",\n        \"booking_form_template_id\": \"4ffb790b-631f-4c55-ad75-0e65990c0022\",\n        \"link_code\": \"sendstack\",\n        \"link_url\": \"https://usedora.com/sendstack\",\n        \"logo\": \"https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/X5xQzSnl3Mn1k4YhgvNGVyN2ViP4dkXygIE1fY9U.png\",\n        \"business_name\": \"Sendstack\",\n        \"business_address\": \"Aso Housing Estate, Airport road, Abuja\",\n        \"business_phone\": \"+2348082738270\",\n        \"pricing\": {\n            \"uuid\": \"beefeae8-5bdb-4100-bf46-2c850fc2f722\",\n            \"pricing_model\": \"Per Kilometer (KM)\",\n            \"pricing_model_slug\": \"per_km\",\n            \"per_km_amount\": \"200\",\n            \"express_delivery\": {\n                \"express_type\": null,\n                \"express_value\": null\n            },\n            \"created_at\": \"2024-04-01T11:19:38.000000Z\",\n            \"updated_at\": \"2024-04-01T11:19:38.000000Z\"\n        }\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2920,7 +3005,7 @@
 						{
 							"name": "activate or remove rider",
 							"originalRequest": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
 								"url": {
 									"raw": "{{fleet_base_url}}/riders/change_status/{{rider_uuid}}",

@@ -1,6 +1,6 @@
 ---
 title: "Update Delivery"
-api: "POST /deliveries/update/{{delivery_uuid}}"
+api: "POST /deliveries/update/{delivery_uuid}"
 ---
 
 ### 📝 Summary
@@ -10,8 +10,37 @@ This endpoint allows users to update the details of an existing delivery. Users 
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+sender_name: Nuel Geek
+sender_address: 2 Umuleri street, Lagos
+sender_phone: "08087168391"
+sender_phonecode: "234"
+sender_email: sender@example.com
+"receivers[0][customer_name]": TundeNasri
+"receivers[0][customer_address]":
+  - TundeNasri
+  - TundeNasri
+  - 12 Ahmadu Bello way, Central Business District, Abuja
+"receivers[0][customer_phone_number]": "08065302534"
+"receivers[0][customer_phone_code]": "234"
+"receivers[0][customer_email]": sinoma@gmail.com
+"receivers[0][items][0][item_uuid]": "{{item_uuid}}"
+"receivers[0][items][0][item_description]": Eva soap pack for me
+"receivers[0][items][0][item_quantity]": "1"
+"receivers[0][items][0][item_value]": "4000"
+"receivers[0][items][1][item_description]": Cannon Camera
+"receivers[0][items][1][item_quantity]": "1"
+"receivers[0][items][1][item_value]": "30000"
+delivery_fee: "3000"
+send_sms: "1"
+creation_date: 13-03-2024
+"receivers[0][customer_detail_id]": 4d012972-e3b7-46c7-9362-5409fef8ba6d
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:** 
 
@@ -39,37 +68,6 @@ This endpoint allows users to update the details of an existing delivery. Users 
 |`send_sms`|body|string| yes |True Or False|
 |`creation_date`|body|string| no |none|
 |`receivers[0][customer_detail_id]`|body|string| yes |none|
-</Expandable>
-
-##### Example
-
-<Expandable>
-```yaml
-sender_name: Nuel Geek
-sender_address: 2 Umuleri street, Lagos
-sender_phone: "08087168391"
-sender_phonecode: "234"
-sender_email: sender@example.com
-"receivers[0][customer_name]": TundeNasri
-"receivers[0][customer_address]":
-  - TundeNasri
-  - TundeNasri
-  - 12 Ahmadu Bello way, Central Business District, Abuja
-"receivers[0][customer_phone_number]": "08065302534"
-"receivers[0][customer_phone_code]": "234"
-"receivers[0][customer_email]": sinoma@gmail.com
-"receivers[0][items][0][item_uuid]": "{{item_uuid}}"
-"receivers[0][items][0][item_description]": Eva soap pack for me
-"receivers[0][items][0][item_quantity]": "1"
-"receivers[0][items][0][item_value]": "4000"
-"receivers[0][items][1][item_description]": Cannon Camera
-"receivers[0][items][1][item_quantity]": "1"
-"receivers[0][items][1][item_value]": "30000"
-delivery_fee: "3000"
-send_sms: "1"
-creation_date: 13-03-2024
-"receivers[0][customer_detail_id]": 4d012972-e3b7-46c7-9362-5409fef8ba6d
-```
 </Expandable>
 
 ### Responses

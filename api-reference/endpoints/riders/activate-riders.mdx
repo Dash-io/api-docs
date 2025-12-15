@@ -1,6 +1,6 @@
 ---
 title: "Activate or Remove Riders"
-api: "POST /riders/change_status/{{rider_uuid}}"
+api: "POST /riders/change_status/{rider_uuid}"
 ---
 
 ### 📝 Summary
@@ -11,15 +11,6 @@ This endpoint activates a rider's account, allowing them to start accepting and 
 
 
 ### Requests
-##### Params
-
-<Expandable>
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|`body`|body|object| no |none|
-|`rider_uuids[]`|body|string| yes |none|
-</Expandable>
-
 ##### Example
 <Expandable>
 ```json
@@ -29,6 +20,13 @@ This endpoint activates a rider's account, allowing them to start accepting and 
 ```
 </Expandable>
 
+##### Params
+<Expandable>
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`body`|body|object| no |none|
+|`rider_uuids[]`|body|string| yes |none|
+</Expandable>
 
 ### Responses
 

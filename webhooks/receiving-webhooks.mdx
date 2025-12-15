@@ -31,7 +31,7 @@ Dora sends the following events:
 | `delivery.failed` | Delivery attempt failed |
 
 ## Webhook Payload
-
+<Accordion title="Webhook Payload.">
 ```json json
 {
   "event": "delivery.completed",
@@ -90,6 +90,7 @@ Dora sends the following events:
   }
 }
 ```
+</Accordion>
 
 ## HTTP Headers
 
@@ -110,7 +111,7 @@ The `X-Dora-Signature` header contains an HMAC SHA256 hash of the payload using 
 
 ### Code Example
 
-
+<Accordion title="Code Example.">
 <div class="code-scroll">
 <CodeGroup dropdown>
 ```php php
@@ -284,6 +285,8 @@ if __name__ == '__main__':
 ```
 </CodeGroup>
 </div>
+
+</Accordion>
 
 ## Retry Logic
 

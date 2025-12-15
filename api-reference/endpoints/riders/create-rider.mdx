@@ -11,8 +11,20 @@ This endpoint allows the creation of a new rider profile in the system. It colle
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+{
+  "rider_emails": [
+    "kingddsassa@gmail.com"
+  ],
+  "commission_value": 10,
+  "commission_type": "commission"
+}
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:** 
 
@@ -25,19 +37,6 @@ This endpoint allows the creation of a new rider profile in the system. It colle
 
 </Expandable>
 
-##### Example
-
-<Expandable>
-```json
-{
-  "rider_emails": [
-    "kingddsassa@gmail.com"
-  ],
-  "commission_value": 10,
-  "commission_type": "commission"
-}
-```
-</Expandable>
 ### Responses
 
 |HTTP Status Code |Meaning|Description|Data schema|

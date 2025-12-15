@@ -1,6 +1,6 @@
 ---
 title: "Rider Ongoing Deliveries"
-api: "GET /riders/ongoing-deliveries{{uuid}}"
+api: "GET /riders/ongoing-deliveries{uuid}"
 ---
 
 ### 📝 Summary
@@ -10,24 +10,22 @@ This endpoint retrieves a list of ongoing deliveries assigned to a specific ride
 ---
 
 ### Requests
-##### Params
-
-<Expandable>
-**Description:** 
-
-|Name|Location|Type|Required|Description|
-|---|---|---|---|---|
-|`uuid`|path|string| yes |none|
-</Expandable>
-
 ##### Example
-
 <Expandable>
 ```json
 {
   "uuid": "6b8b5c9f-9182-407d-85cb-7fce108620e9"
 }
 ```
+</Expandable>
+
+##### Params
+<Expandable>
+**Description:** 
+
+|Name|Location|Type|Required|Description|
+|---|---|---|---|---|
+|`uuid`|path|string| yes |none|
 </Expandable>
 
 ### Responses

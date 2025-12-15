@@ -11,8 +11,41 @@ This endpoint allows users to create a new delivery request in the system. It ac
 ---
 
 ### Requests
-##### Params
+##### Example
+<Expandable>
+```json
+{
+  "creation_date": "2025-08-28",
+  "delivery_fee": 0,
+  "iam_sender": true,
+  "riderid": "2ce7ff7a-2c76-4e18-b681-41121ef48631",
+  "send_sms": true,
+  "sender_address": "85 Allen Avenue, Ikeja, Lagos, Nigeria",
+  "sender_email": "devs@venco.co",
+  "sender_name": "Takasuki",
+  "sender_phone": "8131013478",
+  "sender_phonecode": "234",
+  "receivers": [
+    {
+      "customer_address": "Penthouse - DC, Demo Estate, 404, Not Found Road, Lagos, Nigeria",
+      "customer_name": "Victor Maduforo",
+      "customer_phone_number": "8131013478",
+      "customer_phone_code": "234",
+      "item_type": "manual",
+      "items": [
+        {
+          "item_description": "Midea 463L Top Mount Direct Cool Refrigerator - SBS (MDRT645MTU46)",
+          "item_quantity": 1,
+          "item_value": 30
+        }
+      ]
+    }
+  ]
+}
+```
+</Expandable>
 
+##### Params
 <Expandable>
 **Description:** 
 
@@ -41,35 +74,6 @@ This endpoint allows users to create a new delivery request in the system. It ac
 |`item_value`|body|integer| no |none|
 </Expandable>
 
-##### Example
-<Expandable>
-```yaml
-              creation_date: '2025-08-28'
-              delivery_fee: 0
-              iam_sender: true
-              riderid: 2ce7ff7a-2c76-4e18-b681-41121ef48631
-              send_sms: true
-              sender_address: 85 Allen Avenue, Ikeja, Lagos, Nigeria
-              sender_email: devs@venco.co
-              sender_name: Takasuki
-              sender_phone: '8131013478'
-              sender_phonecode: '234'
-              receivers:
-                - customer_address: >-
-                    Penthouse - DC, Demo Estate, 404, Not Found Road, Lagos,
-                    Nigeria
-                  customer_name: Victor Maduforo
-                  customer_phone_number: '8131013478'
-                  customer_phone_code: '234'
-                  item_type: manual
-                  items:
-                    - item_description: >-
-                        Midea 463L Top Mount Direct Cool Refrigerator - SBS
-                        (MDRT645MTU46)
-                      item_quantity: 1
-                      item_value: 30
-```
-</Expandable>
 
 ### Responses
 

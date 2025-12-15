@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: CLIENT APIs2
+  title: CLIENT APIs4
   description: ''
   version: 1.0.0
 tags: []
@@ -688,7 +688,6 @@ paths:
                       to: 2
                       total: 2
                 status: success
-          headers: {}
       security:
         - bearer: []
   /deliveries/move_to_in_transit:
@@ -727,7 +726,6 @@ paths:
               example:
                 status: success
                 message: Delivery status updated, notifications sent.
-          headers: {}
       security:
         - bearer: []
   /deliveries/move_to_delivered:
@@ -766,7 +764,6 @@ paths:
               example:
                 status: success
                 message: Delivery status updated, notifications sent.
-          headers: {}
       security:
         - bearer: []
   /:
@@ -804,7 +801,6 @@ paths:
                 data:
                   estimated_sms_charge: 16
                   currency: ₦
-          headers: {}
       security: []
   /deliveries/create:
     post:
@@ -1087,7 +1083,6 @@ paths:
                     name: null
                     photo: null
                 message: Delivery created successfully
-          headers: {}
       security:
         - bearer: []
   /deliveries/get/delivery_uuid:
@@ -1293,7 +1288,6 @@ paths:
                     logo: null
                     created_at: '2023-11-30T16:57:27.000000Z'
                     updated_at: '2023-11-30T16:57:27.000000Z'
-          headers: {}
       security:
         - bearer: []
   /deliveries/assign/rider_uuid:
@@ -1529,7 +1523,6 @@ paths:
                         item_quantity: 1
                         item_value: '4000.00'
                         created_at: '2023-12-05T01:02:02.000000Z'
-          headers: {}
       security:
         - bearer: []
   /deliveries/delete/delivery_uuid:
@@ -1557,7 +1550,6 @@ paths:
               example:
                 status: error
                 message: Delivery does not exist or may have been processed!
-          headers: {}
       security:
         - bearer: []
   /deliveries/delete_multiple_deliveries:
@@ -1596,7 +1588,6 @@ paths:
               example:
                 status: success
                 message: Deliveries deleted.
-          headers: {}
       security:
         - bearer: []
   /deliveries/update/ae96e085-30fa-4997-86ec-75015771705c:
@@ -1921,7 +1912,6 @@ paths:
                     created_at: '2023-11-30T16:57:27.000000Z'
                     updated_at: '2023-11-30T16:57:27.000000Z'
                 message: Delivery updated
-          headers: {}
       security:
         - bearer: []
   /deliveries/download_pdf/delivery_uuid:
@@ -1949,7 +1939,6 @@ paths:
               example:
                 status: success
                 message: pdf generated.
-          headers: {}
       security:
         - bearer: []
   /deliveries/update_status:
@@ -2195,7 +2184,6 @@ paths:
                     created_at: '2023-10-15T10:57:05.000000Z'
                     updated_at: '2023-10-28T16:40:21.000000Z'
                 message: Delivery status updated
-          headers: {}
       security:
         - bearer: []
   /track:
@@ -2385,7 +2373,6 @@ paths:
                       reached: false
                       timestamp: null
                       message: ' has received the order'
-          headers: {}
       security: []
   /deliveries/move_to_location:
     post:
@@ -2433,7 +2420,6 @@ paths:
                 message: >-
                   Deliveries successfully moved to new location for processing:
                   Nairobi
-          headers: {}
       security:
         - bearer: []
   /deliveries/add_tag:
@@ -2773,7 +2759,6 @@ paths:
                     name: null
                     photo: null
                 message: Delivery tagged.
-          headers: {}
       security:
         - bearer: []
   /deliveries/tags:
@@ -2819,7 +2804,6 @@ paths:
                   - id: 8c57eac8-9eac-44da-a8bc-b0b7ac6aa385
                     name: Called Customer
                     color_code: e41e12
-          headers: {}
       security:
         - bearer: []
   /deliveries/update_tag:
@@ -2885,7 +2869,6 @@ paths:
                   id: 8c57eac8-9eac-44da-a8bc-b0b7ac6aa385
                   name: Yet To Call
                   color_code: fffff
-          headers: {}
       security:
         - bearer: []
   /deliveries/delete_tag:
@@ -2930,7 +2913,6 @@ paths:
                 status: success
                 message: Tag deleted.
                 data: []
-          headers: {}
       security:
         - bearer: []
   /deliveries/schedule:
@@ -3260,7 +3242,6 @@ paths:
                     cancelled_by:
                       name: null
                       photo: null
-          headers: {}
       security:
         - bearer: []
   /deliveries/activity_logs/delivery_uuid:
@@ -3348,7 +3329,6 @@ paths:
                         log_name: Delivery Created
                         created_at: June 30, 2025. 10:34pm
                         month: June 2025
-          headers: {}
       security:
         - bearer: []
   /booking_inbound/link_code/get_delivery_fee:
@@ -3368,12 +3348,18 @@ paths:
                   type: string
                 receiver_address:
                   type: string
+                scope:
+                  type: string
               required:
                 - sender_address
                 - receiver_address
-            example:
-              sender_address: Aso housing estate, Lugbe, Abuja
-              receiver_address: Grandeur squares and cubes estate, FHA, Lugbe, Abuja
+                - scope
+            example: |-
+              {
+                  "sender_address": "Aso housing estate, Lugbe, Abuja",
+                  "receiver_address": "Grandeur squares and cubes estate, FHA, Lugbe, Abuja",
+                  "scope":"" // insterstate, intracity
+              }
       responses:
         '200':
           description: ''
@@ -3382,7 +3368,115 @@ paths:
               schema:
                 type: object
                 properties: {}
-          headers: {}
+      security: []
+  /booking_inbound/link_code/get_booking_link_detail:
+    get:
+      summary: get booking detail via link_code
+      deprecated: false
+      description: ''
+      tags: []
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      uuid:
+                        type: string
+                      profile_id:
+                        type: string
+                      booking_form_template_id:
+                        type: string
+                      link_code:
+                        type: string
+                      link_url:
+                        type: string
+                      logo:
+                        type: string
+                      business_name:
+                        type: string
+                      business_address:
+                        type: string
+                      business_phone:
+                        type: string
+                      pricing:
+                        type: object
+                        properties:
+                          uuid:
+                            type: string
+                          pricing_model:
+                            type: string
+                          pricing_model_slug:
+                            type: string
+                          per_km_amount:
+                            type: string
+                          express_delivery:
+                            type: object
+                            properties:
+                              express_type:
+                                type: 'null'
+                              express_value:
+                                type: 'null'
+                            required:
+                              - express_type
+                              - express_value
+                          created_at:
+                            type: string
+                          updated_at:
+                            type: string
+                        required:
+                          - uuid
+                          - pricing_model
+                          - pricing_model_slug
+                          - per_km_amount
+                          - express_delivery
+                          - created_at
+                          - updated_at
+                    required:
+                      - uuid
+                      - profile_id
+                      - booking_form_template_id
+                      - link_code
+                      - link_url
+                      - logo
+                      - business_name
+                      - business_address
+                      - business_phone
+                      - pricing
+                required:
+                  - status
+                  - data
+              example:
+                status: success
+                data:
+                  uuid: 649547b5-7f68-4ff0-94e4-3a4a7a7922b5
+                  profile_id: 8e116ffe-6012-4242-be89-0267db26bef2
+                  booking_form_template_id: 4ffb790b-631f-4c55-ad75-0e65990c0022
+                  link_code: sendstack
+                  link_url: https://usedora.com/sendstack
+                  logo: >-
+                    https://usedora-bucket-dev.s3.amazonaws.com/provider-logos/X5xQzSnl3Mn1k4YhgvNGVyN2ViP4dkXygIE1fY9U.png
+                  business_name: Sendstack
+                  business_address: Aso Housing Estate, Airport road, Abuja
+                  business_phone: '+2348082738270'
+                  pricing:
+                    uuid: beefeae8-5bdb-4100-bf46-2c850fc2f722
+                    pricing_model: Per Kilometer (KM)
+                    pricing_model_slug: per_km
+                    per_km_amount: '200'
+                    express_delivery:
+                      express_type: null
+                      express_value: null
+                    created_at: '2024-04-01T11:19:38.000000Z'
+                    updated_at: '2024-04-01T11:19:38.000000Z'
       security: []
   /riders/create:
     post:
@@ -3471,7 +3565,6 @@ paths:
                   photo: >-
                     https://usedora-bucket-dev.s3.amazonaws.com/photos/oNhnn9x1fxoiPkJ3kbJUxYWNa6L4iusIChYI2B8G.jpg
                   created_at: '2023-12-03T07:47:46.000000Z'
-          headers: {}
       security:
         - bearer: []
   /riders:
@@ -3619,7 +3712,6 @@ paths:
                       total_revenue_by_rider: 0
                       rider_ongoing_deliveries: null
                       created_at: '2024-07-04T20:12:45.000000Z'
-          headers: {}
       security:
         - bearer: []
   /riders/activate:
@@ -3709,7 +3801,6 @@ paths:
                   total_completed_delivery: 0
                   active: false
                   created_at: '2023-12-03T07:47:46.000000Z'
-          headers: {}
       security:
         - bearer: []
   /riders/get/rider_uuid:
@@ -4202,7 +4293,6 @@ paths:
                         created_at: '2023-11-30T16:57:27.000000Z'
                         updated_at: '2023-11-30T16:57:27.000000Z'
                   created_at: '2023-12-03T07:47:46.000000Z'
-          headers: {}
       security:
         - bearer: []
   /riders/update/rider_uuid:
@@ -4316,7 +4406,6 @@ paths:
                   total_completed_delivery: 0
                   active: true
                   created_at: '2023-12-03T07:47:46.000000Z'
-          headers: {}
       security:
         - bearer: []
   /riders/deactivate:
@@ -4355,7 +4444,6 @@ paths:
               example:
                 status: success
                 message: Riders deactivated successfully
-          headers: {}
       security:
         - bearer: []
   /riders/delivery_history/rider_uuid:
@@ -4723,7 +4811,6 @@ paths:
                   prev_page_url: null
                   to: 1
                   total: 1
-          headers: {}
       security:
         - bearer: []
   /delivery/pickup:
@@ -4755,7 +4842,6 @@ paths:
               schema:
                 type: object
                 properties: {}
-          headers: {}
       security: []
   /delivery/dropoff:
     post:
@@ -4786,7 +4872,6 @@ paths:
               schema:
                 type: object
                 properties: {}
-          headers: {}
       security: []
   /riders/delete-rider:
     delete:
@@ -4831,7 +4916,6 @@ paths:
               example:
                 status: success
                 message: Rider delete successfully.
-          headers: {}
       security:
         - bearer: []
   /riders/cancel-rider-invite/0d861d21-95a3-4d07-b7bb-988ef4118087:
@@ -4859,7 +4943,6 @@ paths:
               example:
                 status: success
                 message: Riders invite cancelled successfully.
-          headers: {}
       security:
         - bearer: []
   /riders/ongoing-deliveries/{uuid}:
@@ -6458,11 +6541,11 @@ paths:
                       cancelled_reason: null
                       created_at: '2025-01-09T09:03:52.000000Z'
                     is_paid: false
-          headers: {}
       security:
         - bearer: []
 components:
   schemas: {}
+  responses: {}
   securitySchemes:
     bearer:
       type: http

@@ -92,7 +92,9 @@
                 "api-reference/endpoints/deliveries/update-delivery",
                 "api-reference/endpoints/deliveries/download-pdf",
                 "api-reference/endpoints/deliveries/update-delivery-status",
-                "api-reference/endpoints/deliveries/get-delivery-fee"
+                "api-reference/endpoints/deliveries/get-delivery-fee",
+                "api-reference/endpoints/deliveries/get-booking-detail-via-link-code"
+
               ]
             },
             {
